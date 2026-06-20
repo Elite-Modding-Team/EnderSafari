@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import mod.emt.enderzoo.EnderSafari;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -31,6 +32,11 @@ public class ModRegistryEZ {
     public static void registerModels(ModelRegistryEvent event) {
         ModItemsEZ.registerItemModels(event);
         ModBlocksEZ.registerBlockModels(event);
+    }
+
+    @SubscribeEvent
+    public static void registerRecipes(@Nonnull final RegistryEvent.Register<IRecipe> event) {
+        ModRecipesEZ.registerBrewingRecipes();
     }
 
     @SubscribeEvent

@@ -9,7 +9,7 @@ tile.enderzoo:ender_charge.name=Ender Charge
 enchantment.enderzoo.decay=Decay
 enchantment.enderzoo.decay.desc=Arrows fired from the bow will inflict Wither.
 enchantment.enderzoo.repellent=Repellent
-enchantment.enderzoo.repellent.desc=Randomly teleports enemies when they attack you. Does not work on bosses.
+enchantment.enderzoo.repellent.desc=Randomly teleports mobs away when they attack you. Does not work on bosses.
 enchantment.enderzoo.wither_aspect=Wither Aspect
 enchantment.enderzoo.wither_aspect.desc=Inflicts Wither when attacking a mob.
 
@@ -24,3 +24,24 @@ item.enderzoo:ender_fragment.name=Ender Fragment
 item.enderzoo:guardian_bow.name=Guardian Bow
 item.enderzoo:owl_egg.name=Owl Egg
 item.enderzoo:withering_dust.name=Withering Dust
+
+# Potions
+effect.enderzoo.displacement.name=Displacement
+description.effect.enderzoo.displacement=Teleports entities away.
+
+lingering_potion.effect.ez_displacement=Lingering Potion of Displacement
+potion.effect.ez_displacement=Potion of Displacement
+splash_potion.effect.ez_displacement=Splash Potion of Displacement
+tipped_arrow.effect.ez_displacement=Arrow of Displacement
+lingering_potion.effect.ez_levitation=Lingering Potion of Lifting
+potion.effect.ez_levitation=Potion of Lifting
+splash_potion.effect.ez_levitation=Splash Potion of Lifting
+tipped_arrow.effect.ez_levitation=Arrow of Lifting
+lingering_potion.effect.ez_nausea=Lingering Potion of Confusion
+potion.effect.ez_nausea=Potion of Confusion
+splash_potion.effect.ez_nausea=Splash Potion of Confusion
+tipped_arrow.effect.ez_nausea=Arrow of Confusion
+lingering_potion.effect.ez_wither=Lingering Potion of Decay
+potion.effect.ez_wither=Potion of Decay
+splash_potion.effect.ez_wither=Splash Potion of Decay
+tipped_arrow.effect.ez_wither=Arrow of Decay
