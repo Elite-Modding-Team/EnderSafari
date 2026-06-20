@@ -1,15 +1,14 @@
 package mod.emt.enderzoo.registry;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import org.jetbrains.annotations.NotNull;
 
-public class EZCreativeTabs extends CreativeTabs {
-    public EZCreativeTabs(int length, String name) {
+public class CreativeTabsEZ extends CreativeTabs {
+    public CreativeTabsEZ(int length, String name) {
         super(length, name);
     }
 
@@ -17,6 +16,6 @@ public class EZCreativeTabs extends CreativeTabs {
     @SideOnly(Side.CLIENT)
     @Override
     public @NotNull ItemStack createIcon() {
-        return new ItemStack(Items.GOLD_INGOT);
+        return new ItemStack(ModItemsEZ.ENDER_FRAGMENT);
     }
 }

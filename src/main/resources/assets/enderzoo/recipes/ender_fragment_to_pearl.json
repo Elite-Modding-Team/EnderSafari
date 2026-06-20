@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " E ",
+    "EEE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "enderzoo:ender_fragment"
+    }
+  },
+  "result": {
+    "item": "minecraft:ender_pearl"
+  }
+}

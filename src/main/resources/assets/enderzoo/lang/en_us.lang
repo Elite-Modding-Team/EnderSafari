@@ -1,1 +1,18 @@
 itemGroup.EnderZooTab=Ender Safari
+
+# Blocks
+tile.enderzoo:concussion_charge.name=Concussion Charge
+tile.enderzoo:confusing_charge.name=Confusing Charge
+tile.enderzoo:ender_charge.name=Ender Charge
+
+# Entities
+entity.enderzoo.primed_concussion_charge.name=Primed Concussion Charge
+entity.enderzoo.primed_confusing_charge.name=Primed Confusing Charge
+entity.enderzoo.primed_ender_charge.name=Primed Ender Charge
+
+# Items
+item.enderzoo:confusing_dust.name=Confusing Dust
+item.enderzoo:ender_fragment.name=Ender Fragment
+item.enderzoo:guardian_bow.name=Guardian Bow
+item.enderzoo:owl_egg.name=Owl Egg
+item.enderzoo:withering_dust.name=Withering Dust

@@ -1,7 +1,7 @@
 package mod.emt.enderzoo;
 
 import mod.emt.enderzoo.proxy.CommonProxy;
-import mod.emt.enderzoo.registry.EZCreativeTabs;
+import mod.emt.enderzoo.registry.CreativeTabsEZ;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -22,7 +22,7 @@ public class EnderSafari {
     public static final String CLIENT_PROXY = "mod.emt.enderzoo.proxy.ClientProxy";
     public static final String COMMON_PROXY = "mod.emt.enderzoo.proxy.CommonProxy";
 
-    public static final CreativeTabs tabEZ = new EZCreativeTabs(CreativeTabs.CREATIVE_TAB_ARRAY.length, "EnderZooTab");
+    public static final CreativeTabs tabEZ = new CreativeTabsEZ(CreativeTabs.CREATIVE_TAB_ARRAY.length, "EnderZooTab");
 
     @Mod.Instance(MOD_ID)
     public static EnderSafari instance;
