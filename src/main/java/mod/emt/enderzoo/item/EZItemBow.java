@@ -16,6 +16,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.ForgeEventFactory;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -127,13 +128,8 @@ public class EZItemBow extends ItemBow {
         }
     }
 
-    public Item setRarity(@Nonnull IRarity rarity) {
-        this.rarity = rarity;
-        return this;
-    }
-
     @Override
-    public IRarity getForgeRarity(@Nonnull ItemStack stack) {
+    public @NotNull IRarity getForgeRarity(@Nonnull ItemStack stack) {
         return this.rarity;
     }
 

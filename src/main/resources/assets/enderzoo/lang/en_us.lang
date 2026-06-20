@@ -5,6 +5,14 @@ tile.enderzoo:concussion_charge.name=Concussion Charge
 tile.enderzoo:confusing_charge.name=Confusing Charge
 tile.enderzoo:ender_charge.name=Ender Charge
 
+# Enchantments
+enchantment.enderzoo.decay=Decay
+enchantment.enderzoo.decay.desc=Arrows fired from the bow will inflict Wither.
+enchantment.enderzoo.repellent=Repellent
+enchantment.enderzoo.repellent.desc=Randomly teleports enemies when they attack you. Does not work on bosses.
+enchantment.enderzoo.wither_aspect=Wither Aspect
+enchantment.enderzoo.wither_aspect.desc=Inflicts Wither when attacking a mob.
+
 # Entities
 entity.enderzoo.primed_concussion_charge.name=Primed Concussion Charge
 entity.enderzoo.primed_confusing_charge.name=Primed Confusing Charge
