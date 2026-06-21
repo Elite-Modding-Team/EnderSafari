@@ -11,10 +11,13 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
+@SideOnly(Side.CLIENT)
 public class RenderChargePrimed extends Render<EntityChargePrimed> {
     private final IBlockState blockState;
 
