@@ -49,7 +49,7 @@ public class EnchantmentRepellent extends EZEnchantment {
         if (shouldHit(level, entity.getRNG())) {
             if (attacker instanceof EntityLivingBase && attacker.isNonBoss() && !entity.world.isRemote) {
                 EntityLivingBase livingAttacker = (EntityLivingBase) attacker;
-                TeleportHelper.teleportRandomly(livingAttacker, 16 + level * 8);
+                TeleportHelper.teleportEntity(entity.world, livingAttacker, false, true, 16 + level * 8);
             }
 
             if (!stack.isEmpty()) {

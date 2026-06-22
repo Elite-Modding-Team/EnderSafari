@@ -21,9 +21,7 @@ public class MobEffectDisplacement extends MobEffectBaseEZ {
             int maxDistance = 32 + range;
             int finalDistance = (int) Math.ceil(maxDistance * health);
             if (health > 0.025D) {
-                if (!TeleportHelper.teleportRandomly(entity, finalDistance)) {
-                    TeleportHelper.teleportRandomly(entity, finalDistance);
-                }
+                TeleportHelper.teleportEntity(entity.world, entity, false, false, finalDistance);
             }
         }
     }

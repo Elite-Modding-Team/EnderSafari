@@ -3,6 +3,7 @@ package mod.emt.enderzoo.registry;
 import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.client.render.RenderChargePrimed;
 import mod.emt.enderzoo.client.render.RenderConcussionCreeper;
+import mod.emt.enderzoo.client.render.RenderEnderizedZombie;
 import mod.emt.enderzoo.client.render.RenderEpicSquid;
 import mod.emt.enderzoo.entity.*;
 import net.minecraft.entity.Entity;
@@ -34,6 +35,7 @@ public class ModEntitiesEZ {
     @SubscribeEvent
     public static void registerEntities(@Nonnull final RegistryEvent.Register<EntityEntry> event) {
         registerEntity("concussion_creeper", EntityConcussionCreeper.class, 4032112, 2897273);
+        registerEntity("enderized_zombie", EntityEnderizedZombie.class, 1257301, 2829596);
         registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
 
         registerEntity("primed_concussion_charge", EntityConcussionChargePrimed.class, 64, 1, true);
@@ -45,6 +47,7 @@ public class ModEntitiesEZ {
     @SubscribeEvent
     public static void registerEntityRenderers(@Nonnull final ModelRegistryEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionCreeper.class, new RenderConcussionCreeper.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityEnderizedZombie.class, new RenderEnderizedZombie.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONCUSSION_CHARGE.getDefaultState()));
