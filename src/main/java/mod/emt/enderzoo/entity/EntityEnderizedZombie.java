@@ -74,6 +74,7 @@ public class EntityEnderizedZombie extends EntityZombie {
         return null;
     }
 
+    @Override
     protected @NotNull SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
         return SoundEvents.ENTITY_ENDERMEN_HURT;
     }
