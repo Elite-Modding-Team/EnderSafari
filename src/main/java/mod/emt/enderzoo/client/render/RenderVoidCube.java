@@ -2,7 +2,7 @@ package mod.emt.enderzoo.client.render;
 
 import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.client.model.ModelCube;
-import mod.emt.enderzoo.entity.EntityDireCube;
+import mod.emt.enderzoo.entity.EntityVoidCube;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
@@ -15,15 +15,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 @SideOnly(Side.CLIENT)
-public class RenderDireCube extends RenderLiving<EntityDireCube> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube.png");
+public class RenderVoidCube extends RenderLiving<EntityVoidCube> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/void_cube.png");
 
-    public RenderDireCube(RenderManager render) {
+    public RenderVoidCube(RenderManager render) {
         super(render, new ModelCube(), 0.25F);
     }
 
     @Override
-    protected void preRenderCallback(EntityDireCube entity, float partialTick) {
+    protected void preRenderCallback(EntityVoidCube entity, float partialTick) {
         int i = entity.getSlimeSize();
         float f1 = (entity.prevSquishFactor + (entity.squishFactor - entity.prevSquishFactor) * partialTick) / (i * 0.5F + 1.0F);
         float f2 = 1.0F / (f1 + 1.0F);
@@ -31,7 +31,7 @@ public class RenderDireCube extends RenderLiving<EntityDireCube> {
     }
 
     @Override
-    protected void renderModel(@NotNull EntityDireCube entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {
+    protected void renderModel(@NotNull EntityVoidCube entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {
         super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
         if (!entity.isInvisible()) {
             this.bindTexture(TEXTURE);
@@ -52,14 +52,14 @@ public class RenderDireCube extends RenderLiving<EntityDireCube> {
     }
 
     @Override
-    protected @NotNull ResourceLocation getEntityTexture(@NotNull EntityDireCube entity) {
+    protected @NotNull ResourceLocation getEntityTexture(@NotNull EntityVoidCube entity) {
         return TEXTURE;
     }
 
-    public static class Factory implements IRenderFactory<EntityDireCube> {
+    public static class Factory implements IRenderFactory<EntityVoidCube> {
         @Override
-        public Render<? super EntityDireCube> createRenderFor(RenderManager manager) {
-            return new RenderDireCube(manager);
+        public Render<? super EntityVoidCube> createRenderFor(RenderManager manager) {
+            return new RenderVoidCube(manager);
         }
     }
 }

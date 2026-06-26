@@ -35,6 +35,7 @@ public class ModEntitiesEZ {
         registerEntity("dire_cube", EntityDireCube.class, 12158300, 5848361);
         registerEntity("enderized_zombie", EntityEnderizedZombie.class, 1257301, 2829596);
         registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
+        registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
 
         registerEntity("primed_concussion_charge", EntityConcussionChargePrimed.class, 64, 1, true);
         registerEntity("primed_confusing_charge", EntityConfusingChargePrimed.class, 64, 1, true);
@@ -48,6 +49,7 @@ public class ModEntitiesEZ {
         RenderingRegistry.registerEntityRenderingHandler(EntityDireCube.class, new RenderDireCube.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderizedZombie.class, new RenderEnderizedZombie.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityVoidCube.class, new RenderVoidCube.Factory());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONCUSSION_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityConfusingChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONFUSING_CHARGE.getDefaultState()));
