@@ -33,6 +33,7 @@ public class ModEntitiesEZ {
     public static void registerEntities(@Nonnull final RegistryEvent.Register<EntityEntry> event) {
         registerEntity("concussion_creeper", EntityConcussionCreeper.class, 4032112, 2897273);
         registerEntity("dire_cube", EntityDireCube.class, 12158300, 5848361);
+        registerEntity("dire_wolf", EntityDireWolf.class, 6316128, 10526880);
         registerEntity("enderized_zombie", EntityEnderizedZombie.class, 1257301, 2829596);
         registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
         registerEntity("owl", EntityOwl.class, 12679497, 16768454);
@@ -50,6 +51,7 @@ public class ModEntitiesEZ {
     public static void registerEntityRenderers(@Nonnull final ModelRegistryEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionCreeper.class, new RenderConcussionCreeper.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityDireCube.class, new RenderDireCube.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityDireWolf.class, new RenderDireWolf.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderizedZombie.class, new RenderEnderizedZombie.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, new RenderOwl.Factory());

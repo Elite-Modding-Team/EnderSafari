@@ -197,7 +197,7 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
                 }
             } else if (cat.getGrowthMode() != EntityWitchCat.GrowthMode.GROW) {
                 cat.setGrowthMode(EntityWitchCat.GrowthMode.GROW);
-                this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITHER_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+                this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
             }
         }
     }
@@ -207,7 +207,7 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
             if (cat.getAttackTarget() != null || cat.getGrowthMode() == EntityWitchCat.GrowthMode.GROW || cat.getScale() > 1.0F) {
                 if (cat.getGrowthMode() != EntityWitchCat.GrowthMode.SHRINK) {
                     cat.setGrowthMode(EntityWitchCat.GrowthMode.SHRINK);
-                    this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITHER_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+                    this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
                 }
 
                 cat.setAttackTarget(null);

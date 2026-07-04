@@ -1,4 +1,26 @@
 {
+  "entity.dire_wolf.death": {
+    "sounds": [
+      "enderzoo:entity/snow_wolf/death"
+    ]
+  },
+  "entity.dire_wolf.growl": {
+    "sounds": [
+      "enderzoo:entity/dire_wolf/growl1",
+      "enderzoo:entity/dire_wolf/growl2",
+      "enderzoo:entity/dire_wolf/growl3"
+    ]
+  },
+  "entity.dire_wolf.howl": {
+    "sounds": [
+      "enderzoo:entity/dire_wolf/howl"
+    ]
+  },
+  "entity.dire_wolf.hurt": {
+    "sounds": [
+      "enderzoo:entity/dire_wolf/hurt"
+    ]
+  },
   "entity.owl.death": {
     "sounds": [
       "enderzoo:entity/owl/hurt"
@@ -15,31 +37,9 @@
       "enderzoo:entity/owl/hurt"
     ]
   },
-  "entity.snow_wolf.death": {
+  "entity.witch_cat.grow": {
     "sounds": [
-      "enderzoo:entity/snow_wolf/death"
-    ]
-  },
-  "entity.snow_wolf.growl": {
-    "sounds": [
-      "enderzoo:entity/snow_wolf/growl1",
-      "enderzoo:entity/snow_wolf/growl2",
-      "enderzoo:entity/snow_wolf/growl3"
-    ]
-  },
-  "entity.snow_wolf.howl": {
-    "sounds": [
-      "enderzoo:entity/snow_wolf/howl"
-    ]
-  },
-  "entity.snow_wolf.hurt": {
-    "sounds": [
-      "enderzoo:entity/snow_wolf/hurt"
-    ]
-  },
-  "entity.wither_cat.grow": {
-    "sounds": [
-      "enderzoo:entity/wither_cat/grow"
+      "enderzoo:entity/witch_cat/grow"
     ]
   }
 }

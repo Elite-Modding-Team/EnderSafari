@@ -197,12 +197,12 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
 
         if (owner == null && getAttackTarget() == null && isAngry() && getGrowthMode() != GrowthMode.SHRINK) {
             setGrowthMode(GrowthMode.SHRINK);
-            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITHER_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
         }
 
         if (getAttackTarget() != null && !isAngry() && getGrowthMode() != GrowthMode.GROW) {
             setGrowthMode(GrowthMode.GROW);
-            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITHER_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
         }
 
         updateScale();

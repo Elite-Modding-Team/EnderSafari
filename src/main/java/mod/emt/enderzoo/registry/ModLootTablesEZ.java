@@ -7,6 +7,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class ModLootTablesEZ {
     public static final ResourceLocation CONCUSSION_CREEPER = new ResourceLocation(EnderSafari.MOD_ID, "entities/concussion_creeper");
     public static final ResourceLocation DIRE_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_cube");
+    public static final ResourceLocation DIRE_WOLF = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_wolf");
     public static final ResourceLocation ENDERIZED_ZOMBIE = new ResourceLocation(EnderSafari.MOD_ID, "entities/enderized_zombie");
     public static final ResourceLocation EPIC_SQUID = new ResourceLocation(EnderSafari.MOD_ID, "entities/epic_squid");
     public static final ResourceLocation OWL = new ResourceLocation(EnderSafari.MOD_ID, "entities/owl");
@@ -17,6 +18,7 @@ public class ModLootTablesEZ {
     public static void registerLootTables() {
         LootTableList.register(CONCUSSION_CREEPER);
         LootTableList.register(DIRE_CUBE);
+        LootTableList.register(DIRE_WOLF);
         LootTableList.register(ENDERIZED_ZOMBIE);
         LootTableList.register(EPIC_SQUID);
         LootTableList.register(OWL);
