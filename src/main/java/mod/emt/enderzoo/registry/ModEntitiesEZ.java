@@ -37,6 +37,8 @@ public class ModEntitiesEZ {
         registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
         registerEntity("owl", EntityOwl.class, 12679497, 16768454);
         registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
+        registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
+        registerEntity("wither_witch", EntityWitherWitch.class, 2511373, 9461315);
 
         registerEntity("primed_concussion_charge", EntityConcussionChargePrimed.class, 64, 1, true);
         registerEntity("primed_confusing_charge", EntityConfusingChargePrimed.class, 64, 1, true);
@@ -52,6 +54,8 @@ public class ModEntitiesEZ {
         RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, new RenderOwl.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityVoidCube.class, new RenderVoidCube.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityWitchCat.class, new RenderWitchCat.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityWitherWitch.class, new RenderWitherWitch.Factory());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONCUSSION_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityConfusingChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONFUSING_CHARGE.getDefaultState()));

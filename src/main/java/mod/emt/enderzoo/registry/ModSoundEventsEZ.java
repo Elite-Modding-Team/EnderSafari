@@ -11,7 +11,8 @@ public enum ModSoundEventsEZ {
     ENTITY_SNOW_WOLF_DEATH("entity.snow_wolf.death"),
     ENTITY_SNOW_WOLF_GROWL("entity.snow_wolf.growl"),
     ENTITY_SNOW_WOLF_HOWL("entity.snow_wolf.howl"),
-    ENTITY_SNOW_WOLF_HURT("entity.snow_wolf.hurt");
+    ENTITY_SNOW_WOLF_HURT("entity.snow_wolf.hurt"),
+    ENTITY_WITHER_CAT_GROW("entity.wither_cat.grow");
 
     private final SoundEvent soundEvent;
 

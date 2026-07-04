@@ -23,6 +23,8 @@ entity.enderzoo.primed_concussion_charge.name=Primed Concussion Charge
 entity.enderzoo.primed_confusing_charge.name=Primed Confusing Charge
 entity.enderzoo.primed_ender_charge.name=Primed Ender Charge
 entity.enderzoo.void_cube.name=Λoᴉp Ɔnqǝ
+entity.enderzoo.witch_cat.name=Witch's Cat
+entity.enderzoo.wither_witch.name=Wither Witch
 
 # Items
 item.enderzoo:confusing_dust.name=Confusing Dust

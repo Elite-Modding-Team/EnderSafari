@@ -36,5 +36,10 @@
     "sounds": [
       "enderzoo:entity/snow_wolf/hurt"
     ]
+  },
+  "entity.wither_cat.grow": {
+    "sounds": [
+      "enderzoo:entity/wither_cat/grow"
+    ]
   }
 }
