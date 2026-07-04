@@ -3,7 +3,7 @@
   "defaults": {
     "model": "cube_bottom_top",
     "textures": {
-      "bottom": "enderzoo:blocks/confusiong_charge_bottom",
+      "bottom": "enderzoo:blocks/confusing_charge_bottom",
       "top": "enderzoo:blocks/confusing_charge_top",
       "side": "enderzoo:blocks/confusing_charge_side"
     }
