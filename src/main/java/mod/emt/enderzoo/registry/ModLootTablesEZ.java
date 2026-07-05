@@ -9,6 +9,7 @@ public class ModLootTablesEZ {
     public static final ResourceLocation DIRE_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_cube");
     public static final ResourceLocation DIRE_WOLF = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_wolf");
     public static final ResourceLocation ENDERIZED_ZOMBIE = new ResourceLocation(EnderSafari.MOD_ID, "entities/enderized_zombie");
+    public static final ResourceLocation ENDERMINY = new ResourceLocation(EnderSafari.MOD_ID, "entities/enderminy");
     public static final ResourceLocation EPIC_SQUID = new ResourceLocation(EnderSafari.MOD_ID, "entities/epic_squid");
     public static final ResourceLocation OWL = new ResourceLocation(EnderSafari.MOD_ID, "entities/owl");
     public static final ResourceLocation VOID_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/void_cube");
@@ -20,6 +21,7 @@ public class ModLootTablesEZ {
         LootTableList.register(DIRE_CUBE);
         LootTableList.register(DIRE_WOLF);
         LootTableList.register(ENDERIZED_ZOMBIE);
+        LootTableList.register(ENDERMINY);
         LootTableList.register(EPIC_SQUID);
         LootTableList.register(OWL);
         LootTableList.register(VOID_CUBE);
