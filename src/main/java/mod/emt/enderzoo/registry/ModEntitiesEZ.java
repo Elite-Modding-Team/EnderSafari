@@ -37,6 +37,8 @@ public class ModEntitiesEZ {
         registerEntity("enderized_zombie", EntityEnderizedZombie.class, 1257301, 2829596);
         registerEntity("enderminy", EntityEnderminy.class, 2581069, 2171169);
         registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
+        registerEntity("fallen_knight", EntityFallenKnight.class, 3562021, 10526880);
+        registerEntity("fallen_steed", EntityFallenSteed.class, 3562021, 10526880);
         registerEntity("owl", EntityOwl.class, 12679497, 16768454);
         registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
@@ -56,6 +58,8 @@ public class ModEntitiesEZ {
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderizedZombie.class, new RenderEnderizedZombie.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderminy.class, new RenderEnderminy.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityFallenKnight.class, new RenderFallenKnight.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityFallenSteed.class, new RenderFallenSteed.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, new RenderOwl.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityVoidCube.class, new RenderVoidCube.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityWitchCat.class, new RenderWitchCat.Factory());

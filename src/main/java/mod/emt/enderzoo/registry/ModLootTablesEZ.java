@@ -11,6 +11,8 @@ public class ModLootTablesEZ {
     public static final ResourceLocation ENDERIZED_ZOMBIE = new ResourceLocation(EnderSafari.MOD_ID, "entities/enderized_zombie");
     public static final ResourceLocation ENDERMINY = new ResourceLocation(EnderSafari.MOD_ID, "entities/enderminy");
     public static final ResourceLocation EPIC_SQUID = new ResourceLocation(EnderSafari.MOD_ID, "entities/epic_squid");
+    public static final ResourceLocation FALLEN_KNIGHT = new ResourceLocation(EnderSafari.MOD_ID, "entities/fallen_knight");
+    public static final ResourceLocation FALLEN_STEED = new ResourceLocation(EnderSafari.MOD_ID, "entities/fallen_steed");
     public static final ResourceLocation OWL = new ResourceLocation(EnderSafari.MOD_ID, "entities/owl");
     public static final ResourceLocation VOID_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/void_cube");
     public static final ResourceLocation WITCH_CAT = new ResourceLocation(EnderSafari.MOD_ID, "entities/witch_cat");
@@ -23,6 +25,8 @@ public class ModLootTablesEZ {
         LootTableList.register(ENDERIZED_ZOMBIE);
         LootTableList.register(ENDERMINY);
         LootTableList.register(EPIC_SQUID);
+        LootTableList.register(FALLEN_KNIGHT);
+        LootTableList.register(FALLEN_STEED);
         LootTableList.register(OWL);
         LootTableList.register(VOID_CUBE);
         LootTableList.register(WITCH_CAT);
