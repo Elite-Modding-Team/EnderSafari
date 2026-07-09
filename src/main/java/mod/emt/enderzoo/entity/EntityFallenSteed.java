@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -30,13 +31,14 @@ public class EntityFallenSteed extends EntityHorse {
     private boolean wasRidden = false;
     private final EntityAINearestAttackableTarget<EntityPlayer> findTargetAI;
     private final EntityAIAttackMelee attackAI;
-    private ItemStack armor = ItemStack.EMPTY;
 
     public EntityFallenSteed(World world) {
         super(world);
         setGrowingAge(0);
         setHorseSaddled(true);
-        tasks.taskEntries.clear();
+        this.tasks.taskEntries.removeIf(entry ->
+                entry.action instanceof EntityAIPanic || entry.action instanceof EntityAIFollowParent || entry.action instanceof EntityAIRunAroundLikeCrazy
+        );
         tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(6, new EntityAIWander(this, 1.2D));
         tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
@@ -62,12 +64,51 @@ public class EntityFallenSteed extends EntityHorse {
 
     @Override
     public boolean processInteract(@NotNull EntityPlayer player, @NotNull EnumHand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
+
+        if (!itemstack.isEmpty() && (itemstack.getItem() == Items.NAME_TAG || itemstack.getItem() == Items.LEAD)) {
+            return itemstack.getItem().itemInteractionForEntity(itemstack, player, this, hand);
+        }
+
+        if (this.isTame()) {
+            return super.processInteract(player, hand);
+        }
+
+        if (!itemstack.isEmpty() && (itemstack.getItem() == Items.GOLDEN_APPLE)) {
+            if (!player.capabilities.isCreativeMode) {
+                itemstack.shrink(1);
+            }
+
+            if (!this.world.isRemote) {
+                if (this.rand.nextInt(3) == 0) {
+                    this.setTamedBy(player);
+                    this.setAttackTarget(null);
+                    this.setRevengeTarget(null);
+                    ItemStack currentArmor = this.horseChest.getStackInSlot(1).copy();
+                    this.initHorseChest();
+                    this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
+
+                    if (!currentArmor.isEmpty()) {
+                        this.horseChest.setInventorySlotContents(1, currentArmor);
+                    }
+
+                    this.updateHorseSlots();
+                    this.world.setEntityState(this, (byte) 7);
+                    this.updateAttackAI();
+                } else {
+                    this.world.setEntityState(this, (byte) 6);
+                }
+            }
+            return true;
+        }
+
+        // Deny mounting if hostile and untamed
         return false;
     }
 
     @Override
     protected boolean canDespawn() {
-        return true;
+        return !this.isTame();
     }
 
     @Override
@@ -77,7 +118,7 @@ public class EntityFallenSteed extends EntityHorse {
 
     @Override
     public boolean canBeLeashedTo(@NotNull EntityPlayer player) {
-        return false;
+        return this.isTame();
     }
 
     @Override
@@ -95,57 +136,51 @@ public class EntityFallenSteed extends EntityHorse {
     }
 
     @Override
-    public IEntityLivingData onInitialSpawn(@NotNull DifficultyInstance di, @Nullable IEntityLivingData data) {
-        setHorseArmorStack(ItemStack.EMPTY);
-        setHorseSaddled(true);
-        setGrowingAge(0);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.16D);
-        final IAttributeInstance jumpStrength = getAttributeMap().getAttributeInstanceByName("horse.jumpStrength");
+    public IEntityLivingData onInitialSpawn(@NotNull DifficultyInstance diff, @Nullable IEntityLivingData data) {
+        this.initHorseChest();
+        this.setHorseSaddled(true);
+        this.setGrowingAge(0);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.16D);
+        final IAttributeInstance jumpStrength = this.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength");
         if (jumpStrength != null) {
             jumpStrength.setBaseValue(0.5);
         }
-        setHealth(getMaxHealth());
+        this.setHealth(this.getMaxHealth());
+        this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
+        this.horseChest.setInventorySlotContents(1, ItemStack.EMPTY);
 
         // Random chance for the horse to be armored
-        float chanceOfArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.5F);
-        if (rand.nextFloat() <= chanceOfArmor) {
-            float occupiedDifficultyMultiplier = di.getClampedAdditionalDifficulty();
-            occupiedDifficultyMultiplier /= 1.5f;
-
-            float chanceImprovedArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F);
-            chanceImprovedArmor *= (1 + occupiedDifficultyMultiplier);
+        float chanceOfArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.5F : 0.2F);
+        if (this.rand.nextFloat() <= chanceOfArmor) {
+            float occupiedDifficultyMultiplier = diff.getClampedAdditionalDifficulty() / 1.5f;
+            float chanceImprovedArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.1F : 0.02F) * (1 + occupiedDifficultyMultiplier);
 
             int armorLevel = 0;
             for (int i = 0; i < 2; i++) {
-                if (rand.nextFloat() <= chanceImprovedArmor) {
+                if (this.rand.nextFloat() <= chanceImprovedArmor) {
                     armorLevel++;
                 }
             }
 
             Item armorItem = Items.IRON_HORSE_ARMOR;
-            switch (armorLevel) {
-                case 1:
-                    armorItem = Items.GOLDEN_HORSE_ARMOR;
-                    break;
-                case 2:
-                    armorItem = Items.DIAMOND_HORSE_ARMOR;
-                    break;
-            }
-            armor = new ItemStack(armorItem);
-            setHorseArmorStack(armor);
-        } else {
-            armor = ItemStack.EMPTY;
-            setHorseArmorStack(armor);
+            if (armorLevel == 1) armorItem = Items.GOLDEN_HORSE_ARMOR;
+            if (armorLevel == 2) armorItem = Items.DIAMOND_HORSE_ARMOR;
+            this.horseChest.setInventorySlotContents(1, new ItemStack(armorItem));
         }
+
+        this.updateHorseSlots();
         return data;
     }
 
-    // Despawn on Peaceful difficulty
+    // Despawn on Peaceful difficulty unless tamed
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (!world.isRemote && world.getDifficulty() == EnumDifficulty.PEACEFUL && !this.hasCustomName()) {
+        if (!world.isRemote && world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+            if (this.hasCustomName() || this.isTame()) {
+                return;
+            }
             setDead();
         }
     }
@@ -154,9 +189,28 @@ public class EntityFallenSteed extends EntityHorse {
         if (target == null || !target.isEntityAlive()) {
             return false;
         }
+
         if (target instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) target;
-            return !player.capabilities.isCreativeMode && !player.isSpectator();
+            if (player.capabilities.isCreativeMode || player.isSpectator()) {
+                return false;
+            }
+
+            if (this.isTame() && this.getOwnerUniqueId() != null) {
+                if (player.getUniqueID().equals(this.getOwnerUniqueId())) {
+                    return false;
+                }
+
+                EntityLivingBase horseAttacker = this.getRevengeTarget();
+                EntityLivingBase ownerAttacker = null;
+                EntityPlayer owner = this.world.getPlayerEntityByUUID(this.getOwnerUniqueId());
+
+                if (owner != null) {
+                    ownerAttacker = owner.getRevengeTarget();
+                }
+
+                return player.equals(horseAttacker) || player.equals(ownerAttacker);
+            }
         }
         return true;
     }
@@ -174,8 +228,8 @@ public class EntityFallenSteed extends EntityHorse {
         }
         setEatingHaystack(false);
 
-        // Look for nearby Fallen Knights to mount
-        if (!this.world.isRemote && !this.isRidden() && this.rand.nextInt(20) == 0) {
+        // Look for nearby Fallen Knights to mount (Only if not tamed)
+        if (!this.world.isRemote && !this.isTame() && !this.isRidden() && this.rand.nextInt(20) == 0) {
             List<Entity> nearbyEntities = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(4.0D, 2.0D, 4.0D));
             for (Entity entity : nearbyEntities) {
                 if (entity instanceof EntityFallenKnight && !entity.isRiding()) {
@@ -219,10 +273,41 @@ public class EntityFallenSteed extends EntityHorse {
             }
         }
 
+        if (!this.world.isRemote && this.isTame() && this.getAttackTarget() != null) {
+            if (!isValidTarget(this.getAttackTarget())) {
+                this.setAttackTarget(null);
+            }
+        }
+
         if (wasRidden != isRidden()) {
             updateAttackAI();
             wasRidden = isRidden();
         }
+    }
+
+    @Override
+    public void onDeath(@NotNull DamageSource cause) {
+        if (!this.world.isRemote && !this.isTame()) {
+            ItemStack saddleStack = this.horseChest.getStackInSlot(0);
+            if (!saddleStack.isEmpty() && saddleStack.getItem() == Items.SADDLE) {
+                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase)cause.getTrueSource()) : 0;
+                float saddleDropChance = 0.1F + (lootingModifier * 0.05F);
+                if (this.rand.nextFloat() > saddleDropChance) {
+                    this.horseChest.setInventorySlotContents(0, ItemStack.EMPTY);
+                }
+            }
+
+            ItemStack armorStack = this.horseChest.getStackInSlot(1);
+            if (!armorStack.isEmpty()) {
+                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase)cause.getTrueSource()) : 0;
+                float armorDropChance = 0.15F + (lootingModifier * 0.05F);
+                if (this.rand.nextFloat() > armorDropChance) {
+                    this.horseChest.setInventorySlotContents(1, ItemStack.EMPTY);
+                }
+            }
+        }
+
+        super.onDeath(cause);
     }
 
     @Override
@@ -244,18 +329,29 @@ public class EntityFallenSteed extends EntityHorse {
     }
 
     private boolean burnInSun() {
-        return getTotalArmorValue() == 0;
+        return (getTotalArmorValue() == 0 || isTame());
     }
 
     protected boolean isRidden() {
         return !getPassengers().isEmpty();
     }
 
+    @Override
+    public void setAttackTarget(@Nullable EntityLivingBase target) {
+        if (this.isTame() && target instanceof EntityPlayer) {
+            if (target.getUniqueID().equals(this.getOwnerUniqueId())) {
+                super.setAttackTarget(null);
+                return;
+            }
+        }
+        super.setAttackTarget(target);
+    }
+
     private void updateAttackAI() {
         this.targetTasks.removeTask(findTargetAI);
         this.tasks.removeTask(attackAI);
 
-        if (this.isRidden()) {
+        if (this.isRidden() || this.isTame()) {
             this.getNavigator().clearPath();
         } else {
             this.targetTasks.addTask(2, findTargetAI);
@@ -268,6 +364,10 @@ public class EntityFallenSteed extends EntityHorse {
         if (isRidden() || isDead) {
             return false;
         }
+        if (this.isTame() && target.getUniqueID().equals(this.getOwnerUniqueId())) {
+            this.setAttackTarget(null);
+            return false;
+        }
         super.attackEntityAsMob(target);
         if (!isRearing()) {
             makeMad();
@@ -277,21 +377,17 @@ public class EntityFallenSteed extends EntityHorse {
     }
 
     @Override
-    public void writeEntityToNBT(@NotNull NBTTagCompound root) {
-        super.writeEntityToNBT(root);
-        NBTTagCompound armTag = new NBTTagCompound();
-        armor.writeToNBT(armTag);
-        root.setTag("armor", armTag);
+    public void writeEntityToNBT(@NotNull NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
     }
 
     @Override
-    public void readEntityFromNBT(@NotNull NBTTagCompound root) {
-        super.readEntityFromNBT(root);
-        setHorseSaddled(true);
-        if (root.hasKey("armor", 10)) {
-            armor = new ItemStack(root.getCompoundTag("armor"));
-            setHorseArmorStack(armor);
-        }
+    public void readEntityFromNBT(@NotNull NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+        this.initHorseChest();
+        this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
+        this.setHorseSaddled(true);
+        this.updateHorseSlots();
     }
 
     @Override
