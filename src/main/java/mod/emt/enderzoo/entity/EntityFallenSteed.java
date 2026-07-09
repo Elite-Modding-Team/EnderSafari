@@ -147,7 +147,7 @@ public class EntityFallenSteed extends EntityHorse {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.16D);
         final IAttributeInstance jumpStrength = this.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength");
         if (jumpStrength != null) {
-            jumpStrength.setBaseValue(0.5);
+            jumpStrength.setBaseValue(1.0D);
         }
         this.setHealth(this.getMaxHealth());
         this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
