@@ -3,6 +3,7 @@ package mod.emt.enderzoo.entity;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -25,6 +26,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 public class EntityFallenSteed extends EntityHorse {
@@ -89,7 +92,7 @@ public class EntityFallenSteed extends EntityHorse {
                     this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
 
                     if (!currentArmor.isEmpty()) {
-                        this.horseChest.setInventorySlotContents(1, currentArmor);
+                        this.setHorseArmorStack(currentArmor);
                     }
 
                     this.updateHorseSlots();
@@ -166,11 +169,20 @@ public class EntityFallenSteed extends EntityHorse {
             Item armorItem = Items.IRON_HORSE_ARMOR;
             if (armorLevel == 1) armorItem = Items.GOLDEN_HORSE_ARMOR;
             if (armorLevel == 2) armorItem = Items.DIAMOND_HORSE_ARMOR;
-            this.horseChest.setInventorySlotContents(1, new ItemStack(armorItem));
+            this.setHorseArmorStack(new ItemStack(armorItem));
         }
 
         this.updateHorseSlots();
         return data;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public String @NotNull [] getVariantTexturePaths() {
+        String[] texturePaths = super.getVariantTexturePaths();
+        texturePaths[0] = EnderSafari.MOD_ID + ":textures/entity/fallen_steed.png";
+        texturePaths[1] = null;
+        return texturePaths;
     }
 
     // Despawn on Peaceful difficulty unless tamed
