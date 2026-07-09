@@ -329,7 +329,7 @@ public class EntityFallenSteed extends EntityHorse {
     }
 
     private boolean burnInSun() {
-        return (getTotalArmorValue() == 0 || isTame());
+        return (getTotalArmorValue() == 0 || !isTame());
     }
 
     protected boolean isRidden() {
