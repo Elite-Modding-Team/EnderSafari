@@ -10,6 +10,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
+import utils.helpers.CompatHelper;
 
 import javax.annotation.Nonnull;
 
@@ -23,8 +24,10 @@ public class ModEnchantmentsEZ {
     public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event) {
         final IForgeRegistry<Enchantment> registry = event.getRegistry();
         // TODO: Make it where each enchantment can be disabled
-        registry.register(DECAY);
-        registry.register(REPELLENT);
-        registry.register(WITHER_ASPECT);
+        if (!CompatHelper.isEnderIOLoaded) {
+            registry.register(DECAY);
+            registry.register(REPELLENT);
+            registry.register(WITHER_ASPECT);
+        }
     }
 }

@@ -39,6 +39,9 @@ dependencies {
     implementation rfg.deobf('curse.maven:just-enough-resources-jer-240630:4440936')
     runtimeOnly 'curse.maven:just-enough-magiculture-940521:8018292'
 
+    compileOnly 'curse.maven:endercore-231868:4671384'
+    compileOnly 'curse.maven:ender-io-64578:4674244'
+
     def modMap = [:]
     def loadMap = [:]
 

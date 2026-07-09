@@ -3,6 +3,7 @@ package mod.emt.enderzoo.registry;
 import javax.annotation.Nonnull;
 
 import mod.emt.enderzoo.EnderSafari;
+import mod.emt.enderzoo.compat.EnderIOIntegration;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import utils.helpers.CompatHelper;
 
 @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)
 public class ModRegistryEZ {
@@ -37,6 +39,10 @@ public class ModRegistryEZ {
     @SubscribeEvent
     public static void registerRecipes(@Nonnull final RegistryEvent.Register<IRecipe> event) {
         ModRecipesEZ.registerBrewingRecipes();
+
+        if (CompatHelper.isEnderIOLoaded) {
+            EnderIOIntegration.registerBrewingRecipes();
+        }
     }
 
     @SubscribeEvent

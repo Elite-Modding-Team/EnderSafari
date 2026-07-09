@@ -11,6 +11,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
+import utils.helpers.CompatHelper;
 
 import javax.annotation.Nonnull;
 
@@ -68,16 +69,21 @@ public class ModPotionsEZ {
 
         registry.registerAll(
                 DISPLACEMENT_POTION,
-                DISPLACEMENT_POTION_STRONG,
-                WITHER_POTION,
-                WITHER_POTION_LONG,
-                WITHER_POTION_STRONG,
-                NAUSEA_POTION,
-                NAUSEA_POTION_LONG,
-                LEVITATION_POTION,
-                LEVITATION_POTION_LONG,
-                LEVITATION_POTION_STRONG
+                DISPLACEMENT_POTION_STRONG
         );
+
+        if (!CompatHelper.isEnderIOLoaded) {
+            registry.registerAll(
+                    WITHER_POTION,
+                    WITHER_POTION_LONG,
+                    WITHER_POTION_STRONG,
+                    NAUSEA_POTION,
+                    NAUSEA_POTION_LONG,
+                    LEVITATION_POTION,
+                    LEVITATION_POTION_LONG,
+                    LEVITATION_POTION_STRONG
+            );
+        }
     }
 
     @SubscribeEvent
