@@ -286,6 +286,11 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
     }
 
     @Override
+    public float getEyeHeight() {
+        return 1.62F;
+    }
+
+    @Override
     public void setSwingingArms(boolean swingingArms) {
     }
 }
