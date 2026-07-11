@@ -33,6 +33,7 @@ entity.enderzoo.wither_witch.name=Wither Witch
 # Items
 item.enderzoo:confusing_dust.name=Confusing Dust
 item.enderzoo:ender_fragment.name=Ender Fragment
+item.enderzoo:epic_ink_sac.name=Epic Ink Sac
 item.enderzoo:guardian_bow.name=Guardian Bow
 item.enderzoo:owl_egg.name=Owl Egg
 item.enderzoo:withering_dust.name=Withering Dust

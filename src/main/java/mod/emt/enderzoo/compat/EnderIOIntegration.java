@@ -39,18 +39,6 @@ public class EnderIOIntegration {
     public void onLootTableLoad(LootTableLoadEvent event) {
         ResourceLocation name = event.getName();
 
-        if (name.equals(ModLootTablesEZ.EPIC_SQUID)) {
-            LootPool main2 = event.getTable().getPool("main2");
-            Item air = getItem("minecraft", "air");
-
-            if (main2 != null) {
-                if (air != null) {
-                    main2.addEntry(new LootEntryItem(air, 1, 0, new LootFunction[]{createUseThings("dustBedrock")}, new LootCondition[0], "bedrock_dust_enderio"));
-                    main2.addEntry(new LootEntryItem(air, 2, 0, new LootFunction[]{createUseThings("dustObsidian")}, new LootCondition[0], "obsidian_dust_enderio"));
-                }
-            }
-        }
-
         if (name.equals(ModLootTablesEZ.ENDERIZED_ZOMBIE)) {
             LootPool rare = event.getTable().getPool("rare");
 

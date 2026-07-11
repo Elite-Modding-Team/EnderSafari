@@ -1,0 +1,13 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "enderzoo:epic_ink_sac"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "data": 0,
+    "count": 2
+  }
+}

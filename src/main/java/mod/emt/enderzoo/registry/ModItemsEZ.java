@@ -3,6 +3,7 @@ package mod.emt.enderzoo.registry;
 import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.item.EZItem;
 import mod.emt.enderzoo.item.EZItemBow;
+import mod.emt.enderzoo.item.EZItemFireproof;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -23,7 +24,8 @@ import javax.annotation.Nonnull;
 @GameRegistry.ObjectHolder(EnderSafari.MOD_ID)
 public class ModItemsEZ {
     public static final EZItem CONFUSING_DUST = null;
-    public static final EZItem ENDER_FRAGMENT = null;
+    public static final EZItemFireproof ENDER_FRAGMENT = null;
+    public static final EZItemFireproof EPIC_INK_SAC = null;
     public static final EZItemBow GUARDIAN_BOW = null;
     public static final EZItem OWL_EGG = null;
     public static final EZItem WITHERING_DUST = null;
@@ -35,7 +37,8 @@ public class ModItemsEZ {
         registry.registerAll(
                 new EZItem("withering_dust", EnumRarity.COMMON),
                 new EZItem("confusing_dust", EnumRarity.COMMON),
-                new EZItem("ender_fragment", EnumRarity.COMMON),
+                new EZItemFireproof("ender_fragment", EnumRarity.COMMON),
+                new EZItemFireproof("epic_ink_sac", EnumRarity.EPIC),
                 new EZItemBow("guardian_bow", 800, 1.1F, 1, 0.9F, 1.2F, Ingredient.fromStacks(new ItemStack(Items.IRON_INGOT)), EnumRarity.UNCOMMON),
                 new EZItem("owl_egg", EnumRarity.COMMON)
         );
@@ -47,6 +50,7 @@ public class ModItemsEZ {
         // Item Models
         registerItemModel(CONFUSING_DUST);
         registerItemModel(ENDER_FRAGMENT);
+        registerItemModel(EPIC_INK_SAC);
         registerItemModel(GUARDIAN_BOW);
         registerItemModel(OWL_EGG);
         registerItemModel(WITHERING_DUST);
