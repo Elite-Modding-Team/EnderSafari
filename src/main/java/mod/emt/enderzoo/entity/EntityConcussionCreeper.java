@@ -1,7 +1,9 @@
 package mod.emt.enderzoo.entity;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.misc.ConcussionExplosion;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ResourceLocation;
@@ -16,6 +18,14 @@ public class EntityConcussionCreeper extends EntityCreeper {
 
     public EntityConcussionCreeper(World world) {
         super(world);
+    }
+
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.CONCUSSION_CREEPER.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.CONCUSSION_CREEPER.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.CONCUSSION_CREEPER.movementSpeed);
     }
 
     // Very hacky but it's a way to get around the default explosions

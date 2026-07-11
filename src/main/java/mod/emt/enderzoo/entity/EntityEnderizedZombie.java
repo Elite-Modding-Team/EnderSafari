@@ -1,6 +1,7 @@
 package mod.emt.enderzoo.entity;
 
 import mod.emt.enderzoo.EnderSafari;
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,10 +30,10 @@ public class EntityEnderizedZombie extends EntityZombie {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.ENDERIZED_ZOMBIE.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.ENDERIZED_ZOMBIE.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.ENDERIZED_ZOMBIE.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.ENDERIZED_ZOMBIE.movementSpeed);
     }
 
     @Override

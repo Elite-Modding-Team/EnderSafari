@@ -1,6 +1,7 @@
 package mod.emt.enderzoo.entity;
 
 import mod.emt.enderzoo.EnderSafari;
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -102,10 +103,14 @@ public class EntityDireCube extends EntityMagmaCube {
     }
 
     @Override
-    protected void setSlimeSize(int size, boolean resetHealth) {
+    public void setSlimeSize(int size, boolean resetHealth) {
         super.setSlimeSize(size, resetHealth);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(size * 2.0F);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(size);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(size * EZConfig.ENTITIES.DIRE_CUBE.maxHealthBase);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(size * EZConfig.ENTITIES.DIRE_CUBE.armorBase);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(size * EZConfig.ENTITIES.DIRE_CUBE.attackDamage);
+        if (resetHealth) {
+            this.setHealth(this.getMaxHealth());
+        }
     }
 
     @Override
@@ -114,14 +119,6 @@ public class EntityDireCube extends EntityMagmaCube {
         if (canEntityBeSeen(player) && this.getDistanceSq(player) < (double) i * (double) i && player.attackEntityFrom(DamageSource.causeMobDamage(this), getAttackStrength())) {
             playSound(SoundEvents.BLOCK_GRAVEL_BREAK, 1.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
         }
-    }
-
-    @Override
-    protected float applyArmorCalculations(DamageSource source, float damage) {
-        if (!source.isUnblockable()) {
-            return Math.min(Math.max(damage - 3 - this.getSlimeSize(), this.getSlimeSize()) / 2, damage);
-        }
-        return damage;
     }
 
     @Override

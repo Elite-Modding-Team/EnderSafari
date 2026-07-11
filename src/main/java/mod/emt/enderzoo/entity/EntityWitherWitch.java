@@ -1,5 +1,6 @@
 package mod.emt.enderzoo.entity;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import mod.emt.enderzoo.registry.ModSoundEventsEZ;
 import net.minecraft.block.material.Material;
@@ -47,7 +48,6 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
     private final List<EntityWitchCat> cats = new ArrayList<>();
     private boolean initialCatsSpawn = true;
     private boolean hasSpawnedCats = false;
-    private int noTargetTicks = 0;
 
     public EntityWitherWitch(World worldIn) {
         super(worldIn);
@@ -74,8 +74,9 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(36.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.WITHER_WITCH.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.WITHER_WITCH.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.WITHER_WITCH.movementSpeed);
     }
 
     public void setDrinkingPotion(boolean drinkingPotion) {
@@ -136,7 +137,12 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
                 }
             }
 
-            this.manageCats();
+            EntityLivingBase target = this.getAttackTarget();
+            for (EntityWitchCat cat : this.cats) {
+                if (cat.getAttackTarget() != target) {
+                    cat.setAttackTarget(target);
+                }
+            }
         }
         super.onLivingUpdate();
     }
@@ -173,45 +179,6 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
             entitypotion.shoot(d1, d0 + (double) (groundDist * 0.2F), d3, 0.75F, 8.0F);
             this.world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_WITCH_THROW, this.getSoundCategory(), 1.0F, 0.8F + this.rand.nextFloat() * 0.4F);
             this.world.spawnEntity(entitypotion);
-        }
-    }
-
-    private void manageCats() {
-        EntityLivingBase target = this.getAttackTarget();
-        if (target == null) {
-            this.noTargetTicks++;
-            if (this.noTargetTicks > 40) {
-                this.pacifyCats();
-            }
-        } else {
-            this.noTargetTicks = 0;
-            this.angerCats(target);
-        }
-    }
-
-    private void angerCats(EntityLivingBase target) {
-        for (EntityWitchCat cat : this.cats) {
-            if (cat.isAngry()) {
-                if (cat.getAttackTarget() != target) {
-                    cat.setAttackTarget(target);
-                }
-            } else if (cat.getGrowthMode() != EntityWitchCat.GrowthMode.GROW) {
-                cat.setGrowthMode(EntityWitchCat.GrowthMode.GROW);
-                this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
-            }
-        }
-    }
-
-    private void pacifyCats() {
-        for (EntityWitchCat cat : this.cats) {
-            if (cat.getAttackTarget() != null || cat.getGrowthMode() == EntityWitchCat.GrowthMode.GROW || cat.getScale() > 1.0F) {
-                if (cat.getGrowthMode() != EntityWitchCat.GrowthMode.SHRINK) {
-                    cat.setGrowthMode(EntityWitchCat.GrowthMode.SHRINK);
-                    this.world.playSound(null, cat.posX, cat.posY, cat.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), cat.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
-                }
-
-                cat.setAttackTarget(null);
-            }
         }
     }
 

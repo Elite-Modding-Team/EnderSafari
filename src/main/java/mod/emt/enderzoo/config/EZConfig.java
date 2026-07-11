@@ -103,21 +103,21 @@ public class EZConfig {
         }
 
         public static class DireCube {
-            @Config.Name("Armor")
-            @Config.Comment("The amount of armor the Khndrel Keght has")
-            public double armor = 0;
+            @Config.Name("Armor: Base")
+            @Config.Comment("The base amount of armor the Khndrel Keght has (armor will scale by size)")
+            public double armorBase = 0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The base attack damage of the Khndrel Keght (attack damage will scale by size)")
+            public double attackDamage = 3.0;
 
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Khndrel Keght")
             public boolean enableEntity = true;
 
-            @Config.Name("Max Health")
-            @Config.Comment("The maximum health of the Khndrel Keght")
-            public double maxHealth = 20.0;
-
-            @Config.Name("Movement Speed")
-            @Config.Comment("The movement speed of the Khndrel Keght")
-            public double movementSpeed = 0.25;
+            @Config.Name("Max Health: Base")
+            @Config.Comment("The base maximum health of the Khndrel Keght (health will scale by size)")
+            public double maxHealthBase = 10.0;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Khndrel Keght")
@@ -140,6 +140,10 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Dire Wolf has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Dire Wolf")
+            public double attackDamage = 4.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Dire Wolf")
             public boolean enableEntity = true;
@@ -150,7 +154,7 @@ public class EZConfig {
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Dire Wolf")
-            public double movementSpeed = 0.25;
+            public double movementSpeed = 0.35;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Dire Wolf")
@@ -171,7 +175,11 @@ public class EZConfig {
         public static class EnderizedZombie {
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Enderized Zombie has")
-            public double armor = 0;
+            public double armor = 4.0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Enderized Zombie")
+            public double attackDamage = 6.0;
 
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Enderized Zombie")
@@ -179,7 +187,7 @@ public class EZConfig {
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Enderized Zombie")
-            public double maxHealth = 20.0;
+            public double maxHealth = 30.0;
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Enderized Zombie")
@@ -206,13 +214,17 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Enderminy has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Enderminy")
+            public double attackDamage = 4.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Enderminy")
             public boolean enableEntity = true;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Enderminy")
-            public double maxHealth = 20.0;
+            public double maxHealth = 15.0;
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Enderminy")
@@ -239,17 +251,17 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Epic Squid has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Epic Squid")
+            public double attackDamage = 10.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Epic Squid")
             public boolean enableEntity = true;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Epic Squid")
-            public double maxHealth = 20.0;
-
-            @Config.Name("Movement Speed")
-            @Config.Comment("The movement speed of the Epic Squid")
-            public double movementSpeed = 0.25;
+            public double maxHealth = 50.0;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Epic Squid")
@@ -271,6 +283,10 @@ public class EZConfig {
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Fallen Knight has")
             public double armor = 0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Fallen Knight")
+            public double attackDamage = 4.0;
 
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Fallen Knight")
@@ -305,17 +321,17 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Fallen Steed has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Fallen Steed")
+            public double attackDamage = 8.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Fallen Steed")
             public boolean enableEntity = true;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Fallen Steed")
-            public double maxHealth = 20.0;
-
-            @Config.Name("Movement Speed")
-            @Config.Comment("The movement speed of the Fallen Steed")
-            public double movementSpeed = 0.25;
+            public double maxHealth = 30.0;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Fallen Steed")
@@ -338,13 +354,17 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Owl has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Owl")
+            public double attackDamage = 3.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Owl")
             public boolean enableEntity = true;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Owl")
-            public double maxHealth = 20.0;
+            public double maxHealth = 8.0;
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Owl")
@@ -367,9 +387,9 @@ public class EZConfig {
         }
 
         public static class VoidCube {
-            @Config.Name("Armor")
-            @Config.Comment("The amount of armor the Void Cube has")
-            public double armor = 0;
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Void Cube")
+            public double attackDamage = 11.0;
 
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Void Cube")
@@ -377,11 +397,7 @@ public class EZConfig {
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Void Cube")
-            public double maxHealth = 20.0;
-
-            @Config.Name("Movement Speed")
-            @Config.Comment("The movement speed of the Void Cube")
-            public double movementSpeed = 0.25;
+            public double maxHealth = 30.0;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Void Cube")
@@ -404,6 +420,14 @@ public class EZConfig {
             @Config.Comment("The amount of armor the Witch's Cat has")
             public double armor = 0;
 
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Witch's Cat")
+            public double attackDamage = 3.0;
+
+            @Config.Name("Attack Damage: Extra")
+            @Config.Comment("The extra amount of attack damage when the Witch's Cat grows in size")
+            public double attackDamageExtra = 8.0;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Witch's Cat")
             public boolean enableEntity = true;
@@ -412,9 +436,13 @@ public class EZConfig {
             @Config.Comment("The maximum health of the Witch's Cat")
             public double maxHealth = 20.0;
 
+            @Config.Name("Max Health: Extra")
+            @Config.Comment("The extra amount of maximum health when the Witch's Cat grows in size")
+            public double maxHealthExtra = 20.0;
+
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Witch's Cat")
-            public double movementSpeed = 0.25;
+            public double movementSpeed = 0.4;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Witch's Cat")
@@ -443,7 +471,7 @@ public class EZConfig {
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Wither Witch")
-            public double maxHealth = 20.0;
+            public double maxHealth = 36.0;
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Wither Witch")

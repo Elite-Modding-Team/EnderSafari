@@ -3,6 +3,7 @@ package mod.emt.enderzoo.entity;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.navigator.PathNavigateGroundMounted;
 import mod.emt.enderzoo.registry.ModItemsEZ;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
@@ -86,9 +87,11 @@ public class EntityFallenKnight extends EntitySkeleton implements IRangedAttackM
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.FALLEN_KNIGHT.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.FALLEN_KNIGHT.attackDamage);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.FALLEN_KNIGHT.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.FALLEN_KNIGHT.movementSpeed);
     }
 
     @Override

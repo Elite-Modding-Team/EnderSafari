@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import mod.emt.enderzoo.EnderSafari;
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -56,9 +57,10 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.FALLEN_STEED.armor);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.FALLEN_STEED.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.FALLEN_STEED.maxHealth);
     }
 
     @Override
@@ -144,7 +146,8 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         this.initHorseChest();
         this.setHorseSaddled(true);
         this.setGrowingAge(0);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.FALLEN_STEED.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.FALLEN_STEED.maxHealth);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.16D);
         final IAttributeInstance jumpStrength = this.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength");
         if (jumpStrength != null) {
@@ -303,7 +306,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         if (!this.world.isRemote && !this.isTame()) {
             ItemStack saddleStack = this.horseChest.getStackInSlot(0);
             if (!saddleStack.isEmpty() && saddleStack.getItem() == Items.SADDLE) {
-                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase)cause.getTrueSource()) : 0;
+                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase) cause.getTrueSource()) : 0;
                 float saddleDropChance = 0.1F + (lootingModifier * 0.05F);
                 if (this.rand.nextFloat() > saddleDropChance) {
                     this.horseChest.setInventorySlotContents(0, ItemStack.EMPTY);
@@ -312,7 +315,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
 
             ItemStack armorStack = this.horseChest.getStackInSlot(1);
             if (!armorStack.isEmpty()) {
-                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase)cause.getTrueSource()) : 0;
+                int lootingModifier = cause.getTrueSource() instanceof EntityLivingBase ? EnchantmentHelper.getLootingModifier((EntityLivingBase) cause.getTrueSource()) : 0;
                 float armorDropChance = 0.15F + (lootingModifier * 0.05F);
                 if (this.rand.nextFloat() > armorDropChance) {
                     this.horseChest.setInventorySlotContents(1, ItemStack.EMPTY);

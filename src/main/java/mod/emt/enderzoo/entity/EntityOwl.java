@@ -1,5 +1,6 @@
 package mod.emt.enderzoo.entity;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.ai.*;
 import mod.emt.enderzoo.entity.navigator.FlyingMoveHelper;
 import mod.emt.enderzoo.entity.navigator.PathNavigateFly;
@@ -84,9 +85,10 @@ public class EntityOwl extends EntityAnimal implements IEZFlyingMob {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-        getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.OWL.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.OWL.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.OWL.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.OWL.movementSpeed);
     }
 
     @Override

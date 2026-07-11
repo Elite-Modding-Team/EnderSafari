@@ -1,5 +1,6 @@
 package mod.emt.enderzoo.entity;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.ai.EntityAIAttackOnCollideAggressive;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.block.material.Material;
@@ -33,9 +34,10 @@ public class EntityEpicSquid extends EntitySquid {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.EPIC_SQUID.armor);
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.EPIC_SQUID.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.EPIC_SQUID.maxHealth);
     }
 
     @Override

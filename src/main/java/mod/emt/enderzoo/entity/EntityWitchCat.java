@@ -1,5 +1,6 @@
 package mod.emt.enderzoo.entity;
 
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.ai.*;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import mod.emt.enderzoo.registry.ModSoundEventsEZ;
@@ -43,7 +44,9 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
     private static final UUID ATTACK_BOOST_MOD_UID = UUID.fromString("B9662B59-9566-4402-BC1F-2ED2B276D846");
     private static final UUID HEALTH_BOOST_MOD_UID = UUID.fromString("B9662B29-9467-3302-1D1A-2ED2B276D846");
 
+    private GrowthMode lastGrowthMode = GrowthMode.NONE;
     private float lastScale = 1.0F;
+    private int noTargetTicks = 0;
     private EntityWitherWitch owner;
     private UUID ownerUUID;
 
@@ -54,10 +57,10 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
 
     @Override
     protected void initEntityAI() {
-        EntityAIFollowOwnerEZ retreatTask = new EntityAIFollowOwnerEZ(this, 2.5, 5, 2.5);
+        EntityAIFollowOwnerEZ retreatTask = new EntityAIFollowOwnerEZ(this, 2.5D, 5.0D, 2.5D);
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIAttackOnCollideOwned(this, 2.5, false, retreatTask));
-        this.tasks.addTask(2, new EntityAIFollowOwnerEZ(this, 2.5, 10, 1.0));
+        this.tasks.addTask(1, new EntityAIAttackOnCollideOwned(this, 1.0D, false, retreatTask));
+        this.tasks.addTask(2, new EntityAIFollowOwnerEZ(this, 2.5D, 10.0D, 1.0D));
         this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(5, new EntityAILookIdle(this));
@@ -67,9 +70,10 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.125D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(EZConfig.ENTITIES.WITCH_CAT.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.WITCH_CAT.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.WITCH_CAT.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(EZConfig.ENTITIES.WITCH_CAT.movementSpeed);
     }
 
     public enum GrowthMode {
@@ -191,18 +195,27 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
             }
         }
 
-        if (owner != null && owner.isDead) {
-            setOwner(null);
+        if (this.getAttackTarget() != null && !this.getAttackTarget().isEntityAlive()) {
+            this.setAttackTarget(null);
         }
 
-        if (owner == null && getAttackTarget() == null && isAngry() && getGrowthMode() != GrowthMode.SHRINK) {
-            setGrowthMode(GrowthMode.SHRINK);
-            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+        if (this.getAttackTarget() == null) {
+            this.noTargetTicks++;
+            if (this.noTargetTicks > 40 && isAngry() && getGrowthMode() != GrowthMode.SHRINK) {
+                this.setGrowthMode(GrowthMode.SHRINK);
+            }
+        } else {
+            this.noTargetTicks = 0;
+            if (!isAngry() && getGrowthMode() != GrowthMode.GROW) {
+                this.setGrowthMode(GrowthMode.GROW);
+            }
         }
 
-        if (getAttackTarget() != null && !isAngry() && getGrowthMode() != GrowthMode.GROW) {
-            setGrowthMode(GrowthMode.GROW);
-            this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+        if (this.getGrowthMode() != this.lastGrowthMode) {
+            if (this.getGrowthMode() == GrowthMode.GROW || this.getGrowthMode() == GrowthMode.SHRINK) {
+                this.world.playSound(null, this.posX, this.posY, this.posZ, ModSoundEventsEZ.ENTITY_WITCH_CAT_GROW.getSoundEvent(), this.getSoundCategory(), 1.0F, 0.5F + (this.rand.nextFloat() * 0.5F));
+            }
+            this.lastGrowthMode = this.getGrowthMode();
         }
 
         updateScale();
@@ -243,7 +256,7 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
         IAttributeInstance att = EntityUtil.removeModifier(this, SharedMonsterAttributes.ATTACK_DAMAGE, ATTACK_BOOST_MOD_UID);
         if (growthRatio == 0 || att == null) return;
 
-        double attackDif = 8.0D;
+        double attackDif = EZConfig.ENTITIES.WITCH_CAT.attackDamageExtra;
         double toAdd = attackDif * growthRatio;
         AttributeModifier mod = new AttributeModifier(ATTACK_BOOST_MOD_UID, "Transformed Attack Modifier", toAdd, 0);
         att.applyModifier(mod);
@@ -251,16 +264,20 @@ public class EntityWitchCat extends EntityMob implements IEZOwnable<EntityWitchC
 
     protected void updateHealth(float growthRatio) {
         IAttributeInstance att = EntityUtil.removeModifier(this, SharedMonsterAttributes.MAX_HEALTH, HEALTH_BOOST_MOD_UID);
-        if (growthRatio == 0 || att == null) return;
+        if (att == null) return;
 
-        double currentRatio = getHealth() / getMaxHealth();
-        double healthDif = 18.0D;
-        double toAdd = healthDif * growthRatio;
-        AttributeModifier mod = new AttributeModifier(HEALTH_BOOST_MOD_UID, "Transformed Health Modifier", toAdd, 0);
-        att.applyModifier(mod);
+        double oldMaxHealth = att.getAttributeValue();
+        if (growthRatio > 0) {
+            double healthDif = EZConfig.ENTITIES.WITCH_CAT.maxHealthExtra;
+            double toAdd = healthDif * growthRatio;
+            AttributeModifier mod = new AttributeModifier(HEALTH_BOOST_MOD_UID, "Transformed Health Modifier", toAdd, 0);
+            att.applyModifier(mod);
+        }
 
-        double newHealth = currentRatio * getMaxHealth();
-        setHealth((float) newHealth);
+        double maxHealthDifference = att.getAttributeValue() - oldMaxHealth;
+        if (maxHealthDifference != 0) {
+            this.setHealth((float) (this.getHealth() + maxHealthDifference));
+        }
     }
 
     private void spawnParticles() {

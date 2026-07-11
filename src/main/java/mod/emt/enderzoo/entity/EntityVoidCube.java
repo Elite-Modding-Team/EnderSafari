@@ -1,6 +1,7 @@
 package mod.emt.enderzoo.entity;
 
 import mod.emt.enderzoo.client.particle.InfinityParticle;
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -38,8 +39,8 @@ public class EntityVoidCube extends EntityMagmaCube {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.VOID_CUBE.maxHealth);
     }
 
     @Override
@@ -108,11 +109,13 @@ public class EntityVoidCube extends EntityMagmaCube {
     }
 
     @Override
-    public void setSlimeSize(int size, boolean doFullHeal) {
-        super.setSlimeSize(1, doFullHeal);
-        getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(11.0D);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-        setHealth(getMaxHealth());
+    public void setSlimeSize(int size, boolean resetHealth) {
+        super.setSlimeSize(1, resetHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(EZConfig.ENTITIES.VOID_CUBE.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(EZConfig.ENTITIES.VOID_CUBE.maxHealth);
+        if (resetHealth) {
+            this.setHealth(this.getMaxHealth());
+        }
     }
 
     @Override
