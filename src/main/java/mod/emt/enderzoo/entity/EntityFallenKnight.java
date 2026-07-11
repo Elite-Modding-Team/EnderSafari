@@ -310,33 +310,33 @@ public class EntityFallenKnight extends EntitySkeleton implements IRangedAttackM
             return;
         }
 
-        if (this.rand.nextFloat() <= 0.20F) {
-            EntityFallenSteed steed = new EntityFallenSteed(this.world);
-            steed.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-            DifficultyInstance di = this.world.getDifficultyForLocation(new BlockPos(steed));
-            steed.onInitialSpawn(di, null);
-            this.setCanPickUpLoot(false);
-            this.setCanBreakDoors(false);
-            this.world.spawnEntity(steed);
-            this.startRiding(steed);
-        }
+        EntityFallenSteed steed = new EntityFallenSteed(this.world);
+        steed.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+        DifficultyInstance diff = this.world.getDifficultyForLocation(new BlockPos(steed));
+        steed.onInitialSpawn(diff, null);
+        this.setCanPickUpLoot(false);
+        this.setCanBreakDoors(false);
+        this.world.spawnEntity(steed);
+        this.startRiding(steed);
     }
 
     @Override
-    public IEntityLivingData onInitialSpawn(@NotNull DifficultyInstance di, @Nullable IEntityLivingData livingData) {
+    public IEntityLivingData onInitialSpawn(@NotNull DifficultyInstance diff, @Nullable IEntityLivingData livingData) {
         this.hasSpawned = true;
 
         getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random spawn bonus", rand.nextGaussian() * 0.05D, 1));
         setCombatTaskReal();
         addRandomArmor();
-        setEnchantmentBasedOnDifficulty(di);
+        setEnchantmentBasedOnDifficulty(diff);
 
-        float f = di.getClampedAdditionalDifficulty();
+        float f = diff.getClampedAdditionalDifficulty();
         this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
         setCanBreakDoors(this.rand.nextFloat() < f * 0.1F);
 
         if (!this.world.isRemote) {
-            this.spawnSteed();
+            if (this.rand.nextFloat() <= 0.20F && this.world.canSeeSky(new BlockPos(this))) {
+                this.spawnSteed();
+            }
         }
 
         return livingData;

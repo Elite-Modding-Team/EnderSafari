@@ -9,6 +9,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +31,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
-public class EntityFallenSteed extends EntityHorse {
+public class EntityFallenSteed extends EntityHorse implements IMob {
     private boolean wasRidden = false;
     private final EntityAINearestAttackableTarget<EntityPlayer> findTargetAI;
     private final EntityAIAttackMelee attackAI;

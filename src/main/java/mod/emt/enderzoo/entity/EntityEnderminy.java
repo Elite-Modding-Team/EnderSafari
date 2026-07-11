@@ -226,11 +226,16 @@ public class EntityEnderminy extends EntityMob {
 
         boolean result = super.attackEntityFrom(source, amount);
         if (source.getTrueSource() instanceof EntityLivingBase && this.getHealth() > 0) {
-            this.setScreaming(true);
-
             EntityLivingBase attacker = (EntityLivingBase) source.getTrueSource();
+
+            if (attacker instanceof EntityPlayer && ((EntityPlayer) attacker).capabilities.isCreativeMode) {
+                return result;
+            }
+
+            this.setScreaming(true);
             this.setAttackTarget(attacker);
             this.doGroupAggro(attacker);
+
             if (this.rand.nextInt(3) == 0) {
                 for (int i = 0; i < 64; ++i) {
                     if (this.teleportRandomly(16)) {

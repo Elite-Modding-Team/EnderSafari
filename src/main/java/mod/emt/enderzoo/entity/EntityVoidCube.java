@@ -3,6 +3,7 @@ package mod.emt.enderzoo.entity;
 import mod.emt.enderzoo.client.particle.InfinityParticle;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -216,6 +217,12 @@ public class EntityVoidCube extends EntityMagmaCube {
             }
             super.combine(other);
         }
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
+        return state.canEntitySpawn(this);
     }
 
     @Override

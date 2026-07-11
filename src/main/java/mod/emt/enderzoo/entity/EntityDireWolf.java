@@ -9,6 +9,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -19,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.common.BiomeDictionary;
@@ -137,30 +139,13 @@ public class EntityDireWolf extends EntityMob {
     }
 
     @Override
-    public void setPosition(double x, double y, double z) {
-        this.posX = x;
-        this.posY = y;
-        this.posZ = z;
-
-        double halfWidth = this.width / 2.0D;
-        double halfDepth = halfWidth * 2.25D;
-
-        if (this.isAddedToWorld() && !this.world.isRemote) {
-            this.setEntityBoundingBox(new AxisAlignedBB(x - halfWidth, y, z - halfDepth, x + halfWidth, y + (double) this.height, z + halfDepth));
-        } else {
-            super.setPosition(x, y, z);
-        }
-    }
-
-    @Override
     public boolean getCanSpawnHere() {
-        BlockPos pos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
-        return this.world.canBlockSeeSky(pos) && super.getCanSpawnHere();
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor(this.posX);
+        int j = MathHelper.floor(this.getEntityBoundingBox().minY);
+        int k = MathHelper.floor(this.posZ);
+        BlockPos pos = new BlockPos(i, j, k);
+        // TODO: A config list of blocks it can spawn on would be very nice
+        return this.world.getBlockState(pos.down()).getBlock() == Blocks.GRASS && super.getCanSpawnHere();
     }
 
     @Override

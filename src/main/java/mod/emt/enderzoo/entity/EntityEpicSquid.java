@@ -53,6 +53,11 @@ public class EntityEpicSquid extends EntitySquid {
     }
 
     @Override
+    public boolean getCanSpawnHere() {
+        return this.posY > 20.0D && this.posY < (double) this.world.getSeaLevel();
+    }
+
+    @Override
     public boolean handleWaterMovement() {
         super.handleWaterMovement();
 

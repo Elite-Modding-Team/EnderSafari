@@ -3,6 +3,7 @@ package mod.emt.enderzoo.entity;
 import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntitySlime;
@@ -121,6 +122,12 @@ public class EntityDireCube extends EntityMagmaCube {
             return Math.min(Math.max(damage - 3 - this.getSlimeSize(), this.getSlimeSize()) / 2, damage);
         }
         return damage;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
+        return state.canEntitySpawn(this) && this.world.canSeeSky(new BlockPos(this)) && this.rand.nextFloat() < 0.5F && this.rand.nextFloat() < this.world.getCurrentMoonPhaseFactor() && this.world.getLightFromNeighbors(new BlockPos(this)) <= this.rand.nextInt(8);
     }
 
     @Override
