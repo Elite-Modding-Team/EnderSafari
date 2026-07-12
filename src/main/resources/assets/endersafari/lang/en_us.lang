@@ -41,7 +41,7 @@ item.endersafari:withering_dust.name=Withering Dust
 
 # Potions
 effect.endersafari.displacement.name=Displacement
-description.effect.endersafari.displacement=Teleports entities away.
+description.effect.endersafari.displacement.name=Teleports living entities.
 
 lingering_potion.effect.es_displacement=Lingering Potion of Displacement
 potion.effect.es_displacement=Potion of Displacement

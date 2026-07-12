@@ -40,6 +40,7 @@ dependencies {
     runtimeOnly 'curse.maven:just-enough-magiculture-940521:8018292'
 
     implementation rfg.deobf('curse.maven:future-fireproof-1121231:7627538')
+    implementation rfg.deobf('curse.maven:potion-descriptions-403303:3191544')
 
     compileOnly 'curse.maven:baubles-227083:2518667'
     compileOnly 'curse.maven:endercore-231868:4671384'
