@@ -173,7 +173,7 @@ public class EntityDireWolf extends EntityMob {
             return ModSoundEventsEZ.ENTITY_DIRE_WOLF_GROWL.getSoundEvent();
         }
 
-        boolean howl = (packHowl > 0 || this.rand.nextFloat() <= 0.05F) && this.world.getTotalWorldTime() > (lastHowl + 20L);
+        boolean howl = (packHowl > 0 || this.rand.nextFloat() <= EZConfig.ENTITIES.DIRE_WOLF.howlChance) && this.world.getTotalWorldTime() > (lastHowl + 20L);
         if (howl) {
             if (packHowl <= 0 && this.rand.nextFloat() <= 0.25F) {
                 packHowl = 3 + this.rand.nextInt(3);
@@ -184,6 +184,16 @@ public class EntityDireWolf extends EntityMob {
         } else {
             return ModSoundEventsEZ.ENTITY_DIRE_WOLF_GROWL.getSoundEvent();
         }
+    }
+
+    @Override
+    public void playSound(@Nonnull SoundEvent sound, float volume, float pitch) {
+        if (ModSoundEventsEZ.ENTITY_DIRE_WOLF_HOWL.getSoundEvent().equals(sound)) {
+            volume *= (float) EZConfig.ENTITIES.DIRE_WOLF.howlVolume;
+            pitch *= 0.8F;
+        }
+
+        super.playSound(sound, volume, pitch);
     }
 
     @Override

@@ -158,7 +158,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         this.horseChest.setInventorySlotContents(1, ItemStack.EMPTY);
 
         // Random chance for the horse to be armored
-        float chanceOfArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.5F : 0.2F);
+        double chanceOfArmor = (world.getDifficulty() == EnumDifficulty.HARD ? EZConfig.ENTITIES.FALLEN_STEED.horseArmorChanceHard : EZConfig.ENTITIES.FALLEN_STEED.horseArmorChance);
         if (this.rand.nextFloat() <= chanceOfArmor) {
             float occupiedDifficultyMultiplier = diff.getClampedAdditionalDifficulty() / 1.5f;
             float chanceImprovedArmor = (world.getDifficulty() == EnumDifficulty.HARD ? 0.1F : 0.02F) * (1 + occupiedDifficultyMultiplier);
@@ -173,7 +173,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
             Item armorItem = Items.IRON_HORSE_ARMOR;
             if (armorLevel == 1) armorItem = Items.GOLDEN_HORSE_ARMOR;
             if (armorLevel == 2) armorItem = Items.DIAMOND_HORSE_ARMOR;
-            this.setHorseArmorStack(new ItemStack(armorItem));
+            this.horseChest.setInventorySlotContents(1, new ItemStack(armorItem));
         }
 
         this.updateHorseSlots();
@@ -345,7 +345,11 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
     }
 
     private boolean burnInSun() {
-        return (getTotalArmorValue() == 0 || !isTame());
+        if (this.horseChest != null) {
+            ItemStack armorStack = this.horseChest.getStackInSlot(1);
+            return armorStack.isEmpty();
+        }
+        return !this.isTame();
     }
 
     protected boolean isRidden() {
@@ -399,8 +403,8 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
 
     @Override
     public void readEntityFromNBT(@NotNull NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
         this.initHorseChest();
+        super.readEntityFromNBT(compound);
         this.horseChest.setInventorySlotContents(0, new ItemStack(Items.SADDLE));
         this.setHorseSaddled(true);
         this.updateHorseSlots();

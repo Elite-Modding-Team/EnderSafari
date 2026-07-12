@@ -37,10 +37,6 @@ public class EntityEnderminy extends EntityMob {
     private static final UUID ATTACKING_SPEED_BOOST_ID = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291B0");
     private static final AttributeModifier ATTACKING_SPEED_BOOST = (new AttributeModifier(ATTACKING_SPEED_BOOST_ID, "Attacking Speed Boost", 0.15D, 0)).setSaved(false);
 
-    private final boolean attackIfLookingAtPlayer = true;
-    private final boolean attackCreepers = true;
-    private final boolean groupAgroEnabled = true;
-
     public EntityEnderminy(World world) {
         super(world);
         this.setSize(0.3F, 0.725F);
@@ -56,10 +52,10 @@ public class EntityEnderminy extends EntityMob {
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        if (this.attackIfLookingAtPlayer) {
+        if (EZConfig.ENTITIES.ENDERMINY.enablePlayerHostility) {
             this.targetTasks.addTask(2, new EntityEnderminy.AIFindPlayer(this));
         }
-        if (this.attackCreepers) {
+        if (EZConfig.ENTITIES.ENDERMINY.enableCreeperHostility) {
             this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityConcussionCreeper.class, true));
         }
     }
@@ -251,7 +247,7 @@ public class EntityEnderminy extends EntityMob {
     }
 
     private void doGroupAggro(EntityLivingBase target) {
-        if (!this.groupAgroEnabled || target == null) return;
+        if (!EZConfig.ENTITIES.ENDERMINY.enableGroupAggro || target == null) return;
 
         int range = 16;
         AxisAlignedBB bb = new AxisAlignedBB(this.posX - range, this.posY - range, this.posZ - range, this.posX + range, this.posY + range, this.posZ + range);

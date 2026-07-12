@@ -33,7 +33,7 @@ public class EntityDireCube extends EntityMagmaCube {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
     }
 
     @Override

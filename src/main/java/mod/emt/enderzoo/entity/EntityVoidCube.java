@@ -18,6 +18,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,6 +35,7 @@ public class EntityVoidCube extends EntityMagmaCube {
     public EntityVoidCube(World world) {
         super(world);
         this.setSlimeSize(1, false);
+        this.experienceValue = 20;
     }
 
     @Override
@@ -152,7 +154,7 @@ public class EntityVoidCube extends EntityMagmaCube {
 
     private void onLivingUpdateServer() {
         if (actionDelay-- <= 0) {
-            for (EntityPlayer player : getClosestPlayers(8)) {
+            for (EntityPlayer player : getClosestPlayers(EZConfig.ENTITIES.VOID_CUBE.blindnessRange)) {
                 player.addPotionEffect(new BlindEffect());
             }
             actionDelay = (int) (20 * (.5f + .5f * rand.nextFloat()));
@@ -161,7 +163,7 @@ public class EntityVoidCube extends EntityMagmaCube {
 
     @SideOnly(Side.CLIENT)
     private void onLivingUpdateClient() {
-        if (actionDelay-- <= 0) {
+        if (actionDelay-- <= 0 && EZConfig.ENTITIES.VOID_CUBE.enableDarknessParticles) {
             particles.removeIf(o -> !((InfinityParticle) o).isAlive());
             if (particles.size() < 10) {
                 float offsetX = (-5f + 10f * rand.nextFloat());
@@ -215,17 +217,35 @@ public class EntityVoidCube extends EntityMagmaCube {
         @Override
         public void combine(@Nonnull PotionEffect other) {
             if (!(other instanceof BlindEffect)) {
-                // We got combined with a normal blindness effect. this means we should no longer vanish when the player gets out of range.
+                // We got combined with a normal blindness effect. This means we should no longer vanish when the player gets out of range.
                 combined = true;
             }
             super.combine(other);
         }
     }
 
+    protected boolean isValidLightLevel() {
+        BlockPos pos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+        if (this.world.getLightFor(EnumSkyBlock.SKY, pos) > this.rand.nextInt(32)) {
+            return false;
+        } else {
+            int i = this.world.getLightFromNeighbors(pos);
+
+            if (this.world.isThundering()) {
+                int j = this.world.getSkylightSubtracted();
+                this.world.setSkylightSubtracted(10);
+                i = this.world.getLightFromNeighbors(pos);
+                this.world.setSkylightSubtracted(j);
+            }
+
+            return i <= this.rand.nextInt(8);
+        }
+    }
+
     @Override
     public boolean getCanSpawnHere() {
         IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
-        return state.canEntitySpawn(this);
+        return EZConfig.ENTITIES.VOID_CUBE.spawnInDarkness ? state.canEntitySpawn(this) && this.isValidLightLevel() : state.canEntitySpawn(this);
     }
 
     @Override

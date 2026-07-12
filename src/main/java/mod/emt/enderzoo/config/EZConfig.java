@@ -82,6 +82,10 @@ public class EZConfig {
             @Config.Comment("Enables the Concussion Creeper")
             public boolean enableEntity = true;
 
+            @Config.Name("Explosion Range")
+            @Config.Comment("The explosion range of the Concussion Creeper")
+            public double explosionRange = 5.0;
+
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Concussion Creeper")
             public double maxHealth = 20.0;
@@ -152,6 +156,14 @@ public class EZConfig {
             @Config.Comment("Enables the Dire Wolf")
             public boolean enableEntity = true;
 
+            @Config.Name("Howl Chance")
+            @Config.Comment("The chance for Dire Wolves to howl")
+            public double howlChance = 0.05;
+
+            @Config.Name("Howl Volume")
+            @Config.Comment("The volume of the Dire Wolf howl sound")
+            public double howlVolume = 8.0;
+
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Dire Wolf")
             public double maxHealth = 20.0;
@@ -189,6 +201,10 @@ public class EZConfig {
             @Config.Comment("Enables the Enderized Zombie")
             public boolean enableEntity = true;
 
+            @Config.Name("Enable Reinforcements")
+            @Config.Comment("Allows Enderized Zombies to spawn additional Enderized Zombies to help when damaged in Hard difficulty (same as vanilla zombies)")
+            public boolean enableReinforcements = true;
+
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Enderized Zombie")
             public double maxHealth = 30.0;
@@ -211,13 +227,25 @@ public class EZConfig {
             @Config.Comment("The spawn weight of the Enderized Zombie")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 10;
+
+            @Config.Name("Teleport Chance: Self")
+            @Config.Comment("The chance for the Enderized Zombie to teleport around when it gets hurt")
+            public double teleportChanceSelf = 0.25;
+
+            @Config.Name("Teleport Chance: Target")
+            @Config.Comment("The chance for the Enderized Zombie to teleport a target when it damages them")
+            public double teleportChanceTarget = 0.5;
+
+            @Config.Name("Teleport Range: Self")
+            @Config.Comment("The range distance when the Enderized Zombie teleports itself")
+            public double teleportRangeSelf = 8.0;
+
+            @Config.Name("Teleport Range: Target")
+            @Config.Comment("The range distance when the Enderized Zombie teleports a target")
+            public double teleportRangeTarget = 8.0;
         }
 
         public static class Enderminy {
-            @Config.Name("Alternate Texture")
-            @Config.Comment("Enables an alternate Enderminy texture used in the original Ender Zoo mod")
-            public boolean enableAlternateTexture = false;
-
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Enderminy has")
             public double armor = 0;
@@ -226,9 +254,25 @@ public class EZConfig {
             @Config.Comment("The attack damage of the Enderminy")
             public double attackDamage = 4.0;
 
+            @Config.Name("Alternate Texture")
+            @Config.Comment("Enables an alternate Enderminy texture used in the original Ender Zoo mod")
+            public boolean enableAlternateTexture = false;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Enderminy")
             public boolean enableEntity = true;
+
+            @Config.Name("Concussion Creeper Hostility")
+            @Config.Comment("Enderminies will attack nearby Concussion Creepers")
+            public boolean enableCreeperHostility = true;
+
+            @Config.Name("Group Aggression")
+            @Config.Comment("Nearby Enderminies will attack when one of them is hurt")
+            public boolean enableGroupAggro = true;
+
+            @Config.Name("Player Hostility")
+            @Config.Comment("Enderminies will attack Players they directly look at (inverse of Endermen)")
+            public boolean enablePlayerHostility = true;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Enderminy")
@@ -304,6 +348,10 @@ public class EZConfig {
             @Config.Comment("The maximum health of the Fallen Knight")
             public double maxHealth = 20.0;
 
+            @Config.Name("Mount Chance")
+            @Config.Comment("The chance for a Fallen Knight to be mounted on a Fallen Steed")
+            public double mountChance = 0.2;
+
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Fallen Knight")
             public double movementSpeed = 0.25;
@@ -336,6 +384,14 @@ public class EZConfig {
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Fallen Steed")
             public boolean enableEntity = true;
+
+            @Config.Name("Horse Armor Chance")
+            @Config.Comment("The chance for a Fallen Steed to spawn with horse armor (not to be confused with the armor attribute)")
+            public double horseArmorChance = 0.2;
+
+            @Config.Name("Horse Armor Chance: Hard Difficulty")
+            @Config.Comment("The chance for a Fallen Steed to spawn with horse armor in Hard difficulty (not to be confused with the armor attribute)")
+            public double horseArmorChanceHard = 0.5;
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Fallen Steed")
@@ -370,6 +426,14 @@ public class EZConfig {
             @Config.Comment("Enables the Owl")
             public boolean enableEntity = true;
 
+            @Config.Name("Hoot Interval")
+            @Config.Comment("The interval for Owls to hoot at night")
+            public int hootInterval = 1000;
+
+            @Config.Name("Hoot Volume")
+            @Config.Comment("The volume of the Owl hoot sound")
+            public double hootVolume = 0.8;
+
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Owl")
             public double maxHealth = 8.0;
@@ -399,13 +463,26 @@ public class EZConfig {
             @Config.Comment("The attack damage of the Void Cube")
             public double attackDamage = 11.0;
 
+            @Config.Name("Blindness Range")
+            @Config.Comment("The range for the Void Cube to apply Blindness to nearby players")
+            @Config.RangeInt(min = 0)
+            public int blindnessRange = 8;
+
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Void Cube")
             public boolean enableEntity = true;
 
+            @Config.Name("Enable Darkness Particles")
+            @Config.Comment("Allows Void Cubes to emit darkness around it")
+            public boolean enableDarknessParticles = true;
+
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Void Cube")
             public double maxHealth = 30.0;
+
+            @Config.Name("Spawning Requires Darkness")
+            @Config.Comment("If enabled, Void Cubes will require darkness when spawning, otherwise they will always spawn even if the area is lit up")
+            public boolean spawnInDarkness = false;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Void Cube")
@@ -472,6 +549,20 @@ public class EZConfig {
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Wither Witch has")
             public double armor = 0;
+
+            @Config.Name("Cat Spawn: Max")
+            @Config.Comment("The maximum amount of Witch's Cats that can spawn alongside a Wither Witch")
+            @Config.RangeInt(min = 0)
+            public int catSpawnMax = 2;
+
+            @Config.Name("Cat Spawn: Min")
+            @Config.Comment("The minimum amount of Witch's Cats that can spawn alongside a Wither Witch")
+            @Config.RangeInt(min = 0)
+            public int catSpawnMin = 1;
+
+            @Config.Name("Enable Cat Spawning")
+            @Config.Comment("The Wither Witch will spawn alongside Witch's Cats")
+            public boolean enableCatSpawning = true;
 
             @Config.Name("Enable Entity")
             @Config.Comment("Enables the Wither Witch")

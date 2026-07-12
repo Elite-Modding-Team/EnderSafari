@@ -57,12 +57,25 @@ public class EntityEnderizedZombie extends EntityZombie {
 
         float localDifficulty = this.world.getDifficultyForLocation(this.getPosition()).getAdditionalDifficulty();
         if (this.isEntityAlive() && entity instanceof EntityLivingBase) {
-            if (this.rand.nextFloat() <= localDifficulty / 10.0F) { // TODO: Adjust this?
-                TeleportHelper.teleportEntity(entity.world, entity, false, true, 8.0F);
+            double teleportChance = EZConfig.ENTITIES.ENDERIZED_ZOMBIE.teleportChanceTarget + (localDifficulty / 10.0F);
+            if (this.rand.nextFloat() <= (float) Math.min(teleportChance, 1.0F)) {
+                TeleportHelper.teleportEntity(entity.world, entity, false, true, (float) EZConfig.ENTITIES.ENDERIZED_ZOMBIE.teleportRangeTarget);
             }
         }
 
         return true;
+    }
+
+    @Override
+    public boolean attackEntityFrom(@NotNull DamageSource source, float amount) {
+        if (!isEntityInvulnerable(source) && super.attackEntityFrom(source, amount)) {
+            if (rand.nextFloat() < Math.min((float) EZConfig.ENTITIES.ENDERIZED_ZOMBIE.teleportChanceSelf, 1.0F)) {
+                TeleportHelper.teleportEntity(world, this, false, true, (float) EZConfig.ENTITIES.ENDERIZED_ZOMBIE.teleportRangeSelf);
+            }
+            return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -88,7 +101,7 @@ public class EntityEnderizedZombie extends EntityZombie {
 
     @SubscribeEvent
     public static void onSummonAid(ZombieEvent.SummonAidEvent event) {
-        if (event.getSummoner() instanceof EntityEnderizedZombie) {
+        if (event.getSummoner() instanceof EntityEnderizedZombie && EZConfig.ENTITIES.ENDERIZED_ZOMBIE.enableReinforcements) {
             if (event.getResult() != Event.Result.DENY && event.getAttacker() != null && event.getWorld().getDifficulty() == EnumDifficulty.HARD &&
                     event.getWorld().rand.nextFloat() < event.getSummoner().getEntityAttribute(SPAWN_REINFORCEMENTS_CHANCE).getAttributeValue() &&
                     event.getWorld().getGameRules().getBoolean("doMobSpawning")) {

@@ -57,7 +57,7 @@ public class EntityConcussionCreeper extends EntityCreeper {
                 this.timeSinceIgnitedCustom = this.fuseTime;
 
                 if (!this.world.isRemote) {
-                    ConcussionExplosion.create(this.world, this, this.posX, this.posY, this.posZ, 4.0F, false, false);
+                    ConcussionExplosion.create(this.world, this, this.posX, this.posY, this.posZ, (float) EZConfig.ENTITIES.CONCUSSION_CREEPER.explosionRange, false, false);
                     this.setDead();
                 }
             }

@@ -2,7 +2,6 @@ package mod.emt.enderzoo.entity;
 
 import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
-import mod.emt.enderzoo.registry.ModSoundEventsEZ;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -46,7 +45,7 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
     private int potionUseTimer;
 
     private final List<EntityWitchCat> cats = new ArrayList<>();
-    private boolean initialCatsSpawn = true;
+    private boolean initialCatsSpawn = EZConfig.ENTITIES.WITHER_WITCH.enableCatSpawning;
     private boolean hasSpawnedCats = false;
 
     public EntityWitherWitch(World worldIn) {
@@ -194,7 +193,7 @@ public class EntityWitherWitch extends EntityMob implements IRangedAttackMob {
 
     private void spawnCats() {
         this.hasSpawnedCats = true;
-        int count = 1 + this.rand.nextInt(2);
+        int count = EZConfig.ENTITIES.WITHER_WITCH.catSpawnMin + this.rand.nextInt(EZConfig.ENTITIES.WITHER_WITCH.catSpawnMax);
         for (int i = 0; i < count; i++) {
             BlockPos spawnPos = this.getPosition().add(this.rand.nextInt(5) - 2, 0, this.rand.nextInt(5) - 2);
             EntityWitchCat cat = new EntityWitchCat(this.world);

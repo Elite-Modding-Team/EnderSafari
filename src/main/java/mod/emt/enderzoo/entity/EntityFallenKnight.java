@@ -337,7 +337,7 @@ public class EntityFallenKnight extends EntitySkeleton implements IRangedAttackM
         setCanBreakDoors(this.rand.nextFloat() < f * 0.1F);
 
         if (!this.world.isRemote) {
-            if (this.rand.nextFloat() <= 0.20F && this.world.canSeeSky(new BlockPos(this))) {
+            if (this.rand.nextFloat() <= EZConfig.ENTITIES.FALLEN_KNIGHT.mountChance && this.world.canSeeSky(new BlockPos(this))) {
                 this.spawnSteed();
             }
         }

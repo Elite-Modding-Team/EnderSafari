@@ -233,7 +233,7 @@ public class EntityOwl extends EntityAnimal implements IEZFlyingMob {
 
     @Override
     public int getTalkInterval() {
-        return 1000;
+        return EZConfig.ENTITIES.OWL.hootInterval;
     }
 
     @Override
@@ -241,7 +241,7 @@ public class EntityOwl extends EntityAnimal implements IEZFlyingMob {
         if (world.isDaytime() || getAttackTarget() != null) {
             return;
         }
-        playSound(getAmbientSound(), getSoundVolume() * 0.8f, 0.8f * getSoundPitch());
+        playSound(getAmbientSound(), getSoundVolume() * (float) EZConfig.ENTITIES.OWL.hootVolume, 0.8f * getSoundPitch());
     }
 
     @Override
