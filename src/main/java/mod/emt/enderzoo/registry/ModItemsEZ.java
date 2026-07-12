@@ -4,6 +4,7 @@ import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.item.EZItem;
 import mod.emt.enderzoo.item.EZItemBow;
 import mod.emt.enderzoo.item.EZItemFireproof;
+import mod.emt.enderzoo.item.ItemOwlEgg;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -27,7 +28,7 @@ public class ModItemsEZ {
     public static final EZItemFireproof ENDER_FRAGMENT = null;
     public static final EZItemFireproof EPIC_INK_SAC = null;
     public static final EZItemBow GUARDIAN_BOW = null;
-    public static final EZItem OWL_EGG = null;
+    public static final ItemOwlEgg OWL_EGG = null;
     public static final EZItem WITHERING_DUST = null;
 
     @SubscribeEvent
@@ -40,7 +41,7 @@ public class ModItemsEZ {
                 new EZItemFireproof("ender_fragment", EnumRarity.COMMON),
                 new EZItemFireproof("epic_ink_sac", EnumRarity.EPIC),
                 new EZItemBow("guardian_bow", 800, 1.1F, 1, 0.9F, 1.2F, Ingredient.fromStacks(new ItemStack(Items.IRON_INGOT)), EnumRarity.UNCOMMON),
-                new EZItem("owl_egg", EnumRarity.COMMON)
+                new ItemOwlEgg("owl_egg")
         );
     }
 

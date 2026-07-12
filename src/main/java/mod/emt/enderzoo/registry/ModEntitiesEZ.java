@@ -4,7 +4,10 @@ import mod.emt.enderzoo.EnderSafari;
 import mod.emt.enderzoo.client.render.*;
 import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.*;
+import mod.emt.enderzoo.entity.projectile.EntityOwlEgg;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -78,6 +81,7 @@ public class ModEntitiesEZ {
         registerEntity("primed_concussion_charge", EntityConcussionChargePrimed.class, 64, 1, true);
         registerEntity("primed_confusing_charge", EntityConfusingChargePrimed.class, 64, 1, true);
         registerEntity("primed_ender_charge", EntityEnderChargePrimed.class, 64, 1, true);
+        registerEntity("owl_egg", EntityOwlEgg.class, 64, 1, true);
     }
 
     @SideOnly(Side.CLIENT)
@@ -99,6 +103,7 @@ public class ModEntitiesEZ {
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONCUSSION_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityConfusingChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.CONFUSING_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksEZ.ENDER_CHARGE.getDefaultState()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityOwlEgg.class, renderManager -> new RenderSnowball<>(renderManager, ModItemsEZ.OWL_EGG, Minecraft.getMinecraft().getRenderItem()));
     }
 
     public static void registerEntitySpawns() {
