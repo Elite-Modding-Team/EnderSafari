@@ -3,7 +3,7 @@ package mod.emt.endersafari.registry;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.potion.PotionHelper;
-import utils.helpers.CompatHelper;
+import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 public class ModRecipesES {
     public static void registerBrewingRecipes() {

@@ -6,7 +6,7 @@ import mod.emt.endersafari.compat.ThaumcraftIntegration;
 import mod.emt.endersafari.registry.ModEntitiesES;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import net.minecraftforge.common.MinecraftForge;
-import utils.helpers.CompatHelper;
+import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 public class CommonProxy {
     public void preInit() {

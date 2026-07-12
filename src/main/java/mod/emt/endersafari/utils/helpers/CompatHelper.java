@@ -1,4 +1,4 @@
-package utils.helpers;
+package mod.emt.endersafari.utils.helpers;
 
 import net.minecraftforge.fml.common.Loader;
 

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import utils.helpers.CompatHelper;
+import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)
 public class ModRegistryES {

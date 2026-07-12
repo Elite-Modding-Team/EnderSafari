@@ -10,7 +10,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-import utils.helpers.CompatHelper;
+import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 import javax.annotation.Nonnull;
 
