@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_bottom_top",
+    "textures": {
+      "bottom": "endersafari:blocks/confusing_charge_bottom",
+      "top": "endersafari:blocks/confusing_charge_top",
+      "side": "endersafari:blocks/confusing_charge_side"
+    }
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "explode=false": [{}],
+    "explode=true": [{}]
+  }
+}

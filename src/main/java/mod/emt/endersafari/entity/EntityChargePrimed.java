@@ -1,0 +1,54 @@
+package mod.emt.endersafari.entity;
+
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MoverType;
+import net.minecraft.entity.item.EntityTNTPrimed;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.world.World;
+
+public class EntityChargePrimed extends EntityTNTPrimed {
+    public EntityChargePrimed(World world) {
+        super(world);
+        preventEntitySpawning = true;
+        setSize(0.98F, 0.98F);
+    }
+
+    public EntityChargePrimed(World world, double x, double y, double z, EntityLivingBase igniter) {
+        super(world, x, y, z, igniter);
+    }
+
+    @Override
+    public void onUpdate() {
+        this.prevPosX = this.posX;
+        this.prevPosY = this.posY;
+        this.prevPosZ = this.posZ;
+
+        if (!this.hasNoGravity()) {
+            this.motionY -= 0.04D;
+        }
+
+        this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
+        this.motionX *= 0.98D;
+        this.motionY *= 0.98D;
+        this.motionZ *= 0.98D;
+        if (this.onGround) {
+            this.motionX *= 0.7D;
+            this.motionZ *= 0.7D;
+            this.motionY *= -0.5D;
+        }
+
+        this.setFuse(this.getFuse() - 1);
+        if (this.getFuse() <= 0) {
+            this.setDead();
+            if (!this.world.isRemote) {
+                this.explode();
+            }
+        } else {
+            this.handleWaterMovement();
+            this.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+        }
+    }
+
+    protected void explode() {
+    }
+}

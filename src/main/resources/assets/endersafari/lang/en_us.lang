@@ -1,0 +1,61 @@
+itemGroup.EnderSafariTab=Ender Safari
+
+# Blocks
+tile.endersafari:concussion_charge.name=Concussion Charge
+tile.endersafari:confusing_charge.name=Confusing Charge
+tile.endersafari:ender_charge.name=Ender Charge
+
+# Enchantments
+enchantment.endersafari.decay=Decay
+enchantment.endersafari.decay.desc=Arrows fired from the bow will inflict Wither.
+enchantment.endersafari.repellent=Repellent
+enchantment.endersafari.repellent.desc=Randomly teleports mobs away when they attack you. Does not work on bosses.
+enchantment.endersafari.wither_aspect=Wither Aspect
+enchantment.endersafari.wither_aspect.desc=Inflicts Wither when attacking a mob.
+
+# Entities
+entity.endersafari.concussion_creeper.name=Concussion Creeper
+entity.endersafari.dire_cube.name=Khndrel Keght
+entity.endersafari.dire_wolf.name=Dire Wolf
+entity.endersafari.enderized_zombie.name=Enderized Zombie
+entity.endersafari.enderminy.name=Enderminy
+entity.endersafari.epic_squid.name=Epic Squid!
+entity.endersafari.fallen_knight.name=Fallen Knight
+entity.endersafari.fallen_steed.name=Fallen Steed
+entity.endersafari.owl.name=Owl
+entity.endersafari.owl_egg.name=Owl Egg
+entity.endersafari.primed_concussion_charge.name=Primed Concussion Charge
+entity.endersafari.primed_confusing_charge.name=Primed Confusing Charge
+entity.endersafari.primed_ender_charge.name=Primed Ender Charge
+entity.endersafari.void_cube.name=Λoᴉp Ɔnqǝ
+entity.endersafari.witch_cat.name=Witch's Cat
+entity.endersafari.wither_witch.name=Wither Witch
+
+# Items
+item.endersafari:confusing_dust.name=Confusing Dust
+item.endersafari:ender_fragment.name=Ender Fragment
+item.endersafari:epic_ink_sac.name=Epic Ink Sac
+item.endersafari:guardian_bow.name=Guardian Bow
+item.endersafari:owl_egg.name=Owl Egg
+item.endersafari:withering_dust.name=Withering Dust
+
+# Potions
+effect.endersafari.displacement.name=Displacement
+description.effect.endersafari.displacement=Teleports entities away.
+
+lingering_potion.effect.es_displacement=Lingering Potion of Displacement
+potion.effect.es_displacement=Potion of Displacement
+splash_potion.effect.es_displacement=Splash Potion of Displacement
+tipped_arrow.effect.es_displacement=Arrow of Displacement
+lingering_potion.effect.es_levitation=Lingering Potion of Lifting
+potion.effect.es_levitation=Potion of Lifting
+splash_potion.effect.es_levitation=Splash Potion of Lifting
+tipped_arrow.effect.es_levitation=Arrow of Lifting
+lingering_potion.effect.es_nausea=Lingering Potion of Confusion
+potion.effect.es_nausea=Potion of Confusion
+splash_potion.effect.es_nausea=Splash Potion of Confusion
+tipped_arrow.effect.es_nausea=Arrow of Confusion
+lingering_potion.effect.es_wither=Lingering Potion of Decay
+potion.effect.es_wither=Potion of Decay
+splash_potion.effect.es_wither=Splash Potion of Decay
+tipped_arrow.effect.es_wither=Arrow of Decay

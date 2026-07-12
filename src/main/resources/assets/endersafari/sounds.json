@@ -1,0 +1,45 @@
+{
+  "entity.dire_wolf.death": {
+    "sounds": [
+      "endersafari:entity/snow_wolf/death"
+    ]
+  },
+  "entity.dire_wolf.growl": {
+    "sounds": [
+      "endersafari:entity/dire_wolf/growl1",
+      "endersafari:entity/dire_wolf/growl2",
+      "endersafari:entity/dire_wolf/growl3"
+    ]
+  },
+  "entity.dire_wolf.howl": {
+    "sounds": [
+      "endersafari:entity/dire_wolf/howl"
+    ]
+  },
+  "entity.dire_wolf.hurt": {
+    "sounds": [
+      "endersafari:entity/dire_wolf/hurt"
+    ]
+  },
+  "entity.owl.death": {
+    "sounds": [
+      "endersafari:entity/owl/hurt"
+    ]
+  },
+  "entity.owl.hoot": {
+    "sounds": [
+      "endersafari:entity/owl/hoot_double",
+      "endersafari:entity/owl/hoot_single"
+    ]
+  },
+  "entity.owl.hurt": {
+    "sounds": [
+      "endersafari:entity/owl/hurt"
+    ]
+  },
+  "entity.witch_cat.grow": {
+    "sounds": [
+      "endersafari:entity/witch_cat/grow"
+    ]
+  }
+}

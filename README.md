@@ -1,2 +1,2 @@
 # EnderSafari
-Ender Zoo rewrite for 1.12.2.
+A compilation of unique mobs for 1.12.2.

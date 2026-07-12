@@ -1,0 +1,27 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "EEE",
+    "SGS",
+    "CCC"
+  ],
+  "key": {
+    "E": {
+      "item": "endersafari:ender_fragment"
+    },
+    "C": {
+      "item": "endersafari:confusing_dust"
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "sand"
+    },
+    "G": {
+      "type": "forge:ore_dict",
+      "ore": "gunpowder"
+    }
+  },
+  "result": {
+    "item": "endersafari:concussion_charge"
+  }
+}
