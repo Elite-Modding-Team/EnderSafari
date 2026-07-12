@@ -46,25 +46,25 @@ public class ModPotionsES {
     public static void registerPotionTypes(@Nonnull final RegistryEvent.Register<PotionType> event) {
         IForgeRegistry<PotionType> registry = event.getRegistry();
 
-        DISPLACEMENT_POTION = registerPotionType("displacement", new PotionType("ez_displacement",
+        DISPLACEMENT_POTION = registerPotionType("displacement", new PotionType("es_displacement",
                 new PotionEffect(DISPLACEMENT, 1, 0)));
-        DISPLACEMENT_POTION_STRONG = registerPotionType("displacement_strong", new PotionType("ez_displacement",
+        DISPLACEMENT_POTION_STRONG = registerPotionType("displacement_strong", new PotionType("es_displacement",
                 new PotionEffect(DISPLACEMENT, 1, 1)));
-        LEVITATION_POTION = registerPotionType("levitation", new PotionType("ez_levitation",
+        LEVITATION_POTION = registerPotionType("levitation", new PotionType("es_levitation",
                 new PotionEffect(MobEffects.LEVITATION, 900, 0)));
-        LEVITATION_POTION_LONG = registerPotionType("levitation_long", new PotionType("ez_levitation",
+        LEVITATION_POTION_LONG = registerPotionType("levitation_long", new PotionType("es_levitation",
                 new PotionEffect(MobEffects.LEVITATION, 1800, 0)));
-        LEVITATION_POTION_STRONG = registerPotionType("levitation_strong", new PotionType("ez_levitation",
+        LEVITATION_POTION_STRONG = registerPotionType("levitation_strong", new PotionType("es_levitation",
                 new PotionEffect(MobEffects.LEVITATION, 450, 1)));
-        NAUSEA_POTION = registerPotionType("nausea", new PotionType("ez_nausea",
+        NAUSEA_POTION = registerPotionType("nausea", new PotionType("es_nausea",
                 new PotionEffect(MobEffects.NAUSEA, 900, 0)));
-        NAUSEA_POTION_LONG = registerPotionType("nausea_long", new PotionType("ez_nausea",
+        NAUSEA_POTION_LONG = registerPotionType("nausea_long", new PotionType("es_nausea",
                 new PotionEffect(MobEffects.NAUSEA, 1800, 0)));
-        WITHER_POTION = registerPotionType("wither", new PotionType("ez_wither",
+        WITHER_POTION = registerPotionType("wither", new PotionType("es_wither",
                 new PotionEffect(MobEffects.WITHER, 900, 0)));
-        WITHER_POTION_LONG = registerPotionType("wither_long", new PotionType("ez_wither",
+        WITHER_POTION_LONG = registerPotionType("wither_long", new PotionType("es_wither",
                 new PotionEffect(MobEffects.WITHER, 1800, 0)));
-        WITHER_POTION_STRONG = registerPotionType("wither_strong", new PotionType("ez_wither",
+        WITHER_POTION_STRONG = registerPotionType("wither_strong", new PotionType("es_wither",
                 new PotionEffect(MobEffects.WITHER, 450, 1)));
 
         registry.registerAll(
