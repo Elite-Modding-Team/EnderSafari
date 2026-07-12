@@ -9,7 +9,7 @@ tile.endersafari:ender_charge.name=Ender Charge
 enchantment.endersafari.decay=Decay
 enchantment.endersafari.decay.desc=Arrows fired from the bow will inflict Wither.
 enchantment.endersafari.repellent=Repellent
-enchantment.endersafari.repellent.desc=Randomly teleports mobs away when they attack you. Does not work on bosses.
+enchantment.endersafari.repellent.desc=Randomly teleports attackers. Does not work on bosses.
 enchantment.endersafari.wither_aspect=Wither Aspect
 enchantment.endersafari.wither_aspect.desc=Inflicts Wither when attacking a mob.
 
