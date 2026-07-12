@@ -70,6 +70,10 @@ public class EZConfig {
         public final WitherWitch WITHER_WITCH = new WitherWitch();
 
         public static class ConcussionCreeper {
+            @Config.Name("Alternate Texture")
+            @Config.Comment("Enables an alternate Concussion Creeper texture used in the original Ender Zoo mod")
+            public boolean enableAlternateTexture = false;
+
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Concussion Creeper has")
             public double armor = 0;
@@ -210,6 +214,10 @@ public class EZConfig {
         }
 
         public static class Enderminy {
+            @Config.Name("Alternate Texture")
+            @Config.Comment("Enables an alternate Enderminy texture used in the original Ender Zoo mod")
+            public boolean enableAlternateTexture = false;
+
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Enderminy has")
             public double armor = 0;

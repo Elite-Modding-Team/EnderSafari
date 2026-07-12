@@ -1,6 +1,7 @@
 package mod.emt.enderzoo.client.render;
 
 import mod.emt.enderzoo.EnderSafari;
+import mod.emt.enderzoo.config.EZConfig;
 import mod.emt.enderzoo.entity.EntityEnderminy;
 import net.minecraft.client.model.ModelEnderman;
 import net.minecraft.client.renderer.GlStateManager;
@@ -17,8 +18,10 @@ import org.jetbrains.annotations.NotNull;
 
 @SideOnly(Side.CLIENT)
 public class RenderEnderminy extends RenderLiving<EntityEnderminy> {
-    private static final ResourceLocation ENDERMINY_TEXTURES = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy.png");
-    private static final ResourceLocation ENDERMINY_EYES_TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy_eyes.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy.png");
+    private static final ResourceLocation TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/alt/enderminy.png");
+    private static final ResourceLocation EYE_TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy_eyes.png");
+    private static final ResourceLocation EYE_TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/alt/enderminy_eyes.png");
 
     private final ModelEnderman endermanModel;
 
@@ -43,7 +46,7 @@ public class RenderEnderminy extends RenderLiving<EntityEnderminy> {
 
     @Override
     protected ResourceLocation getEntityTexture(@NotNull EntityEnderminy entity) {
-        return ENDERMINY_TEXTURES;
+        return EZConfig.ENTITIES.ENDERMINY.enableAlternateTexture ? TEXTURE_ALT : TEXTURE;
     }
 
     @Override
@@ -55,7 +58,8 @@ public class RenderEnderminy extends RenderLiving<EntityEnderminy> {
 
         @Override
         public void doRenderLayer(@NotNull EntityEnderminy entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-            bindTexture(ENDERMINY_EYES_TEXTURE);
+            ResourceLocation eyeTexture = EZConfig.ENTITIES.ENDERMINY.enableAlternateTexture ?  EYE_TEXTURE_ALT : EYE_TEXTURE;
+            bindTexture(eyeTexture);
             GlStateManager.enableBlend();
             GlStateManager.disableAlpha();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
