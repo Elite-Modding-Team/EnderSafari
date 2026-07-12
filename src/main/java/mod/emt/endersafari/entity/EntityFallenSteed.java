@@ -39,6 +39,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
 
     public EntityFallenSteed(World world) {
         super(world);
+        this.setSize(1.0F, 1.52F);
         setGrowingAge(0);
         setHorseSaddled(true);
         this.tasks.taskEntries.removeIf(entry ->
@@ -342,6 +343,11 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
     @Override
     public Entity getControllingPassenger() {
         return this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
+    }
+
+    @Override
+    public float getEyeHeight() {
+        return this.height * 0.9F;
     }
 
     private boolean burnInSun() {
