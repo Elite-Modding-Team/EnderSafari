@@ -2,6 +2,7 @@ package mod.emt.enderzoo.proxy;
 
 import mod.emt.enderzoo.compat.EnderIOIntegration;
 import mod.emt.enderzoo.compat.JERIntegration;
+import mod.emt.enderzoo.compat.ThaumcraftIntegration;
 import mod.emt.enderzoo.registry.ModEntitiesEZ;
 import mod.emt.enderzoo.registry.ModLootTablesEZ;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,6 +22,10 @@ public class CommonProxy {
 
         if (CompatHelper.isJERLoaded) {
             JERIntegration.init();
+        }
+
+        if (CompatHelper.isThaumcraftLoaded) {
+            MinecraftForge.EVENT_BUS.register(new ThaumcraftIntegration());
         }
     }
 

@@ -41,8 +41,10 @@ dependencies {
 
     implementation rfg.deobf('curse.maven:future-fireproof-1121231:7627538')
 
+    compileOnly 'curse.maven:baubles-227083:2518667'
     compileOnly 'curse.maven:endercore-231868:4671384'
     compileOnly 'curse.maven:ender-io-64578:4674244'
+    compileOnly 'curse.maven:thaumcraft-223628:2629023'
 
     def modMap = [:]
     def loadMap = [:]
