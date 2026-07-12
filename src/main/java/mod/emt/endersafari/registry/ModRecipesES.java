@@ -9,6 +9,7 @@ public class ModRecipesES {
     public static void registerBrewingRecipes() {
         PotionHelper.addMix(PotionTypes.AWKWARD, ModItemsES.ENDER_FRAGMENT, ModPotionsES.DISPLACEMENT_POTION);
         PotionHelper.addMix(PotionTypes.AWKWARD, Items.ENDER_PEARL, ModPotionsES.DISPLACEMENT_POTION_STRONG);
+        PotionHelper.addMix(PotionTypes.AWKWARD, ModItemsES.EPIC_INK_SAC, PotionTypes.FIRE_RESISTANCE);
         PotionHelper.addMix(ModPotionsES.DISPLACEMENT_POTION, Items.GLOWSTONE_DUST, ModPotionsES.DISPLACEMENT_POTION_STRONG);
 
         if (!CompatHelper.isEnderIOLoaded) {
