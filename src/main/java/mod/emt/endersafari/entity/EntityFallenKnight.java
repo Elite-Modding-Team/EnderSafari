@@ -196,17 +196,6 @@ public class EntityFallenKnight extends EntitySkeleton implements IRangedAttackM
                     swapWeapon(this.rangedMode);
                 }
             }
-
-            EntityLivingBase attackTarget = this.getAttackTarget();
-            if (attackTarget != null && attackTarget.isEntityAlive()) {
-                if (!this.isSwingingArms()) {
-                    this.setSwingingArms(true);
-                }
-            } else {
-                if (this.isSwingingArms()) {
-                    this.setSwingingArms(false);
-                }
-            }
         }
     }
 
