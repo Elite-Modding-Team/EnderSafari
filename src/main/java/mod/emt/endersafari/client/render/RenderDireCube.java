@@ -16,7 +16,12 @@ import org.jetbrains.annotations.NotNull;
 
 @SideOnly(Side.CLIENT)
 public class RenderDireCube extends RenderLiving<EntityDireCube> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube.png");
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[] {
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube/dire_cube_dirt.png"),
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube/dire_cube_gravel.png"),
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube/dire_cube_sand.png"),
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_cube/dire_cube_red_sand.png")
+    };
 
     public RenderDireCube(RenderManager render) {
         super(render, new ModelCube(), 0.25F);
@@ -34,7 +39,7 @@ public class RenderDireCube extends RenderLiving<EntityDireCube> {
     protected void renderModel(@NotNull EntityDireCube entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {
         super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
         if (!entity.isInvisible()) {
-            this.bindTexture(TEXTURE);
+            this.bindTexture(TEXTURES[entity.getType()]);
             GlStateManager.enableBlend();
             GlStateManager.disableAlpha();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -53,7 +58,7 @@ public class RenderDireCube extends RenderLiving<EntityDireCube> {
 
     @Override
     protected @NotNull ResourceLocation getEntityTexture(@NotNull EntityDireCube entity) {
-        return TEXTURE;
+        return TEXTURES[entity.getType()];
     }
 
     public static class Factory implements IRenderFactory<EntityDireCube> {

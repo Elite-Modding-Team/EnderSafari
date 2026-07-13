@@ -16,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 @SideOnly(Side.CLIENT)
 public class RenderDireWolf extends RenderLiving<EntityDireWolf> {
     private static final ResourceLocation[] TEXTURES = new ResourceLocation[] {
-            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_wolf.png"),
-            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/snowy_dire_wolf.png")
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_wolf/dire_wolf.png"),
+            new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/dire_wolf/snowy_dire_wolf.png")
     };
 
     public RenderDireWolf(RenderManager render) {

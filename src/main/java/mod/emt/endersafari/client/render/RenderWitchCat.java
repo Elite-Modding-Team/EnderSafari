@@ -17,8 +17,8 @@ import org.jetbrains.annotations.NotNull;
 
 @SideOnly(Side.CLIENT)
 public class RenderWitchCat extends RenderLiving<EntityWitchCat> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/witch_cat.png");
-    private static final ResourceLocation TEXTURE_ANGRY = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/witch_cat_angry.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/witch_cat/witch_cat.png");
+    private static final ResourceLocation TEXTURE_ANGRY = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/witch_cat/witch_cat_angry.png");
     private final float defaultShadowSize;
 
     public RenderWitchCat(RenderManager render) {

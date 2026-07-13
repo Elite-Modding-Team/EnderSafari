@@ -18,10 +18,10 @@ import org.jetbrains.annotations.NotNull;
 
 @SideOnly(Side.CLIENT)
 public class RenderEnderminy extends RenderLiving<EntityEnderminy> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy.png");
-    private static final ResourceLocation TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/alt/enderminy.png");
-    private static final ResourceLocation EYE_TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy_eyes.png");
-    private static final ResourceLocation EYE_TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/alt/enderminy_eyes.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy/enderminy.png");
+    private static final ResourceLocation TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy/enderminy_alt.png");
+    private static final ResourceLocation EYE_TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy/enderminy_eyes.png");
+    private static final ResourceLocation EYE_TEXTURE_ALT = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/enderminy/enderminy_eyes_alt.png");
 
     private final ModelEnderman endermanModel;
 
