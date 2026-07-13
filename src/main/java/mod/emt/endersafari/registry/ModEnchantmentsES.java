@@ -1,6 +1,7 @@
 package mod.emt.endersafari.registry;
 
 import mod.emt.endersafari.EnderSafari;
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.enchantment.ESEnchantment;
 import mod.emt.endersafari.enchantment.EnchantmentDecay;
 import mod.emt.endersafari.enchantment.EnchantmentRepellent;
@@ -23,11 +24,10 @@ public class ModEnchantmentsES {
     @SubscribeEvent
     public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event) {
         final IForgeRegistry<Enchantment> registry = event.getRegistry();
-        // TODO: Make it where each enchantment can be disabled
         if (!CompatHelper.isEnderIOLoaded) {
-            registry.register(DECAY);
-            registry.register(REPELLENT);
-            registry.register(WITHER_ASPECT);
+            if (ESConfig.ENCHANTMENTS.DECAY.enableEnchantment) registry.register(DECAY);
+            if (ESConfig.ENCHANTMENTS.REPELLENT.enableEnchantment) registry.register(REPELLENT);
+            if (ESConfig.ENCHANTMENTS.WITHER_ASPECT.enableEnchantment) registry.register(WITHER_ASPECT);
         }
     }
 }

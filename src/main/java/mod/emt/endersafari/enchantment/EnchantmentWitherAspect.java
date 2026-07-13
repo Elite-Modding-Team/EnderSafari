@@ -1,5 +1,6 @@
 package mod.emt.endersafari.enchantment;
 
+import mod.emt.endersafari.config.ESConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentFireAspect;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -15,7 +16,7 @@ import javax.annotation.Nonnull;
 
 public class EnchantmentWitherAspect extends ESEnchantment {
     public EnchantmentWitherAspect(String name) {
-        super(name, Rarity.RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
+        super(name, ESConfig.ENCHANTMENTS.WITHER_ASPECT.rarity, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -25,24 +26,24 @@ public class EnchantmentWitherAspect extends ESEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return 2;
+        return ESConfig.ENCHANTMENTS.WITHER_ASPECT.maxLevel;
     }
 
     @Override
     public int getMinEnchantability(int enchantmentLevel) {
-        return 10 + 20 * (enchantmentLevel - 1);
+        return ESConfig.ENCHANTMENTS.WITHER_ASPECT.minEnchantability + 20 * (enchantmentLevel - 1);
     }
 
     @Override
     public int getMaxEnchantability(int enchantmentLevel) {
-        return super.getMinEnchantability(enchantmentLevel) + 50;
+        return super.getMinEnchantability(enchantmentLevel) + ESConfig.ENCHANTMENTS.WITHER_ASPECT.maxEnchantability;
     }
 
     @Override
     public void onEntityDamaged(@NotNull EntityLivingBase entity, @NotNull Entity target, int level) {
         if (target instanceof EntityLivingBase && level > 0) {
             EntityLivingBase livingTarget = (EntityLivingBase) target;
-            PotionEffect witherEffect = new PotionEffect(MobEffects.WITHER, 20 * (5 * level), 0);
+            PotionEffect witherEffect = new PotionEffect(MobEffects.WITHER, 20 * (ESConfig.ENCHANTMENTS.WITHER_ASPECT.duration * level), 0);
             if (livingTarget.isPotionApplicable(witherEffect)) {
                 livingTarget.addPotionEffect(witherEffect);
             }

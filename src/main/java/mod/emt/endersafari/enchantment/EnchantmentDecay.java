@@ -1,5 +1,6 @@
 package mod.emt.endersafari.enchantment;
 
+import mod.emt.endersafari.config.ESConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentArrowFire;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -11,7 +12,7 @@ import javax.annotation.Nonnull;
 
 public class EnchantmentDecay extends ESEnchantment {
     public EnchantmentDecay(String name) {
-        super(name, Rarity.RARE, EnumEnchantmentType.BOW, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
+        super(name, ESConfig.ENCHANTMENTS.DECAY.rarity, EnumEnchantmentType.BOW, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -21,17 +22,17 @@ public class EnchantmentDecay extends ESEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return 1;
+        return ESConfig.ENCHANTMENTS.DECAY.maxLevel;
     }
 
     @Override
     public int getMinEnchantability(int enchantmentLevel) {
-        return 20;
+        return ESConfig.ENCHANTMENTS.DECAY.minEnchantability;
     }
 
     @Override
     public int getMaxEnchantability(int enchantmentLevel) {
-        return 50;
+        return ESConfig.ENCHANTMENTS.DECAY.maxEnchantability;
     }
 
     @Override

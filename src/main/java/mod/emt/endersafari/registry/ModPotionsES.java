@@ -1,6 +1,7 @@
 package mod.emt.endersafari.registry;
 
 import mod.emt.endersafari.EnderSafari;
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.effect.MobEffectDisplacement;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
@@ -11,7 +12,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 import javax.annotation.Nonnull;
 
@@ -67,18 +67,30 @@ public class ModPotionsES {
         WITHER_POTION_STRONG = registerPotionType("wither_strong", new PotionType("es_wither",
                 new PotionEffect(MobEffects.WITHER, 450, 1)));
 
-        registry.registerAll(
-                DISPLACEMENT_POTION,
-                DISPLACEMENT_POTION_STRONG
-        );
+        if (!ESConfig.GENERAL.disablePotionDisplacement) {
+            registry.registerAll(
+                    DISPLACEMENT_POTION,
+                    DISPLACEMENT_POTION_STRONG
+            );
+        }
 
-        if (!CompatHelper.isEnderIOLoaded) {
+        if (!ESConfig.GENERAL.disablePotionDecay) {
             registry.registerAll(
                     WITHER_POTION,
                     WITHER_POTION_LONG,
-                    WITHER_POTION_STRONG,
+                    WITHER_POTION_STRONG
+            );
+        }
+
+        if (!ESConfig.GENERAL.disablePotionConfusion) {
+            registry.registerAll(
                     NAUSEA_POTION,
-                    NAUSEA_POTION_LONG,
+                    NAUSEA_POTION_LONG
+            );
+        }
+
+        if (!ESConfig.GENERAL.disablePotionLifting) {
+            registry.registerAll(
                     LEVITATION_POTION,
                     LEVITATION_POTION_LONG,
                     LEVITATION_POTION_STRONG

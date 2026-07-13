@@ -1,5 +1,6 @@
 package mod.emt.endersafari.enchantment;
 
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.entity.TeleportHelper;
 import mod.emt.endersafari.registry.ModEnchantmentsES;
 import net.minecraft.enchantment.Enchantment;
@@ -19,7 +20,7 @@ import java.util.Random;
 
 public class EnchantmentRepellent extends ESEnchantment {
     public EnchantmentRepellent(String name) {
-        super(name, Rarity.VERY_RARE, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values());
+        super(name, ESConfig.ENCHANTMENTS.REPELLENT.rarity, EnumEnchantmentType.ARMOR, EntityEquipmentSlot.values());
     }
 
     @Override
@@ -29,17 +30,17 @@ public class EnchantmentRepellent extends ESEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return 4;
+        return ESConfig.ENCHANTMENTS.REPELLENT.maxLevel;
     }
 
     @Override
     public int getMinEnchantability(int enchantmentLevel) {
-        return 10 + 20 * (enchantmentLevel - 1);
+        return ESConfig.ENCHANTMENTS.REPELLENT.minEnchantability + 20 * (enchantmentLevel - 1);
     }
 
     @Override
     public int getMaxEnchantability(int enchantmentLevel) {
-        return super.getMinEnchantability(enchantmentLevel) + 50;
+        return super.getMinEnchantability(enchantmentLevel) + ESConfig.ENCHANTMENTS.REPELLENT.maxEnchantability;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class EnchantmentRepellent extends ESEnchantment {
         if (shouldHit(level, entity.getRNG())) {
             if (attacker instanceof EntityLivingBase && attacker.isNonBoss() && !entity.world.isRemote) {
                 EntityLivingBase livingAttacker = (EntityLivingBase) attacker;
-                TeleportHelper.teleportEntity(entity.world, livingAttacker, false, true, 16 + level * 8);
+                TeleportHelper.teleportEntity(entity.world, livingAttacker, false, true, ESConfig.ENCHANTMENTS.REPELLENT.repellentTeleportRangeBase + level * ESConfig.ENCHANTMENTS.REPELLENT.repellentTeleportRangeScale);
             }
 
             if (!stack.isEmpty()) {
@@ -62,7 +63,7 @@ public class EnchantmentRepellent extends ESEnchantment {
         if (level <= 0) {
             return false;
         } else {
-            return rnd.nextFloat() < 0.15F * (float) level;
+            return rnd.nextFloat() < (float) ESConfig.ENCHANTMENTS.REPELLENT.repellentChancePerLevel * (float) level;
         }
     }
 

@@ -1,6 +1,7 @@
 package mod.emt.endersafari.config;
 
 import mod.emt.endersafari.EnderSafari;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -10,62 +11,191 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = EnderSafari.MOD_ID, name = "EnderSafari")
 public class ESConfig {
     @Config.LangKey("cfg.endersafari.general")
-    @Config.Name("General")
-    public static final GeneralSettings GENERAL = new GeneralSettings();
+    public static final General GENERAL = new General();
+
+    @Config.LangKey("config.endersafari.enchantments")
+    @Config.Comment("Settings for enchantments")
+    public static final Enchantments ENCHANTMENTS = new Enchantments();
 
     @Config.LangKey("config.endersafari.entities")
     @Config.Comment("Settings for entities")
     public static final Entities ENTITIES = new Entities();
 
-    public static class GeneralSettings {
+    public static class General {
+        @Config.Name("Disable Potion of Confusion")
+        @Config.Comment("Disables the Potion of Confusion, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionConfusion = false;
+
+        @Config.Name("Disable Potion of Decay")
+        @Config.Comment("Disables the Potion of Decay, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionDecay = false;
+
+        @Config.Name("Disable Potion of Displacement")
+        @Config.Comment("Disables the Potion of Displacement, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionDisplacement = false;
+
+        @Config.Name("Disable Potion of Lifting")
+        @Config.Comment("Disables the Potion of Lifting, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionLifting = false;
+    }
+
+    public static class Enchantments {
+        @Config.LangKey("config.endersafari.enchantments.decay")
+        @Config.Comment("Decay settings")
+        public final Enchantments.Decay DECAY = new Enchantments.Decay();
+
+        @Config.LangKey("config.endersafari.enchantments.repellent")
+        @Config.Comment("Repellent settings")
+        public final Enchantments.Repellent REPELLENT = new Enchantments.Repellent();
+
+        @Config.LangKey("config.endersafari.enchantments.wither_aspect")
+        @Config.Comment("Wither Aspect settings")
+        public final Enchantments.WitherAspect WITHER_ASPECT = new Enchantments.WitherAspect();
+
+        public static class Decay {
+            @Config.Name("Duration")
+            @Config.Comment("The duration (in seconds) of Wither that the Decay enchantment will inflict")
+            @Config.RangeInt(min = 1)
+            public int duration = 6;
+
+            @Config.Name("Enable Enchantment")
+            @Config.Comment("Enables the Decay enchantment")
+            public boolean enableEnchantment = true;
+
+            @Config.Name("Max Enchantability")
+            @Config.Comment("Max enchantability that the Decay enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int maxEnchantability = 50;
+
+            @Config.Name("Min Enchantability")
+            @Config.Comment("Min enchantability that the Decay enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int minEnchantability = 20;
+
+            @Config.Name("Max Level")
+            @Config.Comment("Max level that the Decay enchantment can be")
+            @Config.RangeInt(min = 1)
+            public int maxLevel = 1;
+
+            @Config.Name("Rarity")
+            @Config.Comment("The rarity of the Decay enchantment")
+            public Enchantment.Rarity rarity = Enchantment.Rarity.RARE;
+        }
+
+        public static class Repellent {
+            @Config.Name("Enable Enchantment")
+            @Config.Comment("Enables the Repellent enchantment")
+            public boolean enableEnchantment = true;
+
+            @Config.Name("Max Enchantability")
+            @Config.Comment("Max enchantability that the Repellent enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int maxEnchantability = 50;
+
+            @Config.Name("Min Enchantability")
+            @Config.Comment("Min enchantability that the Repellent enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int minEnchantability = 10;
+
+            @Config.Name("Max Level")
+            @Config.Comment("Max level that the Repellent enchantment can be")
+            @Config.RangeInt(min = 1)
+            public int maxLevel = 4;
+
+            @Config.Name("Rarity")
+            @Config.Comment("The rarity of the Repellent enchantment")
+            public Enchantment.Rarity rarity = Enchantment.Rarity.VERY_RARE;
+
+            @Config.Name("Base Teleport Range")
+            @Config.Comment("The base range when attackers are teleported by the Repellent enchantment")
+            public int repellentTeleportRangeBase = 16;
+
+            @Config.Name("Teleport Range Per Level")
+            @Config.Comment("The extra range per level when attackers are teleported by the Repellent enchantment")
+            public int repellentTeleportRangeScale = 8;
+
+            @Config.Name("Repellent Chance Per Level")
+            @Config.Comment("The default chance (multiplied by level) for the Repellent enchantment to teleport an attacker")
+            public double repellentChancePerLevel = 0.15;
+        }
+
+        public static class WitherAspect {
+            @Config.Name("Duration")
+            @Config.Comment("The duration (in seconds) of Wither that the Wither Aspect enchantment will inflict")
+            @Config.RangeInt(min = 1)
+            public int duration = 5;
+
+            @Config.Name("Enable Enchantment")
+            @Config.Comment("Enables the Wither Aspect enchantment")
+            public boolean enableEnchantment = true;
+
+            @Config.Name("Max Enchantability")
+            @Config.Comment("Max enchantability that the Wither Aspect enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int maxEnchantability = 50;
+
+            @Config.Name("Min Enchantability")
+            @Config.Comment("Min enchantability that the Wither Aspect enchantment can have")
+            @Config.RangeInt(min = 0)
+            public int minEnchantability = 10;
+
+            @Config.Name("Max Level")
+            @Config.Comment("Max level that the Wither Aspect enchantment can be")
+            @Config.RangeInt(min = 1)
+            public int maxLevel = 2;
+
+            @Config.Name("Rarity")
+            @Config.Comment("The rarity of the Wither Aspect enchantment")
+            public Enchantment.Rarity rarity = Enchantment.Rarity.RARE;
+        }
     }
 
     public static class Entities {
-        @Config.LangKey("config.endersafari.concussion_creeper")
+        @Config.LangKey("config.endersafari.entities.concussion_creeper")
         @Config.Comment("Concussion Creeper settings")
         public final ConcussionCreeper CONCUSSION_CREEPER = new ConcussionCreeper();
 
-        @Config.LangKey("config.endersafari.dire_cube")
+        @Config.LangKey("config.endersafari.entities.dire_cube")
         @Config.Comment("Khndrel Keght settings")
         public final DireCube DIRE_CUBE = new DireCube();
 
-        @Config.LangKey("config.endersafari.dire_wolf")
+        @Config.LangKey("config.endersafari.entities.dire_wolf")
         @Config.Comment("Dire Wolf settings")
         public final DireWolf DIRE_WOLF = new DireWolf();
 
-        @Config.LangKey("config.endersafari.enderized_zombie")
+        @Config.LangKey("config.endersafari.entities.enderized_zombie")
         @Config.Comment("Enderized Zombie settings")
         public final EnderizedZombie ENDERIZED_ZOMBIE = new EnderizedZombie();
 
-        @Config.LangKey("config.endersafari.enderminy")
+        @Config.LangKey("config.endersafari.entities.enderminy")
         @Config.Comment("Enderminy settings")
         public final Enderminy ENDERMINY = new Enderminy();
 
-        @Config.LangKey("config.endersafari.epic_squid")
+        @Config.LangKey("config.endersafari.entities.epic_squid")
         @Config.Comment("Epic Squid settings")
         public final EpicSquid EPIC_SQUID = new EpicSquid();
 
-        @Config.LangKey("config.endersafari.fallen_knight")
+        @Config.LangKey("config.endersafari.entities.fallen_knight")
         @Config.Comment("Fallen Knight settings")
         public final FallenKnight FALLEN_KNIGHT = new FallenKnight();
 
-        @Config.LangKey("config.endersafari.fallen_steed")
+        @Config.LangKey("config.endersafari.entities.fallen_steed")
         @Config.Comment("Fallen Steed settings")
         public final FallenSteed FALLEN_STEED = new FallenSteed();
 
-        @Config.LangKey("config.endersafari.owl")
+        @Config.LangKey("config.endersafari.entities.owl")
         @Config.Comment("Owl settings")
         public final Owl OWL = new Owl();
 
-        @Config.LangKey("config.endersafari.void_cube")
+        @Config.LangKey("config.endersafari.entities.void_cube")
         @Config.Comment("Void Cube settings")
         public final VoidCube VOID_CUBE = new VoidCube();
 
-        @Config.LangKey("config.endersafari.witch_cat")
+        @Config.LangKey("config.endersafari.entities.witch_cat")
         @Config.Comment("Witch's Cat settings")
         public final WitchCat WITCH_CAT = new WitchCat();
 
-        @Config.LangKey("config.endersafari.wither_witch")
+        @Config.LangKey("config.endersafari.entities.wither_witch")
         @Config.Comment("Wither Witch settings")
         public final WitherWitch WITHER_WITCH = new WitherWitch();
 
