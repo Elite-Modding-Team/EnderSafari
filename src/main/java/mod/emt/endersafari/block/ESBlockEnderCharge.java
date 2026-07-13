@@ -6,7 +6,6 @@ import mod.emt.endersafari.entity.EntityEnderChargePrimed;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -14,16 +13,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("deprecation")
 public class ESBlockEnderCharge extends BlockTNT {
     public ESBlockEnderCharge(String name) {
         super();
@@ -54,9 +53,8 @@ public class ESBlockEnderCharge extends BlockTNT {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void addInformation(@NotNull ItemStack stack, @Nullable World world, @NotNull List<String> list, @NotNull ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format("tile." + Objects.requireNonNull(this.getRegistryName()) + ".tooltip"));
-        list.add(TextFormatting.GRAY + I18n.format("tile." + EnderSafari.MOD_ID + ":charge.tooltip"));
+        list.add(TextFormatting.GRAY + I18n.translateToLocal("tile." + Objects.requireNonNull(this.getRegistryName()) + ".tooltip"));
+        list.add(TextFormatting.GRAY + I18n.translateToLocal("tile." + EnderSafari.MOD_ID + ":charge.tooltip"));
     }
 }

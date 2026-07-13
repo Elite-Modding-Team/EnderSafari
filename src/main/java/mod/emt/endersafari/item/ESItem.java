@@ -1,12 +1,12 @@
 package mod.emt.endersafari.item;
 
 import mod.emt.endersafari.EnderSafari;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("deprecation")
 public class ESItem extends Item {
     private final EnumRarity rarity;
     protected String tooltip = null;
@@ -46,7 +47,7 @@ public class ESItem extends Item {
     @SideOnly(Side.CLIENT)
     public void addInformation(@NotNull ItemStack stack, @Nullable World world, @NotNull List<String> list, @NotNull ITooltipFlag flag) {
         if (tooltip != null) {
-            list.add(TextFormatting.GRAY + I18n.format(tooltip));
+            list.add(TextFormatting.GRAY + I18n.translateToLocal(tooltip));
         }
     }
 }
