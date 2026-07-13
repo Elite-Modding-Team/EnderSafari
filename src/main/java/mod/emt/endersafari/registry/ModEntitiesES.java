@@ -72,7 +72,7 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.ENDERMINY.enableEntity) registerEntity("enderminy", EntityEnderminy.class, 2581069, 2171169);
         if (ESConfig.ENTITIES.EPIC_SQUID.enableEntity) registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
         if (ESConfig.ENTITIES.FALLEN_KNIGHT.enableEntity) registerEntity("fallen_knight", EntityFallenKnight.class, 3562021, 10526880);
-        if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity) registerEntity("fallen_steed", EntityFallenSteed.class, 3562021, 10526880);
+        if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity) registerEntity("fallen_steed", EntityFallenSteed.class, 8947542, 10526880);
         if (ESConfig.ENTITIES.OWL.enableEntity) registerEntity("owl", EntityOwl.class, 12679497, 16768454);
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity) registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
