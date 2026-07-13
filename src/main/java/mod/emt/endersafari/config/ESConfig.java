@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = EnderSafari.MOD_ID, name = "EnderSafari")
 public class ESConfig {
-    @Config.LangKey("cfg.endersafari.general")
+    @Config.LangKey("config.endersafari.general")
     public static final General GENERAL = new General();
 
     @Config.LangKey("config.endersafari.enchantments")
@@ -20,6 +20,10 @@ public class ESConfig {
     @Config.LangKey("config.endersafari.entities")
     @Config.Comment("Settings for entities")
     public static final Entities ENTITIES = new Entities();
+
+    @Config.LangKey("config.endersafari.mod_integration")
+    @Config.Comment("Settings for mod integration")
+    public static final ModIntegration MOD_INTEGRATION = new ModIntegration();
 
     public static class General {
         @Config.Name("Disable Potion of Confusion")
@@ -721,6 +725,20 @@ public class ESConfig {
             @Config.RangeInt(min = 0)
             public int spawnWeight = 5;
         }
+    }
+
+    public static class ModIntegration {
+        @Config.Name("Ender IO Integration")
+        @Config.Comment("Enables Ender IO integration, which adds extra drops to certain mobs, and allows Ender IO potions to be brewed")
+        public boolean enderIOIntegration = true;
+
+        @Config.Name("Just Enough Resources Integration")
+        @Config.Comment("Enables Just Enough Resources integration")
+        public boolean JERIntegration = false;
+
+        @Config.Name("Thaumcraft Integration")
+        @Config.Comment("Enables Thaumcraft aspect integration")
+        public boolean thaumcraftIntegration = true;
     }
 
     @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)

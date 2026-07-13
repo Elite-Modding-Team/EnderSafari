@@ -24,10 +24,8 @@ public class ModEnchantmentsES {
     @SubscribeEvent
     public static void registerEnchantments(@Nonnull final RegistryEvent.Register<Enchantment> event) {
         final IForgeRegistry<Enchantment> registry = event.getRegistry();
-        if (!CompatHelper.isEnderIOLoaded) {
-            if (ESConfig.ENCHANTMENTS.DECAY.enableEnchantment) registry.register(DECAY);
-            if (ESConfig.ENCHANTMENTS.REPELLENT.enableEnchantment) registry.register(REPELLENT);
-            if (ESConfig.ENCHANTMENTS.WITHER_ASPECT.enableEnchantment) registry.register(WITHER_ASPECT);
-        }
+        if (ESConfig.ENCHANTMENTS.DECAY.enableEnchantment) registry.register(DECAY);
+        if (ESConfig.ENCHANTMENTS.REPELLENT.enableEnchantment) registry.register(REPELLENT);
+        if (ESConfig.ENCHANTMENTS.WITHER_ASPECT.enableEnchantment) registry.register(WITHER_ASPECT);
     }
 }
