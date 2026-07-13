@@ -59,3 +59,10 @@ lingering_potion.effect.es_wither=Lingering Potion of Decay
 potion.effect.es_wither=Potion of Decay
 splash_potion.effect.es_wither=Splash Potion of Decay
 tipped_arrow.effect.es_wither=Arrow of Decay
+
+# Tooltips
+item.endersafari:owl_egg.tooltip=Throwing it can spawn a baby Owl.
+tile.endersafari:charge.tooltip=Does not destroy blocks.
+tile.endersafari:concussion_charge.tooltip=Explosion causes Nausea and teleports entities.
+tile.endersafari:confusing_charge.tooltip=Explosion causes Nausea.
+tile.endersafari:ender_charge.tooltip=Explosion teleports entities.

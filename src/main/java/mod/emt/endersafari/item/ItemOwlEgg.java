@@ -2,6 +2,8 @@ package mod.emt.endersafari.item;
 
 import mod.emt.endersafari.EnderSafari;
 import mod.emt.endersafari.entity.projectile.EntityOwlEgg;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemEgg;
@@ -11,9 +13,14 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Objects;
 
 public class ItemOwlEgg extends ItemEgg {
@@ -42,5 +49,11 @@ public class ItemOwlEgg extends ItemEgg {
 
         player.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
         return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(@NotNull ItemStack stack, @Nullable World world, @NotNull List<String> list, @NotNull ITooltipFlag flag) {
+        list.add(TextFormatting.GRAY + I18n.format("item." + Objects.requireNonNull(this.getRegistryName()) + ".tooltip"));
     }
 }
