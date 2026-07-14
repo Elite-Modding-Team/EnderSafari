@@ -1,6 +1,5 @@
 package mod.emt.endersafari.entity;
 
-import mod.emt.endersafari.EnderSafari;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import net.minecraft.block.Block;
@@ -26,7 +25,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
@@ -34,7 +32,6 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-@Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)
 public class EntityDireCube extends EntityMagmaCube {
     public static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityDireCube.class, DataSerializers.VARINT);
 
