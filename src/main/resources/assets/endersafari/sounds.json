@@ -28,8 +28,8 @@
   },
   "entity.owl.hoot": {
     "sounds": [
-      "endersafari:entity/owl/hoot_double",
-      "endersafari:entity/owl/hoot_single"
+      "endersafari:entity/owl/hoot1",
+      "endersafari:entity/owl/hoot2"
     ]
   },
   "entity.owl.hurt": {
