@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 public class EntityConfusingChargePrimed extends EntityChargePrimed {
     public EntityConfusingChargePrimed(World world) {
         super(world);
-        preventEntitySpawning = true;
-        setSize(0.98F, 0.98F);
+        this.preventEntitySpawning = true;
+        this.setSize(0.98F, 0.98F);
     }
 
     public EntityConfusingChargePrimed(World world, double x, double y, double z, EntityLivingBase igniter) {

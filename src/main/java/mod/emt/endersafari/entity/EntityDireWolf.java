@@ -37,8 +37,8 @@ public class EntityDireWolf extends EntityMob {
     public static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityDireWolf.class, DataSerializers.VARINT);
 
     private EntityLivingBase previousAttackTarget;
-    private static int packHowl = 0;
-    private static long lastHowl = 0;
+    private int packHowl = 0;
+    private long lastHowl = 0;
 
     public EntityDireWolf(World world) {
         super(world);
@@ -108,11 +108,13 @@ public class EntityDireWolf extends EntityMob {
     @Nullable
     @Override
     public IEntityLivingData onInitialSpawn(@Nonnull DifficultyInstance difficulty, @Nullable IEntityLivingData entityLivingData) {
+        entityLivingData = super.onInitialSpawn(difficulty, entityLivingData);
+
         if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.SNOWY)) {
             this.setType(1);
         }
 
-        return super.onInitialSpawn(difficulty, entityLivingData);
+        return entityLivingData;
     }
 
     @Override

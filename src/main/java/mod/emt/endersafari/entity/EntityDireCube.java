@@ -4,6 +4,7 @@ import mod.emt.endersafari.EnderSafari;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -86,7 +87,7 @@ public class EntityDireCube extends EntityMagmaCube {
             EnumParticleTypes enumparticletypes = this.getParticleType();
             double d0 = this.posX + f2;
             double d1 = this.posZ + f3;
-            IBlockState variant = this.getType() == 0 ? Blocks.DIRT.getDefaultState() : this.getType() == 1 ? Blocks.GRAVEL.getDefaultState() : this.getType() == 2 ? Blocks.SAND.getDefaultState() : Blocks.SAND.getStateFromMeta(1);
+            IBlockState variant = this.getType() == 0 ? Blocks.DIRT.getDefaultState() : this.getType() == 1 ? Blocks.GRAVEL.getDefaultState() : this.getType() == 2 ? Blocks.SAND.getDefaultState() : Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
             world.spawnParticle(enumparticletypes, d0, this.getEntityBoundingBox().minY, d1, 0.0D, 0.0D, 0.0D, Block.getStateId(variant));
         }
         return true;
@@ -134,12 +135,18 @@ public class EntityDireCube extends EntityMagmaCube {
 
     @Override
     public void setSlimeSize(int size, boolean resetHealth) {
-        int maxSize = 3;
-        size = Math.min(size, maxSize);
         super.setSlimeSize(size, resetHealth);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(size * ESConfig.ENTITIES.DIRE_CUBE.maxHealthBase);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(size * ESConfig.ENTITIES.DIRE_CUBE.armorBase);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(size * ESConfig.ENTITIES.DIRE_CUBE.attackDamage);
+        if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.MESA)) {
+            this.setType(3); // Red Sand
+        } else if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.SANDY)) {
+            this.setType(2); // Sand
+        } else if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.SNOWY) || BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.MOUNTAIN)) {
+            this.setType(1); // Gravel
+        } // Otherwise just Dirt
+
         if (resetHealth) {
             this.setHealth(this.getMaxHealth());
         }
@@ -170,6 +177,8 @@ public class EntityDireCube extends EntityMagmaCube {
     @Nullable
     @Override
     public IEntityLivingData onInitialSpawn(@Nonnull DifficultyInstance difficulty, @Nullable IEntityLivingData entityLivingData) {
+        entityLivingData = super.onInitialSpawn(difficulty, entityLivingData);
+
         if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.MESA)) {
             this.setType(3); // Red Sand
         } else if (BiomeDictionary.hasType(this.getEntityWorld().getBiome(this.getPosition()), BiomeDictionary.Type.SANDY)) {
@@ -178,7 +187,7 @@ public class EntityDireCube extends EntityMagmaCube {
             this.setType(1); // Gravel
         } // Otherwise just Dirt
 
-        return super.onInitialSpawn(difficulty, entityLivingData);
+        return entityLivingData;
     }
 
     @Override

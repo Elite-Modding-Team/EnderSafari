@@ -51,34 +51,33 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
     private float climbRate = 0.25f;
     private float turnRate = 30;
     private int flySoundCooldown = 0;
-
     public int timeUntilNextEgg;
 
     public EntityOwl(World worldIn) {
         super(worldIn);
-        setSize(0.4F, 0.85F);
-        stepHeight = 1.0F;
-        moveHelper = new FlyingMoveHelper(this);
-        timeUntilNextEgg = getNextLayingTime();
+        this.setSize(0.4F, 0.85F);
+        this.stepHeight = 1.0F;
+        this.moveHelper = new FlyingMoveHelper(this);
+        this.timeUntilNextEgg = getNextLayingTime();
     }
 
     @Override
     protected void initEntityAI() {
-        tasks.addTask(0, new EntityAIFlyingPanic(this, 2));
-        tasks.addTask(1, new EntityAIFlyingAttackOnCollide(this, 2.5, false));
-        tasks.addTask(2, new EntityAIMate(this, 1.0));
-        tasks.addTask(3, new EntityAITempt(this, 1.0D, Items.SPIDER_EYE, false));
-        tasks.addTask(4, new EntityAIFollowParent(this, 1.5));
-        tasks.addTask(5, new EntityAIFlyingLand(this, 2));
-        tasks.addTask(6, new EntityAIFlyingFindPerch(this, 2, 80));
-        tasks.addTask(7, new EntityAIFlyingShortWander(this, 2, 150));
-        tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        tasks.addTask(9, new EntityAILookIdle(this));
+        this.tasks.addTask(0, new EntityAIFlyingPanic(this, 2));
+        this.tasks.addTask(1, new EntityAIFlyingAttackOnCollide(this, 2.5, false));
+        this.tasks.addTask(2, new EntityAIMate(this, 1.0));
+        this.tasks.addTask(3, new EntityAITempt(this, 1.0D, Items.SPIDER_EYE, false));
+        this.tasks.addTask(4, new EntityAIFollowParent(this, 1.5));
+        this.tasks.addTask(5, new EntityAIFlyingLand(this, 2));
+        this.tasks.addTask(6, new EntityAIFlyingFindPerch(this, 2, 80));
+        this.tasks.addTask(7, new EntityAIFlyingShortWander(this, 2, 150));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
 
         EntityAINearestAttackableTargetBounded<EntitySpider> targetSpiders = new EntityAINearestAttackableTargetBounded<>(this, EntitySpider.class, true, true);
         targetSpiders.setMaxDistanceToTarget(12.0D);
         targetSpiders.setMaxVerticalDistanceToTarget(24.0D);
-        targetTasks.addTask(0, targetSpiders);
+        this.targetTasks.addTask(0, targetSpiders);
     }
 
     @Override
@@ -102,8 +101,8 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
 
     @Override
     public float getBlockPathWeight(BlockPos pos) {
-        IBlockState bs = world.getBlockState(pos.down());
-        return bs.getMaterial() == Material.LEAVES ? 10.0F : 0;
+        IBlockState state = world.getBlockState(pos.down());
+        return state.getMaterial() == Material.LEAVES ? 10.0F : 0;
     }
 
     @Override
@@ -155,7 +154,7 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
                 playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
                 dropItem(ModItemsES.OWL_EGG, 1);
             }
-            timeUntilNextEgg = getNextLayingTime();
+            this.timeUntilNextEgg = getNextLayingTime();
         }
 
         if (onGround) {
@@ -172,7 +171,7 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
     private void calculateWingAngle(float partialTicks) {
         float flapComletion = prevWingRotation + (wingRotation - prevWingRotation) * partialTicks;
         float onGroundTimerThing = prevDestPos + (destPos - prevDestPos) * partialTicks;
-        wingAngle = (MathHelper.sin(flapComletion) + 1.0F) * onGroundTimerThing;
+        this.wingAngle = (MathHelper.sin(flapComletion) + 1.0F) * onGroundTimerThing;
 
         if (onGround) {
             wingAngle = (float) Math.toRadians(3);
@@ -181,8 +180,8 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
 
     private void calculateBodyAngle(float partialTicks) {
         if (onGround) {
-            bodyAngle = 7;
-            targetBodyAngle = 7;
+            this.bodyAngle = 7;
+            this.targetBodyAngle = 7;
             return;
         }
 
@@ -191,18 +190,18 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
         double speed = motionVec.length();
         // Normalize between 0 - 0.1
         speed = Math.min(1, speed * 10);
-        targetBodyAngle = 20 + ((float) speed * 30);
+        this.targetBodyAngle = 20 + ((float) speed * 30);
 
         if (targetBodyAngle == bodyAngle) {
             return;
         }
         if (targetBodyAngle > bodyAngle) {
-            bodyAngle += (2 * partialTicks);
+            this.bodyAngle += (2 * partialTicks);
             if (bodyAngle > targetBodyAngle) {
                 bodyAngle = targetBodyAngle;
             }
         } else {
-            bodyAngle -= (1 * partialTicks);
+            this.bodyAngle -= (1 * partialTicks);
             if (bodyAngle < targetBodyAngle) {
                 bodyAngle = targetBodyAngle;
             }
@@ -219,7 +218,7 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
     }
 
     public float getWingAngle() {
-        return wingAngle;
+        return this.wingAngle;
     }
 
     @Override
@@ -282,12 +281,12 @@ public class EntityOwl extends EntityAnimal implements IESFlyingMob {
 
     @Override
     public float getMaxTurnRate() {
-        return turnRate;
+        return this.turnRate;
     }
 
     @Override
     public float getMaxClimbRate() {
-        return climbRate;
+        return this.climbRate;
     }
 
     @Override

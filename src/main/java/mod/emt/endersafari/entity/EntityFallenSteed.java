@@ -40,19 +40,19 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
     public EntityFallenSteed(World world) {
         super(world);
         this.setSize(1.0F, 1.52F);
-        setGrowingAge(0);
-        setHorseSaddled(true);
+        this.setGrowingAge(0);
+        this.setHorseSaddled(true);
         this.tasks.taskEntries.removeIf(entry ->
                 entry.action instanceof EntityAIPanic || entry.action instanceof EntityAIFollowParent || entry.action instanceof EntityAIRunAroundLikeCrazy
         );
-        tasks.addTask(0, new EntityAISwimming(this));
-        tasks.addTask(6, new EntityAIWander(this, 1.2D));
-        tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(6, new EntityAIWander(this, 1.2D));
+        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        findTargetAI = new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true);
-        attackAI = new EntityAIAttackMelee(this, 2.0D, false);
-        updateAttackAI();
+        this.findTargetAI = new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true);
+        this.attackAI = new EntityAIAttackMelee(this, 2.0D, false);
+        this.updateAttackAI();
     }
 
     @Override
@@ -198,7 +198,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
             if (this.hasCustomName() || this.isTame()) {
                 return;
             }
-            setDead();
+            this.setDead();
         }
     }
 
@@ -239,11 +239,11 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         if (world.isDaytime() && !world.isRemote) {
             if (burnInSun() && world.getTotalWorldTime() % 20 == 0) {
                 if (getBrightness() > 0.5F && rand.nextFloat() * 30.0F < (getBrightness() - 0.4F) * 2.0F && world.canBlockSeeSky(new BlockPos(MathHelper.floor(posX), MathHelper.floor(posY), MathHelper.floor(posZ)))) {
-                    setFire(8);
+                    this.setFire(8);
                 }
             }
         }
-        setEatingHaystack(false);
+        this.setEatingHaystack(false);
 
         // Look for nearby Fallen Knights to mount (Only if not tamed)
         if (!this.world.isRemote && !this.isTame() && !this.isRidden() && this.rand.nextInt(20) == 0) {
@@ -296,9 +296,9 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
             }
         }
 
-        if (wasRidden != isRidden()) {
-            updateAttackAI();
-            wasRidden = isRidden();
+        if (this.wasRidden != this.isRidden()) {
+            this.updateAttackAI();
+            this.wasRidden = this.isRidden();
         }
     }
 
@@ -396,7 +396,7 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         }
         super.attackEntityAsMob(target);
         if (!isRearing()) {
-            makeMad();
+            this.makeMad();
         }
         float damage = (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), damage);

@@ -37,7 +37,6 @@ public class EntityWitchCat extends EntityMob implements IESOwnable<EntityWitchC
 
     private static final float DEF_HEIGHT = 0.8F;
     private static final float DEF_WIDTH = 0.6F;
-
     private static final float ANGRY_SCALE = 2.0F;
     private static final float SCALE_INC = 0.05F;
 

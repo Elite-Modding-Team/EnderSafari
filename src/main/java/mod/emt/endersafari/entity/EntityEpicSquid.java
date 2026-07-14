@@ -27,8 +27,8 @@ public class EntityEpicSquid extends EntitySquid {
 
     @Override
     protected void initEntityAI() {
-        tasks.addTask(0, new EntityEpicSquid.AIMoveRandom(this));
-        tasks.addTask(1, new EntityAIAttackOnCollideAggressive(this, 1.1D, true).setAttackFrequency(20));
+        this.tasks.addTask(0, new EntityEpicSquid.AIMoveRandom(this));
+        this.tasks.addTask(1, new EntityAIAttackOnCollideAggressive(this, 1.1D, true).setAttackFrequency(20));
     }
 
     @Override
