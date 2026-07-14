@@ -40,7 +40,7 @@ public class ESConfig {
 
         public static class Decay {
             @Config.Name("Duration")
-            @Config.Comment("The duration (in seconds) of Wither that the Decay enchantment will inflict")
+            @Config.Comment("The duration (seconds per level) of Wither that the Decay enchantment will inflict")
             @Config.RangeInt(min = 1)
             public int duration = 6;
 
@@ -101,13 +101,14 @@ public class ESConfig {
             public int repellentTeleportRangeScale = 8;
 
             @Config.Name("Repellent Chance Per Level")
-            @Config.Comment("The default chance (multiplied by level) for the Repellent enchantment to teleport an attacker")
+            @Config.Comment("The default chance (multiplied by level, 0.15 = 15% * level) for the Repellent enchantment to teleport an attacker")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double repellentChancePerLevel = 0.15;
         }
 
         public static class WitherAspect {
             @Config.Name("Duration")
-            @Config.Comment("The duration (in seconds) of Wither that the Wither Aspect enchantment will inflict")
+            @Config.Comment("The duration (seconds per level) of Wither that the Wither Aspect enchantment will inflict")
             @Config.RangeInt(min = 1)
             public int duration = 5;
 
@@ -710,14 +711,17 @@ public class ESConfig {
     }
 
     public static class ModIntegration {
+        @Config.RequiresMcRestart
         @Config.Name("Ender IO Integration")
         @Config.Comment("Enables Ender IO integration, which adds extra drops to certain mobs, and allows Ender IO potions to be brewed")
         public boolean enderIOIntegration = true;
 
+        @Config.RequiresMcRestart
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration")
         public boolean JERIntegration = true;
 
+        @Config.RequiresMcRestart
         @Config.Name("Thaumcraft Integration")
         @Config.Comment("Enables Thaumcraft aspect integration")
         public boolean thaumcraftIntegration = true;
