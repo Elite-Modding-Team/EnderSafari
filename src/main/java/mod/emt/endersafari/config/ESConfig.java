@@ -240,6 +240,15 @@ public class ESConfig {
             @Config.Comment("Enables the Khndrel Keght")
             public boolean enableEntity = true;
 
+            @Config.Name("Hardcore Spawning")
+            @Config.Comment("When enabled, Khndrel Keghts will have a chance to spawn after a block is broken without a tool or when using the wrong tool")
+            public boolean hardcoreSpawning = false;
+
+            @Config.Name("Hardcore Spawning Chance")
+            @Config.Comment("The chance for Khndrel Keght Hardcore Spawning to activate if enabled")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double hardcoreSpawningChance = 0.05;
+
             @Config.Name("Max Health: Base")
             @Config.Comment("The base maximum health of the Khndrel Keght (health will scale by size)")
             public double maxHealthBase = 10.0;
@@ -275,6 +284,7 @@ public class ESConfig {
 
             @Config.Name("Howl Chance")
             @Config.Comment("The chance for Dire Wolves to howl")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double howlChance = 0.05;
 
             @Config.Name("Howl Volume")
@@ -328,6 +338,7 @@ public class ESConfig {
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Enderized Zombie")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double movementSpeed = 0.25;
 
             @Config.Name("Spawn Max")
@@ -347,10 +358,12 @@ public class ESConfig {
 
             @Config.Name("Teleport Chance: Self")
             @Config.Comment("The chance for the Enderized Zombie to teleport around when it gets hurt")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double teleportChanceSelf = 0.25;
 
             @Config.Name("Teleport Chance: Target")
             @Config.Comment("The chance for the Enderized Zombie to teleport a target when it damages them")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double teleportChanceTarget = 0.5;
 
             @Config.Name("Teleport Range: Self")
@@ -467,6 +480,7 @@ public class ESConfig {
 
             @Config.Name("Mount Chance")
             @Config.Comment("The chance for a Fallen Knight to be mounted on a Fallen Steed")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double mountChance = 0.2;
 
             @Config.Name("Movement Speed")
@@ -504,10 +518,12 @@ public class ESConfig {
 
             @Config.Name("Horse Armor Chance")
             @Config.Comment("The chance for a Fallen Steed to spawn with horse armor (not to be confused with the armor attribute)")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double horseArmorChance = 0.2;
 
             @Config.Name("Horse Armor Chance: Hard Difficulty")
             @Config.Comment("The chance for a Fallen Steed to spawn with horse armor in Hard difficulty (not to be confused with the armor attribute)")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
             public double horseArmorChanceHard = 0.5;
 
             @Config.Name("Max Health")
