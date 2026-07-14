@@ -10,9 +10,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = EnderSafari.MOD_ID, name = "EnderSafari")
 public class ESConfig {
-    @Config.LangKey("config.endersafari.general")
-    public static final General GENERAL = new General();
-
     @Config.LangKey("config.endersafari.enchantments")
     @Config.Comment("Settings for enchantments")
     public static final Enchantments ENCHANTMENTS = new Enchantments();
@@ -25,23 +22,8 @@ public class ESConfig {
     @Config.Comment("Settings for mod integration")
     public static final ModIntegration MOD_INTEGRATION = new ModIntegration();
 
-    public static class General {
-        @Config.Name("Disable Potion of Confusion")
-        @Config.Comment("Disables the Potion of Confusion, highly recommended if another mod is adding a similar potion")
-        public boolean disablePotionConfusion = false;
-
-        @Config.Name("Disable Potion of Decay")
-        @Config.Comment("Disables the Potion of Decay, highly recommended if another mod is adding a similar potion")
-        public boolean disablePotionDecay = false;
-
-        @Config.Name("Disable Potion of Displacement")
-        @Config.Comment("Disables the Potion of Displacement, highly recommended if another mod is adding a similar potion")
-        public boolean disablePotionDisplacement = false;
-
-        @Config.Name("Disable Potion of Lifting")
-        @Config.Comment("Disables the Potion of Lifting, highly recommended if another mod is adding a similar potion")
-        public boolean disablePotionLifting = false;
-    }
+    @Config.LangKey("config.endersafari.potions")
+    public static final Potions POTIONS = new Potions();
 
     public static class Enchantments {
         @Config.LangKey("config.endersafari.enchantments.decay")
@@ -734,11 +716,29 @@ public class ESConfig {
 
         @Config.Name("Just Enough Resources Integration")
         @Config.Comment("Enables Just Enough Resources integration")
-        public boolean JERIntegration = false;
+        public boolean JERIntegration = true;
 
         @Config.Name("Thaumcraft Integration")
         @Config.Comment("Enables Thaumcraft aspect integration")
         public boolean thaumcraftIntegration = true;
+    }
+
+    public static class Potions {
+        @Config.Name("Disable Potion of Confusion")
+        @Config.Comment("Disables the Potion of Confusion, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionConfusion = false;
+
+        @Config.Name("Disable Potion of Decay")
+        @Config.Comment("Disables the Potion of Decay, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionDecay = false;
+
+        @Config.Name("Disable Potion of Displacement")
+        @Config.Comment("Disables the Potion of Displacement, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionDisplacement = false;
+
+        @Config.Name("Disable Potion of Lifting")
+        @Config.Comment("Disables the Potion of Lifting, highly recommended if another mod is adding a similar potion")
+        public boolean disablePotionLifting = false;
     }
 
     @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)

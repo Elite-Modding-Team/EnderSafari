@@ -67,14 +67,14 @@ public class ModPotionsES {
         WITHER_POTION_STRONG = registerPotionType("wither_strong", new PotionType("es_wither",
                 new PotionEffect(MobEffects.WITHER, 450, 1)));
 
-        if (!ESConfig.GENERAL.disablePotionDisplacement) {
+        if (!ESConfig.POTIONS.disablePotionDisplacement) {
             registry.registerAll(
                     DISPLACEMENT_POTION,
                     DISPLACEMENT_POTION_STRONG
             );
         }
 
-        if (!ESConfig.GENERAL.disablePotionDecay) {
+        if (!ESConfig.POTIONS.disablePotionDecay) {
             registry.registerAll(
                     WITHER_POTION,
                     WITHER_POTION_LONG,
@@ -82,14 +82,14 @@ public class ModPotionsES {
             );
         }
 
-        if (!ESConfig.GENERAL.disablePotionConfusion) {
+        if (!ESConfig.POTIONS.disablePotionConfusion) {
             registry.registerAll(
                     NAUSEA_POTION,
                     NAUSEA_POTION_LONG
             );
         }
 
-        if (!ESConfig.GENERAL.disablePotionLifting) {
+        if (!ESConfig.POTIONS.disablePotionLifting) {
             registry.registerAll(
                     LEVITATION_POTION,
                     LEVITATION_POTION_LONG,
