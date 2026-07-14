@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)
 public class EventOnDecayHurt {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onDecayHurt(LivingHurtEvent event) {
+    public void onDecayHurt(LivingHurtEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
 
         if (event.getSource().getImmediateSource() instanceof EntityArrow) {

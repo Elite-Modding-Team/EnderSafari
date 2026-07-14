@@ -5,6 +5,7 @@ import mod.emt.endersafari.compat.JERIntegration;
 import mod.emt.endersafari.compat.ThaumcraftIntegration;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.event.EventOnBlockBreak;
+import mod.emt.endersafari.event.EventOnDecayHurt;
 import mod.emt.endersafari.registry.ModEntitiesES;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,6 +18,10 @@ public class CommonProxy {
     public void init() {
         ModEntitiesES.registerEntitySpawns();
         ModLootTablesES.registerLootTables();
+
+        if (ESConfig.ENCHANTMENTS.DECAY.enableEnchantment) {
+            MinecraftForge.EVENT_BUS.register(new EventOnDecayHurt());
+        }
 
         if (ESConfig.ENTITIES.DIRE_CUBE.hardcoreSpawning) {
             MinecraftForge.EVENT_BUS.register(new EventOnBlockBreak());
