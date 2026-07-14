@@ -1,7 +1,7 @@
 {
   "entity.dire_wolf.death": {
     "sounds": [
-      "endersafari:entity/snow_wolf/death"
+      "endersafari:entity/dire_wolf/death"
     ]
   },
   "entity.dire_wolf.growl": {
