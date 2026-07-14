@@ -1,6 +1,7 @@
 package mod.emt.endersafari.event;
 
 import mod.emt.endersafari.EnderSafari;
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.entity.EntityDireWolf;
 import mod.emt.endersafari.entity.EntityOwl;
 import net.minecraft.entity.EntityCreature;
@@ -15,12 +16,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class EventTaskOnJoin {
     @SubscribeEvent
     public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
-        if (event.getEntity() instanceof AbstractSkeleton) {
+        if (event.getEntity() instanceof AbstractSkeleton && ESConfig.ENTITIES.DIRE_WOLF.enableEntity) {
             EntityCreature skeleton = (EntityCreature) event.getEntity();
             skeleton.tasks.addTask(3, new EntityAIAvoidEntity<>(skeleton, EntityDireWolf.class, 6.0F, 1.0D, 1.2D));
         }
 
-        if (event.getEntity() instanceof EntitySpider) {
+        if (event.getEntity() instanceof EntitySpider && ESConfig.ENTITIES.OWL.enableEntity) {
             EntityCreature spider = (EntityCreature) event.getEntity();
             spider.tasks.addTask(3, new EntityAIAvoidEntity<>(spider, EntityOwl.class, 6.0F, 1.0D, 1.2D));
         }
