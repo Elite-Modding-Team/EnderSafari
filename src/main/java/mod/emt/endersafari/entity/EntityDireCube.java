@@ -134,6 +134,8 @@ public class EntityDireCube extends EntityMagmaCube {
 
     @Override
     public void setSlimeSize(int size, boolean resetHealth) {
+        int maxSize = 3;
+        size = Math.min(size, maxSize);
         super.setSlimeSize(size, resetHealth);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(size * ESConfig.ENTITIES.DIRE_CUBE.maxHealthBase);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(size * ESConfig.ENTITIES.DIRE_CUBE.armorBase);
