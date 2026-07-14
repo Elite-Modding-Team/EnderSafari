@@ -1,6 +1,7 @@
 package mod.emt.endersafari.item;
 
 import mod.emt.endersafari.EnderSafari;
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.entity.projectile.EntityOwlEgg;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,26 +33,30 @@ public class ItemOwlEgg extends ItemEgg {
 
     @Override
     public @NotNull ActionResult<ItemStack> onItemRightClick(@NotNull World world, EntityPlayer player, @NotNull EnumHand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+        ItemStack stack = player.getHeldItem(hand);
 
-        if (!player.capabilities.isCreativeMode) {
-            itemstack.shrink(1);
+        if (ESConfig.ENTITIES.OWL.enableEntity) {
+            if (!player.capabilities.isCreativeMode) {
+                stack.shrink(1);
+            }
+
+            world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EGG_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
+            if (!world.isRemote) {
+                EntityOwlEgg entity = new EntityOwlEgg(world, player);
+                entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+                world.spawnEntity(entity);
+            }
+
+            player.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
+            return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
 
-        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EGG_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-
-        if (!world.isRemote) {
-            EntityOwlEgg entity = new EntityOwlEgg(world, player);
-            entity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            world.spawnEntity(entity);
-        }
-
-        player.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
-        return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
+        return new ActionResult<>(EnumActionResult.FAIL, stack);
     }
 
     @Override
     public void addInformation(@NotNull ItemStack stack, @Nullable World world, @NotNull List<String> list, @NotNull ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.translateToLocal("item." + Objects.requireNonNull(this.getRegistryName()) + ".tooltip"));
+        if (ESConfig.ENTITIES.OWL.enableEntity) list.add(TextFormatting.GRAY + I18n.translateToLocal("item." + Objects.requireNonNull(this.getRegistryName()) + ".tooltip"));
     }
 }
