@@ -26,11 +26,11 @@ public class EventOnBlockBreak {
                 BlockPos pos = event.getPos();
                 EntityDireCube cube = new EntityDireCube(world);
 
-                if (BiomeDictionary.hasType(cube.getEntityWorld().getBiome(cube.getPosition()), BiomeDictionary.Type.MESA)) {
+                if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.MESA)) {
                     cube.setType(3); // Red Sand
-                } else if (BiomeDictionary.hasType(cube.getEntityWorld().getBiome(cube.getPosition()), BiomeDictionary.Type.SANDY)) {
+                } else if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.SANDY)) {
                     cube.setType(2); // Sand
-                } else if (BiomeDictionary.hasType(cube.getEntityWorld().getBiome(cube.getPosition()), BiomeDictionary.Type.SNOWY) || BiomeDictionary.hasType(cube.getEntityWorld().getBiome(cube.getPosition()), BiomeDictionary.Type.MOUNTAIN)) {
+                } else if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.SNOWY) || BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.MOUNTAIN)) {
                     cube.setType(1); // Gravel
                 } // Otherwise just Dirt
 
