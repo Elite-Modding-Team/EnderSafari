@@ -53,6 +53,8 @@ More to come!
   - Make sure to also disable Ender Safari's potions and enchantments to prevent duplicate content!
   - A few mobs will have new drops from Ender IO (based on Ender IO Zoo).
   - Ender IO potions can be brewed using items from Ender Safari.
+- **[Future Fireproof](https://www.curseforge.com/minecraft/mc-mods/future-fireproof)**
+  - Certain items will become fireproof and won't be destroyed by fire or lava (highly recommended!).
 - **[Just Enough Resources (JER)](https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer)**
   - Support added for all mobs added by Ender Safari.
 - **[Thaumcraft](https://www.curseforge.com/minecraft/mc-mods/thaumcraft)**
