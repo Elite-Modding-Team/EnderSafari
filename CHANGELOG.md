@@ -7,3 +7,5 @@ This update ports all the mobs from [Obly's Sheepers Creepers](https://www.minec
 - Added the Sheeper, a mix of a Creeper and Sheep. It can be sheared for Gunpowder, but will explode if panicked.
 ### Changed
 - Confusing Dust can now be used to breed Ender Chickens and Sheepers.
+### Fixed
+- Fixed Khndrel Keghts and Void Cubes still attempting to spawn on Peaceful difficulty.
