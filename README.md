@@ -35,7 +35,7 @@
 - **Fallen Steed:** A Fallen Knight's best friend, you will tend to encounter them together. They also really love golden apples.
 - **Khndrel Keght:** Living blocks that are guardians of nature. They will jump around towards you like Magma Cubes.
 - **Owl:** Friendly birds that love spider eyes. Surround your house with them if you hate spiders!
-- **Sheeper:** A mix of a creeper and a sheep, it can be sheared for Gunpowder as long as you don't cause it to panic (or you can use it for explosion chains...).
+- **Sheeper:** A mix of a creeper and a sheep, it can be sheared for Gunpowder as long as you don't cause it to panic, or you can use it for explosion chains...
 - **Void Cube:** If it becomes harder to see at the bedrock layer, it's a Void Cube. It's also the Khndrel Keght's distant relative.
 - **Witch's Cat:** This is no ordinary cat. Just try not to provoke it!
 - **Wither Witch:** After greatly studying the Nether, this witch has become stronger than the average one, and is often accompanied by Witch's Cats.
