@@ -48,13 +48,23 @@ public class ModelBlazeCow extends ModelQuadruped {
             GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
             this.body.render(scale);
             GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            GlStateManager.scale(1.0F / f6, 1.0F / f6, 1.0F / f6);
+            GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+
+            for (ModelRenderer aRod : this.rod) {
+                aRod.render(scale);
+            }
+
+            GlStateManager.popMatrix();
+
         } else {
             this.head.render(scale);
             this.body.render(scale);
-        }
 
-        for (ModelRenderer aRod : this.rod) {
-            aRod.render(scale);
+            for (ModelRenderer aRod : this.rod) {
+                aRod.render(scale);
+            }
         }
     }
 
