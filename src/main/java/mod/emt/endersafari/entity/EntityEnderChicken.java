@@ -16,6 +16,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
@@ -27,7 +28,7 @@ public class EntityEnderChicken extends EntityChicken {
     public EntityEnderChicken(World world) {
         super(world);
         this.chickenJockey = false;
-        this.timeUntilNextEgg = this.rand.nextInt(9000) + 9000;
+        this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
     }
 
     @Override
@@ -116,6 +117,11 @@ public class EntityEnderChicken extends EntityChicken {
 
             return flag;
         }
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return this.world.getBlockState((new BlockPos(this)).down()).canEntitySpawn(this) && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
     }
 
     @Override

@@ -382,12 +382,12 @@ public class ESConfig {
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Ender Chicken")
             @Config.RangeInt(min = 0)
-            public int spawnMax = 1;
+            public int spawnMax = 12;
 
             @Config.Name("Spawn Min")
             @Config.Comment("The minimum spawn group size of the Ender Chicken")
             @Config.RangeInt(min = 0)
-            public int spawnMin = 1;
+            public int spawnMin = 8;
 
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Ender Chicken")

@@ -161,10 +161,10 @@ public class ModEntitiesES {
             EntitySpawnPlacementRegistry.setPlacementType(EntityDireWolf.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }
 
-        /*if (ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight > 0 && ESConfig.ENTITIES.ENDER_CHICKEN.enableEntity) {
+        if (ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight > 0 && ESConfig.ENTITIES.ENDER_CHICKEN.enableEntity) {
             EntityRegistry.addSpawn(EntityEnderChicken.class, ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMin, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.END));
             EntitySpawnPlacementRegistry.setPlacementType(EntityEnderChicken.class, EntityLiving.SpawnPlacementType.ON_GROUND);
-        }*/
+        }
 
         if (ESConfig.ENTITIES.ENDERIZED_ZOMBIE.spawnWeight > 0 && ESConfig.ENTITIES.ENDERIZED_ZOMBIE.enableEntity) {
             EntityRegistry.addSpawn(EntityEnderizedZombie.class, ESConfig.ENTITIES.ENDERIZED_ZOMBIE.spawnWeight, ESConfig.ENTITIES.ENDERIZED_ZOMBIE.spawnMin, ESConfig.ENTITIES.ENDERIZED_ZOMBIE.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityZombie.class));
