@@ -66,7 +66,8 @@ More to come!
 ---
 
 ## 🙏 Special Thanks
-- The original Ender Zoo / Ender IO Zoo mod ~ CrazyPants and others
+- The original [Ender Zoo](https://www.curseforge.com/minecraft/mc-mods/ender-zoo) / [Ender IO Zoo](https://www.curseforge.com/minecraft/mc-mods/ender-io-zoo) mod ~ CrazyPants and others
+- All the mobs from [Obly's Sheepers Creepers](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1283042-1-5-0-forge-smp-ssp-oblys-sheepers-creepers-v1-2) ~ Oblyvian
 
 ---
 
