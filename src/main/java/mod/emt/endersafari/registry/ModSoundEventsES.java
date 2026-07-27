@@ -12,6 +12,7 @@ public enum ModSoundEventsES {
     ENTITY_OWL_DEATH("entity.owl.death"),
     ENTITY_OWL_HOOT("entity.owl.hoot"),
     ENTITY_OWL_HURT("entity.owl.hurt"),
+    ENTITY_SHEEPER_HURT("entity.sheeper.hurt"),
     ENTITY_WITCH_CAT_GROW("entity.witch_cat.grow");
 
     private final SoundEvent soundEvent;

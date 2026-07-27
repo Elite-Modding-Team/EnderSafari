@@ -150,6 +150,10 @@ public class ESConfig {
         @Config.Comment("Dire Wolf settings")
         public final DireWolf DIRE_WOLF = new DireWolf();
 
+        @Config.LangKey("config.endersafari.entities.ender_chicken")
+        @Config.Comment("Ender Chicken settings")
+        public final EnderChicken ENDER_CHICKEN = new EnderChicken();
+
         @Config.LangKey("config.endersafari.entities.enderized_zombie")
         @Config.Comment("Enderized Zombie settings")
         public final EnderizedZombie ENDERIZED_ZOMBIE = new EnderizedZombie();
@@ -173,6 +177,10 @@ public class ESConfig {
         @Config.LangKey("config.endersafari.entities.owl")
         @Config.Comment("Owl settings")
         public final Owl OWL = new Owl();
+
+        @Config.LangKey("config.endersafari.entities.sheeper")
+        @Config.Comment("Sheeper settings")
+        public final Sheeper SHEEPER = new Sheeper();
 
         @Config.LangKey("config.endersafari.entities.void_cube")
         @Config.Comment("Void Cube settings")
@@ -313,6 +321,40 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Dire Wolf")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 30;
+        }
+
+        public static class EnderChicken {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Ender Chicken has")
+            public double armor = 0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Ender Chicken")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Ender Chicken")
+            public double maxHealth = 12.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Ender Chicken")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.25;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Ender Chicken")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 1;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Ender Chicken")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 1;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Ender Chicken")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class EnderizedZombie {
@@ -589,6 +631,40 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Owl")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 5;
+        }
+
+        public static class Sheeper {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Sheeper has")
+            public double armor = 0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Sheeper")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Sheeper")
+            public double maxHealth = 16.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Sheeper")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.23;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Sheeper")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 1;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Sheeper")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 1;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Sheeper")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class VoidCube {

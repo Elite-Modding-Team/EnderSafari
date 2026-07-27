@@ -26,6 +26,7 @@
 ## Mobs
 - **Concussion Creeper:** Explosions from this creeper will not destroy blocks, but will teleport you around and cause Nausea.
 - **Dire Wolf:** A faster hostile wolf that can randomly howl and work in packs.
+- **Ender Chicken:** An ender version of the chicken, a good source of Ender Pearl farming. (Bred with Confusing Dust)
 - **Enderized Zombie:** Infected by Endermite parasites, it will teleport you around when it hits you. It can also sometimes teleport itself around when you hit it.
 - **Enderminy:** Has a huge dislike for taller creatures. Don't be fooled by their tiny size! They'll work in groups if you anger it.
 - **Epic Squid:** This squid is so epic that it is able to traverse the Nether's lava seas!
@@ -33,6 +34,7 @@
 - **Fallen Steed:** A Fallen Knight's best friend, you will tend to encounter them together. They also really love golden apples.
 - **Khndrel Keght:** Living blocks that are guardians of nature. They will jump around towards you like Magma Cubes.
 - **Owl:** Friendly birds that love spider eyes. Surround your house with them if you hate spiders!
+- **Sheeper:** A mix of a creeper and a sheep. It can be sheared for Gunpowder as long as you don't cause it to panic. (Bred with Confusing Dust)
 - **Void Cube:** If it becomes harder to see at the bedrock layer, it's a Void Cube. It's also the Khndrel Keght's distant relative.
 - **Witch's Cat:** This is no ordinary cat. Just try not to provoke it!
 - **Wither Witch:** After greatly studying the Nether, this witch has become stronger than the average one, and is often accompanied by Witch's Cats.

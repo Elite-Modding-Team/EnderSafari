@@ -37,6 +37,14 @@
       "endersafari:entity/owl/hurt"
     ]
   },
+  "entity.sheeper.hurt": {
+    "sounds": [
+      "endersafari:entity/sheeper/hurt1",
+      "endersafari:entity/sheeper/hurt2",
+      "endersafari:entity/sheeper/hurt3",
+      "endersafari:entity/sheeper/hurt4"
+    ]
+  },
   "entity.witch_cat.grow": {
     "sounds": [
       "endersafari:entity/witch_cat/grow"
