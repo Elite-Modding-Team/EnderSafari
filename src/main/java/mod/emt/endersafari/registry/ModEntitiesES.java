@@ -141,10 +141,10 @@ public class ModEntitiesES {
     }
 
     public static void registerEntitySpawns() {
-        /*if (ESConfig.ENTITIES.BLAZE_COW.spawnWeight > 0 && ESConfig.ENTITIES.BLAZE_COW.enableEntity) {
+        if (ESConfig.ENTITIES.BLAZE_COW.spawnWeight > 0 && ESConfig.ENTITIES.BLAZE_COW.enableEntity) {
             EntityRegistry.addSpawn(EntityBlazeCow.class, ESConfig.ENTITIES.BLAZE_COW.spawnWeight, ESConfig.ENTITIES.BLAZE_COW.spawnMin, ESConfig.ENTITIES.BLAZE_COW.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.NETHER));
             EntitySpawnPlacementRegistry.setPlacementType(EntityBlazeCow.class, EntityLiving.SpawnPlacementType.ON_GROUND);
-        }*/
+        }
 
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight > 0 && ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity) {
             EntityRegistry.addSpawn(EntityConcussionCreeper.class, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMin, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityCreeper.class));

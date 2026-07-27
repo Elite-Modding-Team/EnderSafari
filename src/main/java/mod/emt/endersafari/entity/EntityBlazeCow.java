@@ -149,6 +149,11 @@ public class EntityBlazeCow extends EntityCow {
     }
 
     @Override
+    public boolean getCanSpawnHere() {
+        return this.world.getBlockState((new BlockPos(this)).down()).canEntitySpawn(this) && this.world.checkNoEntityCollision(this.getEntityBoundingBox()) && !this.world.containsAnyLiquid(this.getEntityBoundingBox());
+    }
+
+    @Override
     public void fall(float distance, float damageMultiplier) {
     }
 
