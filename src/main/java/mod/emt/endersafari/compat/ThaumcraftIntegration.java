@@ -17,9 +17,11 @@ public class ThaumcraftIntegration {
         AspectEventProxy proxy = event.register;
 
         // Entities
+        ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "blaze_cow", new AspectList().add(Aspect.BEAST, 10).add(Aspect.FIRE, 15).add(Aspect.FLIGHT, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "concussion_creeper", new AspectList().add(Aspect.PLANT, 10).add(Aspect.MIND, 10).add(Aspect.MOTION, 10));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "dire_cube", new AspectList().add(Aspect.LIFE, 10).add(Aspect.EARTH, 10).add(Aspect.ALCHEMY, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "dire_wolf", new AspectList().add(Aspect.BEAST, 15).add(Aspect.EARTH, 10).add(Aspect.AVERSION, 10));
+        ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "ender_chicken", new AspectList().add(Aspect.BEAST, 5).add(Aspect.FLIGHT, 5).add(Aspect.ELDRITCH, 5).add(Aspect.MOTION, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "enderized_zombie", new AspectList().add(Aspect.UNDEAD, 20).add(Aspect.MAN, 10).add(Aspect.ELDRITCH, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "enderminy", new AspectList().add(Aspect.ELDRITCH, 5).add(Aspect.MOTION, 20).add(Aspect.AVERSION, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "epic_squid", new AspectList().add(Aspect.BEAST, 5).add(Aspect.AURA, 5).add(Aspect.FIRE, 10));
@@ -30,6 +32,7 @@ public class ThaumcraftIntegration {
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "primed_concussion_charge", new AspectList().add(Aspect.MIND, 10).add(Aspect.ELDRITCH, 10).add(Aspect.FIRE, 15).add(Aspect.MOTION, 10));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "primed_confusing_charge", new AspectList().add(Aspect.MIND, 10).add(Aspect.FIRE, 15).add(Aspect.MOTION, 10));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "primed_ender_charge", new AspectList().add(Aspect.ELDRITCH, 10).add(Aspect.FIRE, 15).add(Aspect.MOTION, 15));
+        ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "sheeper", new AspectList().add(Aspect.BEAST, 10).add(Aspect.PLANT, 15).add(Aspect.ENTROPY, 15));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "void_cube", new AspectList().add(Aspect.DARKNESS, 20).add(Aspect.ELDRITCH, 15).add(Aspect.TRAP, 10).add(Aspect.ALCHEMY, 5));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "witch_cat", new AspectList().add(Aspect.BEAST, 10).add(Aspect.ENTROPY, 10).add(Aspect.AVERSION, 15));
         ThaumcraftApi.registerEntityTag(EnderSafari.MOD_ID + "." + "wither_witch", new AspectList().add(Aspect.MAN, 15).add(Aspect.MAGIC, 5).add(Aspect.ENTROPY, 5).add(Aspect.ALCHEMY, 10));
