@@ -692,17 +692,17 @@ public class ESConfig {
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Sheeper")
             @Config.RangeInt(min = 0)
-            public int spawnMax = 1;
+            public int spawnMax = 2;
 
             @Config.Name("Spawn Min")
             @Config.Comment("The minimum spawn group size of the Sheeper")
             @Config.RangeInt(min = 0)
-            public int spawnMin = 1;
+            public int spawnMin = 2;
 
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Sheeper")
             @Config.RangeInt(min = 0)
-            public int spawnWeight = 10;
+            public int spawnWeight = 2;
         }
 
         public static class VoidCube {
