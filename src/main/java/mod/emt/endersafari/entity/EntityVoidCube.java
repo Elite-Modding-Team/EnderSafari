@@ -18,6 +18,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -245,7 +246,7 @@ public class EntityVoidCube extends EntityMagmaCube {
     @Override
     public boolean getCanSpawnHere() {
         IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
-        return ESConfig.ENTITIES.VOID_CUBE.spawnInDarkness ? state.canEntitySpawn(this) && this.isValidLightLevel() : state.canEntitySpawn(this);
+        return (ESConfig.ENTITIES.VOID_CUBE.spawnInDarkness ? state.canEntitySpawn(this) && this.isValidLightLevel() : state.canEntitySpawn(this)) && this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
     }
 
     @Override
