@@ -91,20 +91,24 @@ public class EntitySheeper extends EntityAnimal implements IShearable {
 
     @Override
     public boolean attackEntityFrom(@NotNull DamageSource source, float amount) {
-        // Explode when getting hit but only by other entities and non-creative players
-        if (super.attackEntityFrom(source, amount)) {
-            if (!this.world.isRemote && !this.getSheared()) {
-                Entity attacker = source.getTrueSource();
-                if (attacker instanceof EntityLivingBase && attacker != this) {
-                    if (attacker instanceof EntityPlayer && ((EntityPlayer) attacker).isCreative()) {
-                        return true;
-                    }
-                    this.setSheeperState(1);
-                }
-            }
-            return true;
+        if (!super.attackEntityFrom(source, amount)) {
+            return false;
         }
-        return false;
+
+        // Explode when getting hit but only by other entities and non-creative players
+        if (!this.world.isRemote) {
+            Entity attacker = source.getTrueSource();
+
+            if (attacker instanceof EntityLivingBase && attacker != this) {
+                if (attacker instanceof EntityPlayer && ((EntityPlayer) attacker).isCreative()) {
+                    return true;
+                }
+
+                this.setSheeperState(1);
+            }
+        }
+
+        return true;
     }
 
     @Override

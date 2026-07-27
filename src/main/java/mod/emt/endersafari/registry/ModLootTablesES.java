@@ -5,6 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 
 public class ModLootTablesES {
+    public static final ResourceLocation BLAZE_COW = new ResourceLocation(EnderSafari.MOD_ID, "entities/blaze_cow");
     public static final ResourceLocation CONCUSSION_CREEPER = new ResourceLocation(EnderSafari.MOD_ID, "entities/concussion_creeper");
     public static final ResourceLocation DIRE_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_cube");
     public static final ResourceLocation DIRE_WOLF = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_wolf");
@@ -21,6 +22,7 @@ public class ModLootTablesES {
     public static final ResourceLocation WITHER_WITCH = new ResourceLocation(EnderSafari.MOD_ID, "entities/wither_witch");
 
     public static void registerLootTables() {
+        LootTableList.register(BLAZE_COW);
         LootTableList.register(CONCUSSION_CREEPER);
         LootTableList.register(DIRE_CUBE);
         LootTableList.register(DIRE_WOLF);

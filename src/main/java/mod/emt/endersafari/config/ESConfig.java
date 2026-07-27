@@ -138,6 +138,10 @@ public class ESConfig {
     }
 
     public static class Entities {
+        @Config.LangKey("config.endersafari.entities.blaze_cow")
+        @Config.Comment("Blaze Cow settings")
+        public final BlazeCow BLAZE_COW = new BlazeCow();
+
         @Config.LangKey("config.endersafari.entities.concussion_creeper")
         @Config.Comment("Concussion Creeper settings")
         public final ConcussionCreeper CONCUSSION_CREEPER = new ConcussionCreeper();
@@ -193,6 +197,40 @@ public class ESConfig {
         @Config.LangKey("config.endersafari.entities.wither_witch")
         @Config.Comment("Wither Witch settings")
         public final WitherWitch WITHER_WITCH = new WitherWitch();
+
+        public static class BlazeCow {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Blaze Cow has")
+            public double armor = 0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Blaze Cow")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Blaze Cow")
+            public double maxHealth = 20.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Blaze Cow")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.2;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Blaze Cow")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 1;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Blaze Cow")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 1;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Blaze Cow")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
+        }
 
         public static class ConcussionCreeper {
             @Config.Name("Alternate Texture")

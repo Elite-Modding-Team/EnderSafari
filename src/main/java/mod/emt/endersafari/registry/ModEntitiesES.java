@@ -65,6 +65,7 @@ public class ModEntitiesES {
 
     @SubscribeEvent
     public static void registerEntities(@Nonnull final RegistryEvent.Register<EntityEntry> event) {
+        if (ESConfig.ENTITIES.BLAZE_COW.enableEntity) registerEntity("blaze_cow", EntityBlazeCow.class, 14930996, 14831128);
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity) registerEntity("concussion_creeper", EntityConcussionCreeper.class, 4032112, 2897273);
         if (ESConfig.ENTITIES.DIRE_CUBE.enableEntity) registerEntity("dire_cube", EntityDireCube.class, 12158300, 5848361);
         if (ESConfig.ENTITIES.DIRE_WOLF.enableEntity) registerEntity("dire_wolf", EntityDireWolf.class, 6316128, 10526880);
@@ -75,7 +76,7 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.FALLEN_KNIGHT.enableEntity) registerEntity("fallen_knight", EntityFallenKnight.class, 3562021, 10526880);
         if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity) registerEntity("fallen_steed", EntityFallenSteed.class, 8947542, 10526880);
         if (ESConfig.ENTITIES.OWL.enableEntity) registerEntity("owl", EntityOwl.class, 12679497, 16768454);
-        if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 4030775, 2447138);
+        if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 837447, 12705482);
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity) registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
         if (ESConfig.ENTITIES.WITHER_WITCH.enableEntity) registerEntity("wither_witch", EntityWitherWitch.class, 2511373, 9461315);
@@ -89,6 +90,7 @@ public class ModEntitiesES {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerEntityRenderers(@Nonnull final ModelRegistryEvent event) {
+        if (ESConfig.ENTITIES.BLAZE_COW.enableEntity) RenderingRegistry.registerEntityRenderingHandler(EntityBlazeCow.class, new RenderBlazeCow.Factory());
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity) RenderingRegistry.registerEntityRenderingHandler(EntityConcussionCreeper.class, new RenderConcussionCreeper.Factory());
         if (ESConfig.ENTITIES.DIRE_CUBE.enableEntity) RenderingRegistry.registerEntityRenderingHandler(EntityDireCube.class, new RenderDireCube.Factory());
         if (ESConfig.ENTITIES.DIRE_WOLF.enableEntity) RenderingRegistry.registerEntityRenderingHandler(EntityDireWolf.class, new RenderDireWolf.Factory());
@@ -111,6 +113,11 @@ public class ModEntitiesES {
     }
 
     public static void registerEntitySpawns() {
+        /*if (ESConfig.ENTITIES.BLAZE_COW.spawnWeight > 0 && ESConfig.ENTITIES.BLAZE_COW.enableEntity) {
+            EntityRegistry.addSpawn(EntityBlazeCow.class, ESConfig.ENTITIES.BLAZE_COW.spawnWeight, ESConfig.ENTITIES.BLAZE_COW.spawnMin, ESConfig.ENTITIES.BLAZE_COW.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.NETHER));
+            EntitySpawnPlacementRegistry.setPlacementType(EntityBlazeCow.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }*/
+
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight > 0 && ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity) {
             EntityRegistry.addSpawn(EntityConcussionCreeper.class, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMin, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMax, EnumCreatureType.MONSTER, getEntityBiomes(EntityCreeper.class));
             EntitySpawnPlacementRegistry.setPlacementType(EntityConcussionCreeper.class, EntityLiving.SpawnPlacementType.ON_GROUND);
@@ -127,7 +134,7 @@ public class ModEntitiesES {
         }
 
         /*if (ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight > 0 && ESConfig.ENTITIES.ENDER_CHICKEN.enableEntity) {
-            EntityRegistry.addSpawn(EntityEpicSquid.class, ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMin, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.END));
+            EntityRegistry.addSpawn(EntityEnderChicken.class, ESConfig.ENTITIES.ENDER_CHICKEN.spawnWeight, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMin, ESConfig.ENTITIES.ENDER_CHICKEN.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.END));
             EntitySpawnPlacementRegistry.setPlacementType(EntityEnderChicken.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }*/
 

@@ -24,6 +24,7 @@
 - **Withering Dust:** Base component for the Potion of Decay.
 
 ## Mobs
+- **Blaze Cow:** Found in the depths of the Nether, it can be farmed for Blaze Rods and will fill buckets with lava (configurable). Melee attacks against it will burn you! (Bred with Withering Dust)
 - **Concussion Creeper:** Explosions from this creeper will not destroy blocks, but will teleport you around and cause Nausea.
 - **Dire Wolf:** A faster hostile wolf that can randomly howl and work in packs.
 - **Ender Chicken:** An ender version of the chicken, a good source of Ender Pearl farming. (Bred with Confusing Dust)
