@@ -1,4 +1,4 @@
-package mod.emt.endersafari.entity;
+package mod.emt.endersafari.entity.block;
 
 import mod.emt.endersafari.misc.ConfusingExplosion;
 import net.minecraft.entity.EntityLivingBase;

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.ForgeEventFactory;
 
-import mod.emt.endersafari.entity.TeleportHelper;
+import mod.emt.endersafari.utils.helpers.TeleportHelper;
 
 public class EnderExplosion extends Explosion {
     private final World world;

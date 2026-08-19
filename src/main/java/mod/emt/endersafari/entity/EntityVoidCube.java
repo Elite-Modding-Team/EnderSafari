@@ -1,6 +1,6 @@
 package mod.emt.endersafari.entity;
 
-import mod.emt.endersafari.client.particle.InfinityParticle;
+import mod.emt.endersafari.client.particle.ParticleDarkness;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import net.minecraft.block.Block;
@@ -165,14 +165,14 @@ public class EntityVoidCube extends EntityMagmaCube {
     @SideOnly(Side.CLIENT)
     private void onLivingUpdateClient() {
         if (actionDelay-- <= 0 && ESConfig.ENTITIES.VOID_CUBE.enableDarknessParticles) {
-            particles.removeIf(o -> !((InfinityParticle) o).isAlive());
+            particles.removeIf(o -> !((ParticleDarkness) o).isAlive());
             if (particles.size() < 10) {
                 float offsetX = (-5f + 10f * rand.nextFloat());
                 float offsetY = (-5f + 10f * rand.nextFloat());
                 float offsetZ = (-5f + 10f * rand.nextFloat());
                 float maxSize = rand.nextFloat() * (rand.nextBoolean() ? (2 * 8 + 0.1f) : 3.9f);
                 float color = rand.nextBoolean() ? 0 : rand.nextFloat() / 10;
-                final InfinityParticle particle = new InfinityParticle(world, this.getPosition(), new Vector4f(color, color, color, 1f), new Vector4f(offsetX, offsetY, offsetZ, maxSize));
+                final ParticleDarkness particle = new ParticleDarkness(world, this.getPosition(), new Vector4f(color, color, color, 1f), new Vector4f(offsetX, offsetY, offsetZ, maxSize));
                 particle.setMaxAge(20 * 10);
                 Minecraft.getMinecraft().effectRenderer.addEffect(particle);
                 particles.add(particle);

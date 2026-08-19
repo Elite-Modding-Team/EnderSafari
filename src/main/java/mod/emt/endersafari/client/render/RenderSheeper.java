@@ -11,9 +11,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@SideOnly(Side.CLIENT)
 public class RenderSheeper extends RenderLiving<EntitySheeper> {
     private static final ResourceLocation SHEARED_TEXTURE = new ResourceLocation(EnderSafari.MOD_ID, "textures/entity/sheeper/sheeper.png");
 

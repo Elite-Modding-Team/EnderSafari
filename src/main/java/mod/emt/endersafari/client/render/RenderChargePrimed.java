@@ -1,6 +1,6 @@
 package mod.emt.endersafari.client.render;
 
-import mod.emt.endersafari.entity.EntityChargePrimed;
+import mod.emt.endersafari.entity.block.EntityChargePrimed;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;

@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.vecmath.Point3i;
 
+import mod.emt.endersafari.utils.SpawnUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -22,6 +23,7 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -115,6 +117,36 @@ public class EntityUtil {
             return false;
         }
         return true;
+    }
+
+    @Nullable
+    public static RayTraceResult findEntityOnPath(World world, @Nullable Entity projectile, Entity shooter, AxisAlignedBB projectileAABB, Vec3d start, Vec3d end, com.google.common.base.Predicate<Entity> matcher) {
+        RayTraceResult pickedEntity = null;
+        double motionX = end.x - start.x;
+        double motionY = end.y - start.y;
+        double motionZ = end.z - start.z;
+        List<Entity> list = world.getEntitiesInAABBexcluding(projectile, projectileAABB.expand(motionX, motionY, motionZ).grow(1.0D), matcher);
+        double pickedDistance = 0.0D;
+
+        for (Entity entity : list) {
+            if (entity != shooter) {
+                AxisAlignedBB aabb = entity.getEntityBoundingBox().grow(0.3);
+                RayTraceResult raytraceresult = aabb.calculateIntercept(start, end);
+
+                if (raytraceresult != null) {
+                    double distance = start.squareDistanceTo(raytraceresult.hitVec);
+
+                    if (distance < pickedDistance || pickedDistance == 0.0D) {
+                        raytraceresult.typeOfHit = RayTraceResult.Type.ENTITY;
+                        raytraceresult.entityHit = entity;
+                        pickedEntity = raytraceresult;
+                        pickedDistance = distance;
+                    }
+                }
+            }
+        }
+
+        return pickedEntity;
     }
 
     public static @Nullable BlockPos findRandomLandingSurface(@Nonnull EntityCreature entity, int searchRange, int minY, int maxY, int searchAttempts) {

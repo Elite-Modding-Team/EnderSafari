@@ -4,6 +4,10 @@ import mod.emt.endersafari.EnderSafari;
 import mod.emt.endersafari.client.render.*;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.entity.*;
+import mod.emt.endersafari.entity.block.EntityConcussionChargePrimed;
+import mod.emt.endersafari.entity.block.EntityConfusingChargePrimed;
+import mod.emt.endersafari.entity.block.EntityEnderChargePrimed;
+import mod.emt.endersafari.entity.projectile.EntityFireball;
 import mod.emt.endersafari.entity.projectile.EntityOwlEgg;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -86,6 +90,8 @@ public class ModEntitiesES {
             registerEntity("fallen_knight", EntityFallenKnight.class, 3562021, 10526880);
         if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity)
             registerEntity("fallen_steed", EntityFallenSteed.class, 8947542, 10526880);
+        if (ESConfig.ENTITIES.GOLEM.enableEntity)
+            registerEntity("golem", EntityGolem.class, 7566195, 2186938);
         if (ESConfig.ENTITIES.OWL.enableEntity) registerEntity("owl", EntityOwl.class, 12679497, 16768454);
         if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 837447, 12705482);
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
@@ -94,6 +100,7 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.WITHER_WITCH.enableEntity)
             registerEntity("wither_witch", EntityWitherWitch.class, 2511373, 9461315);
 
+        registerEntity("fireball", EntityFireball.class, 64, 1, true);
         registerEntity("primed_concussion_charge", EntityConcussionChargePrimed.class, 64, 1, true);
         registerEntity("primed_confusing_charge", EntityConfusingChargePrimed.class, 64, 1, true);
         registerEntity("primed_ender_charge", EntityEnderChargePrimed.class, 64, 1, true);
@@ -123,6 +130,8 @@ public class ModEntitiesES {
             RenderingRegistry.registerEntityRenderingHandler(EntityFallenKnight.class, new RenderFallenKnight.Factory());
         if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityFallenSteed.class, new RenderFallenSteed.Factory());
+        if (ESConfig.ENTITIES.GOLEM.enableEntity)
+            RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, new RenderGolem.Factory());
         if (ESConfig.ENTITIES.OWL.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, new RenderOwl.Factory());
         if (ESConfig.ENTITIES.SHEEPER.enableEntity)
@@ -137,6 +146,7 @@ public class ModEntitiesES {
         RenderingRegistry.registerEntityRenderingHandler(EntityConcussionChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksES.CONCUSSION_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityConfusingChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksES.CONFUSING_CHARGE.getDefaultState()));
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderChargePrimed.class, new RenderChargePrimed.Factory(() -> ModBlocksES.ENDER_CHARGE.getDefaultState()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityFireball.class, new RenderFireball.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityOwlEgg.class, renderManager -> new RenderSnowball<>(renderManager, ModItemsES.OWL_EGG, Minecraft.getMinecraft().getRenderItem()));
     }
 
@@ -189,6 +199,11 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.FALLEN_STEED.spawnWeight > 0 && ESConfig.ENTITIES.FALLEN_STEED.enableEntity) {
             EntityRegistry.addSpawn(EntityFallenSteed.class, ESConfig.ENTITIES.FALLEN_STEED.spawnWeight, ESConfig.ENTITIES.FALLEN_STEED.spawnMin, ESConfig.ENTITIES.FALLEN_STEED.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityZombie.class));
             EntitySpawnPlacementRegistry.setPlacementType(EntityFallenSteed.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+
+        if (ESConfig.ENTITIES.GOLEM.spawnWeight > 0 && ESConfig.ENTITIES.GOLEM.enableEntity) {
+            EntityRegistry.addSpawn(EntityGolem.class, ESConfig.ENTITIES.GOLEM.spawnWeight, ESConfig.ENTITIES.GOLEM.spawnMin, ESConfig.ENTITIES.GOLEM.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(EntityGolem.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }
 
         if (ESConfig.ENTITIES.OWL.spawnWeight > 0 && ESConfig.ENTITIES.OWL.enableEntity) {

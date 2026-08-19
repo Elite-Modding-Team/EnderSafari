@@ -1,6 +1,6 @@
 package mod.emt.endersafari.effect;
 
-import mod.emt.endersafari.entity.TeleportHelper;
+import mod.emt.endersafari.utils.helpers.TeleportHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 

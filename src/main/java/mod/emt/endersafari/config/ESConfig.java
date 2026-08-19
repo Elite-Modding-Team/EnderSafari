@@ -178,6 +178,10 @@ public class ESConfig {
         @Config.Comment("Fallen Steed settings")
         public final FallenSteed FALLEN_STEED = new FallenSteed();
 
+        @Config.LangKey("config.endersafari.entities.golem")
+        @Config.Comment("Golem settings")
+        public final Golem GOLEM = new Golem();
+
         @Config.LangKey("config.endersafari.entities.owl")
         @Config.Comment("Owl settings")
         public final Owl OWL = new Owl();
@@ -624,6 +628,44 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Fallen Steed")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 0;
+        }
+
+        public static class Golem {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Golem has")
+            public double armor = 6.0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Golem")
+            public double attackDamage = 10.0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Golem")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Golem")
+            public double maxHealth = 40.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Golem")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.5;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Golem")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 12;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Golem")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 8;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Golem")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class Owl {

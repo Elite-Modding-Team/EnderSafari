@@ -1,8 +1,8 @@
 package mod.emt.endersafari.block;
 
 import mod.emt.endersafari.EnderSafari;
-import mod.emt.endersafari.entity.EntityChargePrimed;
-import mod.emt.endersafari.entity.EntityConfusingChargePrimed;
+import mod.emt.endersafari.entity.block.EntityChargePrimed;
+import mod.emt.endersafari.entity.block.EntityConfusingChargePrimed;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;

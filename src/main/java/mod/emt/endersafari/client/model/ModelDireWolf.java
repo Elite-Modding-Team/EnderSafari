@@ -126,8 +126,8 @@ public class ModelDireWolf extends ModelBase {
     }
 
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, @NotNull Entity entityIn) {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, @NotNull Entity entity) {
+        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
         this.wolfHeadMain.rotateAngleX = headPitch * 0.017453292F;
         this.wolfHeadMain.rotateAngleY = netHeadYaw * 0.017453292F;
         this.wolfTail.rotateAngleX = 0.7853982F;

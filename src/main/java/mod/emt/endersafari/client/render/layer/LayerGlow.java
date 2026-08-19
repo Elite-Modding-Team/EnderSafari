@@ -14,15 +14,31 @@ import org.jetbrains.annotations.NotNull;
 public class LayerGlow<T extends EntityLiving> implements LayerRenderer<T> {
     private final RenderLiving<T> renderer;
     private final ResourceLocation texture;
+    private final ResourceLocation[] textures;
 
     public LayerGlow(RenderLiving<T> renderer, ResourceLocation texture) {
         this.renderer = renderer;
         this.texture = texture;
+        this.textures = null;
+    }
+
+    public LayerGlow(RenderLiving<T> renderer, ResourceLocation[] textures) {
+        this.renderer = renderer;
+        this.texture = null;
+        this.textures = textures;
+    }
+
+    private ResourceLocation getTexture(T entity) {
+        if (textures != null) {
+            return textures[getTextureIndex(entity)];
+        }
+
+        return texture;
     }
 
     @Override
     public void doRenderLayer(@NotNull T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        this.renderer.bindTexture(texture);
+        this.renderer.bindTexture(getTexture(entity));
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, entity.isInvisible() ? GlStateManager.DestFactor.ONE : GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         GlStateManager.disableLighting();
@@ -37,6 +53,10 @@ public class LayerGlow<T extends EntityLiving> implements LayerRenderer<T> {
         GlStateManager.depthMask(true);
         GlStateManager.enableLighting();
         GlStateManager.disableBlend();
+    }
+
+    protected int getTextureIndex(T entity) {
+        return 0;
     }
 
     @Override

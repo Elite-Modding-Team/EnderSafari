@@ -6,13 +6,16 @@ import mod.emt.endersafari.compat.ThaumcraftIntegration;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.event.EventOnBlockBreak;
 import mod.emt.endersafari.event.EventOnDecayHurt;
+import mod.emt.endersafari.network.ESPacketHandler;
 import mod.emt.endersafari.registry.ModEntitiesES;
 import mod.emt.endersafari.registry.ModLootTablesES;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 public class CommonProxy {
     public void preInit() {
+        ESPacketHandler.registerMessages();
     }
 
     public void init() {
@@ -41,5 +44,12 @@ public class CommonProxy {
     }
 
     public void postInit() {
+    }
+
+    /* Particles */
+    public void spawnParticleGlow(World world, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float a, float scale, int lifetime) {
+    }
+
+    public void spawnParticleGlow(World world, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float scale, int lifetime) {
     }
 }

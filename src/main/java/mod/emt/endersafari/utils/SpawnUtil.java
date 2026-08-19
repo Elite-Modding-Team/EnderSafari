@@ -1,4 +1,4 @@
-package mod.emt.endersafari.entity;
+package mod.emt.endersafari.utils;
 
 import mod.emt.endersafari.entity.navigator.PlanarBlockIterator;
 import net.minecraft.entity.EntityCreature;
@@ -26,7 +26,7 @@ public class SpawnUtil {
         return null;
     }
 
-    public static BlockPos seachYForClearGround(@Nonnull BlockPos target, @Nonnull World world) {
+    public static BlockPos searchYForClearGround(@Nonnull BlockPos target, @Nonnull World world) {
         return seachYForClearGround(target, world, 10, false);
     }
 

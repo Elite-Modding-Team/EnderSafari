@@ -1,4 +1,4 @@
-package mod.emt.endersafari.entity;
+package mod.emt.endersafari.entity.block;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;

@@ -19,16 +19,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class InfinityParticle extends Particle {
+public class ParticleDarkness extends Particle {
     private static final int INIT_TIME = 25;
     private static final int FADE_TIME = 5;
     private static final int AGE_LIMIT = 40;
 
-    public InfinityParticle(@Nonnull World world, @Nonnull BlockPos location, @Nonnull Vector4f offset) {
+    public ParticleDarkness(@Nonnull World world, @Nonnull BlockPos location, @Nonnull Vector4f offset) {
         this(world, location, new Vector4f(0, 0, 0, 0.4f), offset);
     }
 
-    public InfinityParticle(@Nonnull World world, @Nonnull BlockPos location, @Nonnull Vector4f color, @Nonnull Vector4f offset) {
+    public ParticleDarkness(@Nonnull World world, @Nonnull BlockPos location, @Nonnull Vector4f color, @Nonnull Vector4f offset) {
         super(world, location.getX(), location.getY(), location.getZ());
         setRBGColorF(color.x, color.y, color.z);
         setAlphaF(color.w);

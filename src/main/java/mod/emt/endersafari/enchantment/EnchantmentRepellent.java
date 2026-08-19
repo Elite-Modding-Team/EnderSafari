@@ -1,7 +1,7 @@
 package mod.emt.endersafari.enchantment;
 
 import mod.emt.endersafari.config.ESConfig;
-import mod.emt.endersafari.entity.TeleportHelper;
+import mod.emt.endersafari.utils.helpers.TeleportHelper;
 import mod.emt.endersafari.registry.ModEnchantmentsES;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentArrowFire;

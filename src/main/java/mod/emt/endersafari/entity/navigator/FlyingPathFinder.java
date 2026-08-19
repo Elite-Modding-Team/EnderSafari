@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import mod.emt.endersafari.entity.SpawnUtil;
+import mod.emt.endersafari.utils.SpawnUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.pathfinding.NodeProcessor;

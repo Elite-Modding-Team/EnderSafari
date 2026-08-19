@@ -1,4 +1,4 @@
-package mod.emt.endersafari.entity;
+package mod.emt.endersafari.utils.helpers;
 
 import java.util.Random;
 

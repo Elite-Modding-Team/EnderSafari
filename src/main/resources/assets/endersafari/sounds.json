@@ -21,6 +21,59 @@
       "endersafari:entity/dire_wolf/hurt"
     ]
   },
+  "entity.fireball.hit": {
+    "sounds": [
+      "endersafari:entity/projectile/fireball/hit1",
+      "endersafari:entity/projectile/fireball/hit2"
+    ]
+  },
+  "entity.fireball.launch": {
+    "sounds": [
+      "endersafari:entity/projectile/fireball/launch1",
+      "endersafari:entity/projectile/fireball/launch2"
+    ]
+  },
+  "entity.golem.death": {
+    "sounds": [
+      "endersafari:entity/golem/death"
+    ]
+  },
+  "entity.golem.hurt": {
+    "sounds": [
+      "endersafari:entity/golem/hurt1",
+      "endersafari:entity/golem/hurt2",
+      "endersafari:entity/golem/hurt3",
+      "endersafari:entity/golem/hurt4"
+    ]
+  },
+  "entity.golem.punch": {
+    "sounds": [
+      "endersafari:entity/golem/punch1",
+      "endersafari:entity/golem/punch2",
+      "endersafari:entity/golem/punch3",
+      "endersafari:entity/golem/punch4"
+    ]
+  },
+  "entity.golem.step": {
+    "sounds": [
+      "endersafari:entity/golem/step1",
+      "endersafari:entity/golem/step2",
+      "endersafari:entity/golem/step3",
+      "endersafari:entity/golem/step4"
+    ]
+  },
+  "entity.large_fireball.hit": {
+    "sounds": [
+      "endersafari:entity/projectile/large_fireball/hit1",
+      "endersafari:entity/projectile/large_fireball/hit2"
+    ]
+  },
+  "entity.large_fireball.launch": {
+    "sounds": [
+      "endersafari:entity/projectile/large_fireball/launch1",
+      "endersafari:entity/projectile/large_fireball/launch2"
+    ]
+  },
   "entity.owl.death": {
     "sounds": [
       "endersafari:entity/owl/hurt"
