@@ -7,6 +7,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class ModLootTablesES {
     public static final ResourceLocation BLAZE_COW = new ResourceLocation(EnderSafari.MOD_ID, "entities/blaze_cow");
     public static final ResourceLocation CONCUSSION_CREEPER = new ResourceLocation(EnderSafari.MOD_ID, "entities/concussion_creeper");
+    public static final ResourceLocation CRYSTAL_SKELETON = new ResourceLocation(EnderSafari.MOD_ID, "entities/crystal_skeleton");
     public static final ResourceLocation DIRE_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_cube");
     public static final ResourceLocation DIRE_WOLF = new ResourceLocation(EnderSafari.MOD_ID, "entities/dire_wolf");
     public static final ResourceLocation ENDER_CHICKEN = new ResourceLocation(EnderSafari.MOD_ID, "entities/ender_chicken");

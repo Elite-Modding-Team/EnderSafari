@@ -16,6 +16,7 @@ enchantment.endersafari.wither_aspect.desc=Inflicts Wither when attacking a mob.
 # Entities
 entity.endersafari.blaze_cow.name=Blaze Cow
 entity.endersafari.concussion_creeper.name=Concussion Creeper
+entity.endersafari.crystal_skeleton.name=Crystal Skeleton
 entity.endersafari.dire_cube.name=Khndrel Keght
 entity.endersafari.dire_wolf.name=Dire Wolf
 entity.endersafari.ender_chicken.name=Ender Chicken

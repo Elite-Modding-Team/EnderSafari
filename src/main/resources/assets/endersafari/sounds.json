@@ -1,4 +1,29 @@
 {
+  "entity.crystal_skeleton.death": {
+    "sounds": [
+      "endersafari:entity/crystal_skeleton/break1",
+      "endersafari:entity/crystal_skeleton/break2",
+      "endersafari:entity/crystal_skeleton/break3",
+      "endersafari:entity/crystal_skeleton/break4"
+    ]
+  },
+  "entity.crystal_skeleton.hurt": {
+    "sounds": [
+      "endersafari:entity/crystal_skeleton/hurt1",
+      "endersafari:entity/crystal_skeleton/hurt2",
+      "endersafari:entity/crystal_skeleton/hurt3",
+      "endersafari:entity/crystal_skeleton/hurt4"
+    ]
+  },
+  "entity.crystal_skeleton.step": {
+    "sounds": [
+      "endersafari:entity/crystal_skeleton/step1",
+      "endersafari:entity/crystal_skeleton/step2",
+      "endersafari:entity/crystal_skeleton/step3",
+      "endersafari:entity/crystal_skeleton/step4"
+
+    ]
+  },
   "entity.dire_wolf.death": {
     "sounds": [
       "endersafari:entity/dire_wolf/death"

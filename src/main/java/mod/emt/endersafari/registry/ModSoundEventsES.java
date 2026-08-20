@@ -5,6 +5,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
 public enum ModSoundEventsES {
+    ENTITY_CRYSTAL_SKELETON_DEATH("entity.crystal_skeleton.death"),
+    ENTITY_CRYSTAL_SKELETON_HURT("entity.crystal_skeleton.hurt"),
+    ENTITY_CRYSTAL_SKELETON_STEP("entity.crystal_skeleton.step"),
     ENTITY_DIRE_WOLF_DEATH("entity.dire_wolf.death"),
     ENTITY_DIRE_WOLF_GROWL("entity.dire_wolf.growl"),
     ENTITY_DIRE_WOLF_HOWL("entity.dire_wolf.howl"),

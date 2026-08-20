@@ -146,6 +146,10 @@ public class ESConfig {
         @Config.Comment("Concussion Creeper settings")
         public final ConcussionCreeper CONCUSSION_CREEPER = new ConcussionCreeper();
 
+        @Config.LangKey("config.endersafari.entities.crystal_skeleton")
+        @Config.Comment("Crystal Skeleton settings")
+        public final CrystalSkeleton CRYSTAL_SKELETON = new CrystalSkeleton();
+
         @Config.LangKey("config.endersafari.entities.dire_cube")
         @Config.Comment("Khndrel Keght settings")
         public final DireCube DIRE_CUBE = new DireCube();
@@ -277,6 +281,43 @@ public class ESConfig {
 
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Concussion Creeper")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 20;
+        }
+
+        public static class CrystalSkeleton {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Crystal Skeleton has")
+            public double armor = 0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Crystal Skeleton")
+            public double attackDamage = 4.0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Crystal Skeleton")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Crystal Skeleton")
+            public double maxHealth = 20.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Crystal Skeleton")
+            public double movementSpeed = 0.25;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Crystal Skeleton")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 4;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Crystal Skeleton")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 1;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Crystal Skeleton")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 20;
         }

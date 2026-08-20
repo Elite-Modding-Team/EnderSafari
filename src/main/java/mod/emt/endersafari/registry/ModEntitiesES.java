@@ -74,6 +74,8 @@ public class ModEntitiesES {
             registerEntity("blaze_cow", EntityBlazeCow.class, 14930996, 14831128);
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity)
             registerEntity("concussion_creeper", EntityConcussionCreeper.class, 4032112, 2897273);
+        if (ESConfig.ENTITIES.CRYSTAL_SKELETON.enableEntity)
+            registerEntity("crystal_skeleton", EntityCrystalSkeleton.class, 5716614, 10526880);
         if (ESConfig.ENTITIES.DIRE_CUBE.enableEntity)
             registerEntity("dire_cube", EntityDireCube.class, 12158300, 5848361);
         if (ESConfig.ENTITIES.DIRE_WOLF.enableEntity)
@@ -116,6 +118,8 @@ public class ModEntitiesES {
             RenderingRegistry.registerEntityRenderingHandler(EntityBlazeCow.class, new RenderBlazeCow.Factory());
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityConcussionCreeper.class, new RenderConcussionCreeper.Factory());
+        if (ESConfig.ENTITIES.CRYSTAL_SKELETON.enableEntity)
+            RenderingRegistry.registerEntityRenderingHandler(EntityCrystalSkeleton.class, new RenderCrystalSkeleton.Factory());
         if (ESConfig.ENTITIES.DIRE_CUBE.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityDireCube.class, new RenderDireCube.Factory());
         if (ESConfig.ENTITIES.DIRE_WOLF.enableEntity)
@@ -163,6 +167,11 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight > 0 && ESConfig.ENTITIES.CONCUSSION_CREEPER.enableEntity) {
             EntityRegistry.addSpawn(EntityConcussionCreeper.class, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnWeight, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMin, ESConfig.ENTITIES.CONCUSSION_CREEPER.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityCreeper.class));
             EntitySpawnPlacementRegistry.setPlacementType(EntityConcussionCreeper.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+
+        if (ESConfig.ENTITIES.CRYSTAL_SKELETON.spawnWeight > 0 && ESConfig.ENTITIES.CRYSTAL_SKELETON.enableEntity) {
+            EntityRegistry.addSpawn(EntityCrystalSkeleton.class, ESConfig.ENTITIES.CRYSTAL_SKELETON.spawnWeight, ESConfig.ENTITIES.CRYSTAL_SKELETON.spawnMin, ESConfig.ENTITIES.CRYSTAL_SKELETON.spawnMax, EnumCreatureType.MONSTER, getBiomeTypes(BiomeDictionary.Type.MESA, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.WASTELAND));
+            EntitySpawnPlacementRegistry.setPlacementType(EntityCrystalSkeleton.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }
 
         if (ESConfig.ENTITIES.DIRE_CUBE.spawnWeight > 0 && ESConfig.ENTITIES.DIRE_CUBE.enableEntity) {
