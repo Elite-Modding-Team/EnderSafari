@@ -90,6 +90,18 @@
       "endersafari:entity/owl/hurt"
     ]
   },
+  "entity.restless_hero.death": {
+    "sounds": [
+      "endersafari:entity/restless_hero/death"
+    ]
+  },
+  "entity.restless_hero.hurt": {
+    "sounds": [
+      "endersafari:entity/restless_hero/hurt1",
+      "endersafari:entity/restless_hero/hurt2",
+      "endersafari:entity/restless_hero/hurt3"
+    ]
+  },
   "entity.sheeper.hurt": {
     "sounds": [
       "endersafari:entity/sheeper/hurt1",

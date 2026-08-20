@@ -186,6 +186,10 @@ public class ESConfig {
         @Config.Comment("Owl settings")
         public final Owl OWL = new Owl();
 
+        @Config.LangKey("config.endersafari.entities.restless_hero")
+        @Config.Comment("Restless Hero settings")
+        public final RestlessHero RESTLESS_HERO = new RestlessHero();
+
         @Config.LangKey("config.endersafari.entities.sheeper")
         @Config.Comment("Sheeper settings")
         public final Sheeper SHEEPER = new Sheeper();
@@ -711,6 +715,44 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Owl")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 5;
+        }
+
+        public static class RestlessHero {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Restless Hero has")
+            public double armor = 4.0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The base attack damage of the Restless Hero")
+            public double attackDamage = 4.0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Restless Hero")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Restless Hero")
+            public double maxHealth = 40.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Restless Hero")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.23;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Restless Hero")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 1;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Restless Hero")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 1;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Restless Hero")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class Sheeper {

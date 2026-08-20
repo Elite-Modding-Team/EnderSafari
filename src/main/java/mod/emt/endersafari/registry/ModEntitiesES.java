@@ -93,6 +93,8 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.GOLEM.enableEntity)
             registerEntity("golem", EntityGolem.class, 7566195, 2186938);
         if (ESConfig.ENTITIES.OWL.enableEntity) registerEntity("owl", EntityOwl.class, 12679497, 16768454);
+        if (ESConfig.ENTITIES.RESTLESS_HERO.enableEntity)
+            registerEntity("restless_hero", EntityRestlessHero.class, 5668981, 12698049);
         if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 837447, 12705482);
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity)
@@ -134,6 +136,8 @@ public class ModEntitiesES {
             RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, new RenderGolem.Factory());
         if (ESConfig.ENTITIES.OWL.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, new RenderOwl.Factory());
+        if (ESConfig.ENTITIES.RESTLESS_HERO.enableEntity)
+            RenderingRegistry.registerEntityRenderingHandler(EntityRestlessHero.class, new RenderRestlessHero.Factory());
         if (ESConfig.ENTITIES.SHEEPER.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntitySheeper.class, new RenderSheeper.Factory());
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity)
@@ -209,6 +213,11 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.OWL.spawnWeight > 0 && ESConfig.ENTITIES.OWL.enableEntity) {
             EntityRegistry.addSpawn(EntityOwl.class, ESConfig.ENTITIES.OWL.spawnWeight, ESConfig.ENTITIES.OWL.spawnMin, ESConfig.ENTITIES.OWL.spawnMax, EnumCreatureType.CREATURE, getBiomeTypes(BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RIVER));
             EntitySpawnPlacementRegistry.setPlacementType(EntityOwl.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+
+        if (ESConfig.ENTITIES.RESTLESS_HERO.spawnWeight > 0 && ESConfig.ENTITIES.RESTLESS_HERO.enableEntity) {
+            EntityRegistry.addSpawn(EntityRestlessHero.class, ESConfig.ENTITIES.RESTLESS_HERO.spawnWeight, ESConfig.ENTITIES.RESTLESS_HERO.spawnMin, ESConfig.ENTITIES.RESTLESS_HERO.spawnMax, EnumCreatureType.MONSTER, getMonsterEntityBiomes(EntityZombie.class));
+            EntitySpawnPlacementRegistry.setPlacementType(EntityRestlessHero.class, EntityLiving.SpawnPlacementType.ON_GROUND);
         }
 
         if (ESConfig.ENTITIES.SHEEPER.spawnWeight > 0 && ESConfig.ENTITIES.SHEEPER.enableEntity) {

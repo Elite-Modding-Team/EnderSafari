@@ -61,10 +61,7 @@ public class ParticleGlow extends Particle implements IESParticle {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (rand.nextInt(6) == 0) {
-            this.particleAge++;
-        }
-        float lifeCoeff = (float) this.particleAge / (float) this.particleMaxAge;
+        float lifeCoeff = Math.min(1.0F, (float) particleAge / (float) particleMaxAge);
         this.particleScale = initScale - initScale * lifeCoeff;
         this.particleAlpha = initAlpha * (1.0f - lifeCoeff);
         this.prevParticleAngle = particleAngle;
