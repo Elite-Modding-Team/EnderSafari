@@ -13,6 +13,7 @@ public class ParticleGlow extends Particle implements IESParticle {
     public float colorB;
     public float initScale;
     public float initAlpha;
+    public boolean growth;
     public ResourceLocation texture = new ResourceLocation(EnderSafari.MOD_ID, "particle/glow_32");
 
     public ParticleGlow(World world, double x, double y, double z, double vx, double vy, double vz, float r, float g, float b, float a, float scale, int lifetime) {
@@ -20,27 +21,35 @@ public class ParticleGlow extends Particle implements IESParticle {
         this.colorR = r;
         this.colorG = g;
         this.colorB = b;
-        if (this.colorR > 1.0) {
-            this.colorR = this.colorR / 255.0f;
+        if (this.colorR > 1.0F) {
+            this.colorR /= 255.0F;
         }
-        if (this.colorG > 1.0) {
-            this.colorG = this.colorG / 255.0f;
+        if (this.colorG > 1.0F) {
+            this.colorG /= 255.0F;
         }
-        if (this.colorB > 1.0) {
-            this.colorB = this.colorB / 255.0f;
+        if (this.colorB > 1.0F) {
+            this.colorB /= 255.0F;
         }
         this.setRBGColorF(colorR, colorG, colorB);
-        this.particleMaxAge = (int) ((float) lifetime * 0.5f);
+        this.particleMaxAge = (int) ((float) lifetime * 0.5F);
         this.particleScale = scale;
         this.initScale = scale;
-        this.motionX = vx * 2.0f;
-        this.motionY = vy * 2.0f;
-        this.motionZ = vz * 2.0f;
+        this.motionX = vx * 2.0F;
+        this.motionY = vy * 2.0F;
+        this.motionZ = vz * 2.0F;
         this.initAlpha = a;
-        this.particleAngle = 2.0f * (float) Math.PI;
+        this.particleAngle = 2.0F * (float) Math.PI;
         TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(texture.toString());
         this.setParticleTexture(sprite);
         this.canCollide = true;
+    }
+
+    public ParticleGlow(World world, double x, double y, double z, double vx, double vy, double vz, float r, float g, float b, float a, float scale, int lifetime, boolean growth) {
+        this(world, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime);
+        this.growth = growth;
+        if (growth) {
+            this.particleScale = 0.0F;
+        }
     }
 
     @Override
@@ -62,8 +71,12 @@ public class ParticleGlow extends Particle implements IESParticle {
     public void onUpdate() {
         super.onUpdate();
         float lifeCoeff = Math.min(1.0F, (float) particleAge / (float) particleMaxAge);
-        this.particleScale = initScale - initScale * lifeCoeff;
-        this.particleAlpha = initAlpha * (1.0f - lifeCoeff);
+        float scale = 1.0F;
+        if (growth) {
+            scale = Math.min(1.0F, particleAge / 3.0F);
+        }
+        this.particleScale = initScale * scale * (1.0F - lifeCoeff);
+        this.particleAlpha = initAlpha * (1.0F - lifeCoeff);
         this.prevParticleAngle = particleAngle;
         particleAngle += 1.0f;
     }

@@ -88,6 +88,8 @@ public class ModEntitiesES {
             registerEntity("enderminy", EntityEnderminy.class, 2581069, 2171169);
         if (ESConfig.ENTITIES.EPIC_SQUID.enableEntity)
             registerEntity("epic_squid", EntityEpicSquid.class, 10223617, 15484494);
+        if (ESConfig.ENTITIES.FAIRY.enableEntity)
+            registerEntity("fairy", EntityFairy.class, 16765183, 13762477);
         if (ESConfig.ENTITIES.FALLEN_KNIGHT.enableEntity)
             registerEntity("fallen_knight", EntityFallenKnight.class, 3562021, 10526880);
         if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity)
@@ -132,6 +134,8 @@ public class ModEntitiesES {
             RenderingRegistry.registerEntityRenderingHandler(EntityEnderminy.class, new RenderEnderminy.Factory());
         if (ESConfig.ENTITIES.EPIC_SQUID.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityEpicSquid.class, new RenderEpicSquid.Factory());
+        if (ESConfig.ENTITIES.FAIRY.enableEntity)
+            RenderingRegistry.registerEntityRenderingHandler(EntityFairy.class, new RenderFairy.Factory());
         if (ESConfig.ENTITIES.FALLEN_KNIGHT.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityFallenKnight.class, new RenderFallenKnight.Factory());
         if (ESConfig.ENTITIES.FALLEN_STEED.enableEntity)
@@ -202,6 +206,11 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.EPIC_SQUID.spawnWeight > 0 && ESConfig.ENTITIES.EPIC_SQUID.enableEntity) {
             EntityRegistry.addSpawn(EntityEpicSquid.class, ESConfig.ENTITIES.EPIC_SQUID.spawnWeight, ESConfig.ENTITIES.EPIC_SQUID.spawnMin, ESConfig.ENTITIES.EPIC_SQUID.spawnMax, EnumCreatureType.WATER_CREATURE, getBiomeTypes(BiomeDictionary.Type.NETHER));
             EntitySpawnPlacementRegistry.setPlacementType(EntityEpicSquid.class, IN_LAVA);
+        }
+
+        if (ESConfig.ENTITIES.FAIRY.spawnWeight > 0 && ESConfig.ENTITIES.FAIRY.enableEntity) {
+            EntityRegistry.addSpawn(EntityFairy.class, ESConfig.ENTITIES.FAIRY.spawnWeight, ESConfig.ENTITIES.FAIRY.spawnMin, ESConfig.ENTITIES.FAIRY.spawnMax, EnumCreatureType.MONSTER, getBiomeTypes(BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.SWAMP));
+            EntitySpawnPlacementRegistry.setPlacementType(EntityFairy.class, EntityLiving.SpawnPlacementType.IN_AIR);
         }
 
         if (ESConfig.ENTITIES.FALLEN_KNIGHT.spawnWeight > 0 && ESConfig.ENTITIES.FALLEN_KNIGHT.enableEntity) {

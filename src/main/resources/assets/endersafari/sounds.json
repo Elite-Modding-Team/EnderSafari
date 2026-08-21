@@ -46,6 +46,21 @@
       "endersafari:entity/dire_wolf/hurt"
     ]
   },
+  "entity.fairy.chime": {
+    "sounds": [
+      "endersafari:entity/fairy/chime"
+    ]
+  },
+  "entity.fairy.death": {
+    "sounds": [
+      "endersafari:entity/fairy/death"
+    ]
+  },
+  "entity.fairy.hurt": {
+    "sounds": [
+      "endersafari:entity/fairy/hurt"
+    ]
+  },
   "entity.fireball.hit": {
     "sounds": [
       "endersafari:entity/projectile/fireball/hit1",

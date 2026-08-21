@@ -174,6 +174,10 @@ public class ESConfig {
         @Config.Comment("Epic Squid settings")
         public final EpicSquid EPIC_SQUID = new EpicSquid();
 
+        @Config.LangKey("config.endersafari.entities.fairy")
+        @Config.Comment("Fairy settings")
+        public final Fairy FAIRY = new Fairy();
+
         @Config.LangKey("config.endersafari.entities.fallen_knight")
         @Config.Comment("Fallen Knight settings")
         public final FallenKnight FALLEN_KNIGHT = new FallenKnight();
@@ -588,6 +592,40 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Epic Squid")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 5;
+        }
+
+        public static class Fairy {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Fairy has")
+            public double armor = 0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Fairy")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Fairy")
+            public double maxHealth = 12.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Fairy")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.25;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Fairy")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 12;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Fairy")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 8;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Fairy")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class FallenKnight {

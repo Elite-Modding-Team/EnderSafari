@@ -37,4 +37,13 @@ public class ClientProxy extends CommonProxy {
             ParticleRenderer.INSTANCE.addParticle(new ParticleGlow(world, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime));
         }
     }
+
+    @Override
+    public void spawnParticleGlowBurst(World world, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float a, float scale, int lifetime, boolean growth) {
+        particleCounter += random.nextInt(3);
+
+        if (particleCounter % (Minecraft.getMinecraft().gameSettings.particleSetting == 0 ? 1 : 2 * Minecraft.getMinecraft().gameSettings.particleSetting) == 0) {
+            ParticleRenderer.INSTANCE.addParticle(new ParticleGlow(world, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime, growth));
+        }
+    }
 }
