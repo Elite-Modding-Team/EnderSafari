@@ -5,6 +5,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 
 public enum ModSoundEventsES {
+    BLOCK_LIGHT_BREAK("block.light.break"),
+    BLOCK_LIGHT_HIT("block.light.hit"),
+    BLOCK_LIGHT_PLACE("block.light.place"),
     ENTITY_CRYSTAL_SKELETON_DEATH("entity.crystal_skeleton.death"),
     ENTITY_CRYSTAL_SKELETON_HURT("entity.crystal_skeleton.hurt"),
     ENTITY_CRYSTAL_SKELETON_STEP("entity.crystal_skeleton.step"),
@@ -29,7 +32,8 @@ public enum ModSoundEventsES {
     ENTITY_RESTLESS_HERO_DEATH("entity.restless_hero.death"),
     ENTITY_RESTLESS_HERO_HURT("entity.restless_hero.hurt"),
     ENTITY_SHEEPER_HURT("entity.sheeper.hurt"),
-    ENTITY_WITCH_CAT_GROW("entity.witch_cat.grow");
+    ENTITY_WITCH_CAT_GROW("entity.witch_cat.grow"),
+    NULL("null");
 
     private final SoundEvent soundEvent;
 

@@ -3,7 +3,10 @@ itemGroup.EnderSafariTab=Ender Safari
 # Blocks
 tile.endersafari:concussion_charge.name=Concussion Charge
 tile.endersafari:confusing_charge.name=Confusing Charge
+tile.endersafari:confusing_light.name=Confusing Light
 tile.endersafari:ender_charge.name=Ender Charge
+tile.endersafari:fae_light.name=Fae Light
+tile.endersafari:withering_light.name=Withering Light
 
 # Enchantments
 enchantment.endersafari.decay=Decay

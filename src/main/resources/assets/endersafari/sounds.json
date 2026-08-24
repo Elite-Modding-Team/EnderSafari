@@ -1,4 +1,19 @@
 {
+  "block.light.break": {
+    "sounds": [
+      "endersafari:entity/fairy/death"
+    ]
+  },
+  "block.light.hit": {
+    "sounds": [
+      "endersafari:entity/fairy/hurt"
+    ]
+  },
+  "block.light.place": {
+    "sounds": [
+      "endersafari:entity/fairy/hurt"
+    ]
+  },
   "entity.crystal_skeleton.death": {
     "sounds": [
       "endersafari:entity/crystal_skeleton/break1",
@@ -153,6 +168,11 @@
   "entity.witch_cat.grow": {
     "sounds": [
       "endersafari:entity/witch_cat/grow"
+    ]
+  },
+  "null": {
+    "sounds": [
+      "endersafari:null"
     ]
   }
 }

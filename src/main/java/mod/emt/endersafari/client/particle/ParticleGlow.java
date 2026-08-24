@@ -1,6 +1,7 @@
 package mod.emt.endersafari.client.particle;
 
 import mod.emt.endersafari.EnderSafari;
+import mod.emt.endersafari.utils.ColorUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -14,6 +15,7 @@ public class ParticleGlow extends Particle implements IESParticle {
     public float initScale;
     public float initAlpha;
     public boolean growth;
+    public int[][] transitionColors;
     public ResourceLocation texture = new ResourceLocation(EnderSafari.MOD_ID, "particle/glow_32");
 
     public ParticleGlow(World world, double x, double y, double z, double vx, double vy, double vz, float r, float g, float b, float a, float scale, int lifetime) {
@@ -52,6 +54,11 @@ public class ParticleGlow extends Particle implements IESParticle {
         }
     }
 
+    public ParticleGlow(World world, double x, double y, double z, double vx, double vy, double vz, float a, float scale, int lifetime, int[][] transitionColors) {
+        this(world, x, y, z, vx, vy, vz, transitionColors[0][0], transitionColors[0][1], transitionColors[0][2], a, scale, lifetime);
+        this.transitionColors = transitionColors;
+    }
+
     @Override
     public int getBrightnessForRender(float pTicks) {
         return 255;
@@ -73,12 +80,17 @@ public class ParticleGlow extends Particle implements IESParticle {
         float lifeCoeff = Math.min(1.0F, (float) particleAge / (float) particleMaxAge);
         float scale = 1.0F;
         if (growth) {
-            scale = Math.min(1.0F, particleAge / 3.0F);
+            scale = Math.min(1.0F, particleAge / 5.0F);
+        }
+        if (transitionColors != null) {
+            float progress = Math.min(1.0F, (float) particleAge / (float) particleMaxAge);
+            int[] color = ColorUtil.colorTransition(transitionColors, progress);
+            this.setRBGColorF(color[0] / 255.0F, color[1] / 255.0F, color[2] / 255.0F);
         }
         this.particleScale = initScale * scale * (1.0F - lifeCoeff);
         this.particleAlpha = initAlpha * (1.0F - lifeCoeff);
         this.prevParticleAngle = particleAngle;
-        particleAngle += 1.0f;
+        particleAngle += 1.0F;
     }
 
     @Override

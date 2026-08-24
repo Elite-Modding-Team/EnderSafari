@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import mod.emt.endersafari.EnderSafari;
 import mod.emt.endersafari.compat.EnderIOIntegration;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.SoundEvent;
@@ -18,9 +19,12 @@ import mod.emt.endersafari.utils.helpers.CompatHelper;
 
 @Mod.EventBusSubscriber(modid = EnderSafari.MOD_ID)
 public class ModRegistryES {
+    public static final SoundType LIGHT = new SoundType(0.5F, 0.75F, ModSoundEventsES.BLOCK_LIGHT_BREAK.getSoundEvent(), ModSoundEventsES.NULL.getSoundEvent(), ModSoundEventsES.BLOCK_LIGHT_PLACE.getSoundEvent(), ModSoundEventsES.BLOCK_LIGHT_HIT.getSoundEvent(), ModSoundEventsES.NULL.getSoundEvent());
+
     @SubscribeEvent
     public static void registerBlocks(@Nonnull final RegistryEvent.Register<Block> event) {
         ModBlocksES.registerBlocks(event);
+        ModBlocksES.registerTileEntities();
     }
 
     @SubscribeEvent
@@ -34,6 +38,7 @@ public class ModRegistryES {
     public static void registerModels(ModelRegistryEvent event) {
         ModItemsES.registerItemModels(event);
         ModBlocksES.registerBlockModels(event);
+        //ModBlocksES.registerTileEntityRenderers();
     }
 
     @SubscribeEvent

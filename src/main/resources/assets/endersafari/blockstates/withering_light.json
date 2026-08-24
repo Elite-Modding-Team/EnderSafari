@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "endersafari:empty",
+    "textures": {
+      "particle": "endersafari:null"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "item/generated",
+      "textures": {
+        "layer0": "endersafari:items/withering_light"
+      }
+    }]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "endersafari:fae_light"
+    },
+    {
+      "item": "endersafari:withering_dust"
+    }
+  ],
+  "result": {
+    "item": "endersafari:withering_light",
+    "count": 1
+  }
+}
