@@ -19,6 +19,7 @@ public class ModLootTablesES {
     public static final ResourceLocation FALLEN_STEED = new ResourceLocation(EnderSafari.MOD_ID, "entities/fallen_steed");
     public static final ResourceLocation OWL = new ResourceLocation(EnderSafari.MOD_ID, "entities/owl");
     public static final ResourceLocation SHEEPER = new ResourceLocation(EnderSafari.MOD_ID, "entities/sheeper");
+    public static final ResourceLocation SPRITELING = new ResourceLocation(EnderSafari.MOD_ID, "entities/spriteling");
     public static final ResourceLocation VOID_CUBE = new ResourceLocation(EnderSafari.MOD_ID, "entities/void_cube");
     public static final ResourceLocation WITCH_CAT = new ResourceLocation(EnderSafari.MOD_ID, "entities/witch_cat");
     public static final ResourceLocation WITHER_WITCH = new ResourceLocation(EnderSafari.MOD_ID, "entities/wither_witch");
@@ -52,6 +53,7 @@ public class ModLootTablesES {
         LootTableList.register(NETHERRACK_GOLEM);
         LootTableList.register(OBSIDIAN_GOLEM);
         LootTableList.register(SHEEPER);
+        LootTableList.register(SPRITELING);
         LootTableList.register(STONE_GOLEM);
         LootTableList.register(VOID_CUBE);
         LootTableList.register(WITCH_CAT);

@@ -119,6 +119,11 @@ public class EntityUtil {
         return true;
     }
 
+    public static Vec3d lookVector(float rotYaw, float rotPitch) {
+        return new Vec3d(Math.sin(rotYaw) * Math.cos(rotPitch), Math.sin(rotPitch), Math.cos(rotYaw) * Math.cos(rotPitch)
+        );
+    }
+
     @Nullable
     public static RayTraceResult findEntityOnPath(World world, @Nullable Entity projectile, Entity shooter, AxisAlignedBB projectileAABB, Vec3d start, Vec3d end, com.google.common.base.Predicate<Entity> matcher) {
         RayTraceResult pickedEntity = null;
@@ -221,4 +226,24 @@ public class EntityUtil {
         return collides != null;
     }
 
+    public static float pitchDegreesBetweenPoints(double posX, double posY, double posZ, double targetX, double targetY, double targetZ) {
+        return (float) Math.toDegrees(Math.atan2(targetY - posY, Math.sqrt((targetX - posX) * (targetX - posX) + (targetZ - posZ) * (targetZ - posZ))));
+    }
+
+    public static float yawDegreesBetweenPointsSafe(double posX,  double posZ, double targetX, double targetZ, double previousYaw) {
+        float f = (float) ((180.0F * Math.atan2(targetX - posX, targetZ - posZ)) / (float) Math.PI);
+        if (Math.abs(f - previousYaw) > 90) {
+            if (f < previousYaw) {
+                f += 360.0F;
+            } else {
+                f -= 360.0F;
+            }
+        }
+
+        return f;
+    }
+
+    public static float yawDegreesBetweenPoints(double posX, double posZ, double targetX, double targetZ) {
+        return (float) ((180.0f * Math.atan2(targetX - posX, targetZ - posZ)) / (float) Math.PI);
+    }
 }

@@ -31,6 +31,7 @@ public class ModBlocksES {
     public static final ESBlockLight CONFUSING_LIGHT = null;
     public static final ESBlockEnderCharge ENDER_CHARGE = null;
     public static final ESBlockLight FAE_LIGHT = null;
+    public static final ESBlockLight SPRITE_LIGHT = null;
     public static final ESBlockLight WITHERING_LIGHT = null;
 
     @SubscribeEvent
@@ -41,6 +42,7 @@ public class ModBlocksES {
                 new ESBlockConfusingCharge("confusing_charge"),
                 new ESBlockEnderCharge("ender_charge"),
                 new ESBlockLight("fae_light", ColorUtil.FAE, false),
+                new ESBlockLight("sprite_light", ColorUtil.SPRITE, true),
                 new ESBlockLight("confusing_light", null, false),
                 new ESBlockLight("withering_light", ColorUtil.WITHER, true)
         );
@@ -52,9 +54,10 @@ public class ModBlocksES {
         registry.registerAll(
                 new ItemBlock(CONCUSSION_CHARGE).setRegistryName(CONCUSSION_CHARGE.getRegistryName()).setTranslationKey(CONCUSSION_CHARGE.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
                 new ItemBlock(CONFUSING_CHARGE).setRegistryName(CONFUSING_CHARGE.getRegistryName()).setTranslationKey(CONFUSING_CHARGE.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
+                new ItemBlock(CONFUSING_LIGHT).setRegistryName(CONFUSING_LIGHT.getRegistryName()).setTranslationKey(CONFUSING_LIGHT.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
                 new ItemBlock(ENDER_CHARGE).setRegistryName(ENDER_CHARGE.getRegistryName()).setTranslationKey(ENDER_CHARGE.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
                 new ItemBlock(FAE_LIGHT).setRegistryName(FAE_LIGHT.getRegistryName()).setTranslationKey(FAE_LIGHT.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
-                new ItemBlock(CONFUSING_LIGHT).setRegistryName(CONFUSING_LIGHT.getRegistryName()).setTranslationKey(CONFUSING_LIGHT.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
+                new ItemBlock(SPRITE_LIGHT).setRegistryName(SPRITE_LIGHT.getRegistryName()).setTranslationKey(SPRITE_LIGHT.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ),
                 new ItemBlock(WITHERING_LIGHT).setRegistryName(WITHERING_LIGHT.getRegistryName()).setTranslationKey(WITHERING_LIGHT.getTranslationKey()).setCreativeTab(EnderSafari.tabEZ)
         );
     }
@@ -66,6 +69,7 @@ public class ModBlocksES {
         registerItemModel(CONFUSING_LIGHT);
         registerItemModel(ENDER_CHARGE);
         registerItemModel(FAE_LIGHT);
+        registerItemModel(SPRITE_LIGHT);
         registerItemModel(WITHERING_LIGHT);
     }
 

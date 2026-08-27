@@ -19,4 +19,8 @@ public class ParticleUtil {
     public static void spawnParticleGlowBurst(World world, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float a, float scale, int lifetime, boolean growth) {
         EnderSafari.proxy.spawnParticleGlowBurst(world, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime, growth);
     }
+
+    public static void spawnParticleSparkleBurst(World world, float x, float y, float z, float vx, float vy, float vz, float r, float g, float b, float a, float scale, int lifetime, boolean growth) {
+        EnderSafari.proxy.spawnParticleSparkleBurst(world, x, y, z, vx, vy, vz, r, g, b, a, scale, lifetime, growth);
+    }
 }

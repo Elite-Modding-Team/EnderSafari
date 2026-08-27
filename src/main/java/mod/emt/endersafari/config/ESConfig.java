@@ -202,6 +202,10 @@ public class ESConfig {
         @Config.Comment("Sheeper settings")
         public final Sheeper SHEEPER = new Sheeper();
 
+        @Config.LangKey("config.endersafari.entities.spriteling")
+        @Config.Comment("Spriteling settings")
+        public final Spriteling SPRITELING = new Spriteling();
+
         @Config.LangKey("config.endersafari.entities.void_cube")
         @Config.Comment("Void Cube settings")
         public final VoidCube VOID_CUBE = new VoidCube();
@@ -866,6 +870,44 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Sheeper")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 2;
+        }
+
+        public static class Spriteling {
+            @Config.Name("Armor")
+            @Config.Comment("The amount of armor the Spriteling has")
+            public double armor = 0;
+
+            @Config.Name("Attack Damage")
+            @Config.Comment("The attack damage of the Spriteling")
+            public double attackDamage = 4.0;
+
+            @Config.Name("Enable Entity")
+            @Config.Comment("Enables the Spriteling")
+            public boolean enableEntity = true;
+
+            @Config.Name("Max Health")
+            @Config.Comment("The maximum health of the Spriteling")
+            public double maxHealth = 12.0;
+
+            @Config.Name("Movement Speed")
+            @Config.Comment("The movement speed of the Spriteling")
+            @Config.RangeDouble(min = 0.0, max = 1.0)
+            public double movementSpeed = 0.25;
+
+            @Config.Name("Spawn Max")
+            @Config.Comment("The maximum spawn group size of the Spriteling")
+            @Config.RangeInt(min = 0)
+            public int spawnMax = 12;
+
+            @Config.Name("Spawn Min")
+            @Config.Comment("The minimum spawn group size of the Spriteling")
+            @Config.RangeInt(min = 0)
+            public int spawnMin = 8;
+
+            @Config.Name("Spawn Weight")
+            @Config.Comment("The spawn weight of the Spriteling")
+            @Config.RangeInt(min = 0)
+            public int spawnWeight = 10;
         }
 
         public static class VoidCube {

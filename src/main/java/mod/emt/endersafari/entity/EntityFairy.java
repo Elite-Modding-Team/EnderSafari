@@ -29,9 +29,9 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 
 public class EntityFairy extends EntityFlying {
+    public static final DataParameter<BlockPos> SPAWN_POSITION = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
+    public static final DataParameter<BlockPos> TARGET_POSITION = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
     public static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityFairy.class, DataSerializers.VARINT);
-    public static final DataParameter<BlockPos> spawnPosition = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
-    public static final DataParameter<BlockPos> targetPosition = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
 
     public EntityFairy(World world) {
         super(world);
@@ -48,37 +48,37 @@ public class EntityFairy extends EntityFlying {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataManager().register(spawnPosition, new BlockPos(0, -1, 0));
-        this.getDataManager().register(targetPosition, new BlockPos(0, -1, 0));
-        this.dataManager.register(TYPE, 0);
+        this.getDataManager().register(SPAWN_POSITION, new BlockPos(0, -1, 0));
+        this.getDataManager().register(TARGET_POSITION, new BlockPos(0, -1, 0));
+        this.getDataManager().register(TYPE, 0);
     }
 
     @Override
     public void writeEntityToNBT(@NotNull NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setInteger("spawnX", getDataManager().get(spawnPosition).getX());
-        compound.setInteger("spawnY", getDataManager().get(spawnPosition).getY());
-        compound.setInteger("spawnZ", getDataManager().get(spawnPosition).getZ());
-        compound.setInteger("targetX", getDataManager().get(targetPosition).getX());
-        compound.setInteger("targetY", getDataManager().get(targetPosition).getY());
-        compound.setInteger("targetZ", getDataManager().get(targetPosition).getZ());
-        compound.setInteger("type", this.dataManager.get(TYPE));
+        compound.setInteger("spawnX", getDataManager().get(SPAWN_POSITION).getX());
+        compound.setInteger("spawnY", getDataManager().get(SPAWN_POSITION).getY());
+        compound.setInteger("spawnZ", getDataManager().get(SPAWN_POSITION).getZ());
+        compound.setInteger("targetX", getDataManager().get(TARGET_POSITION).getX());
+        compound.setInteger("targetY", getDataManager().get(TARGET_POSITION).getY());
+        compound.setInteger("targetZ", getDataManager().get(TARGET_POSITION).getZ());
+        compound.setInteger("type", getDataManager().get(TYPE));
     }
 
     @Override
     public void readEntityFromNBT(@NotNull NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        getDataManager().set(spawnPosition, new BlockPos(compound.getInteger("spawnX"), compound.getInteger("spawnY"), compound.getInteger("spawnZ")));
-        getDataManager().set(targetPosition, new BlockPos(compound.getInteger("targetX"), compound.getInteger("targetY"), compound.getInteger("targetZ")));
-        this.dataManager.set(TYPE, compound.getInteger("type"));
+        this.getDataManager().set(SPAWN_POSITION, new BlockPos(compound.getInteger("spawnX"), compound.getInteger("spawnY"), compound.getInteger("spawnZ")));
+        this.getDataManager().set(TARGET_POSITION, new BlockPos(compound.getInteger("targetX"), compound.getInteger("targetY"), compound.getInteger("targetZ")));
+        this.getDataManager().set(TYPE, compound.getInteger("type"));
     }
 
     public int getType() {
-        return this.dataManager.get(TYPE);
+        return this.getDataManager().get(TYPE);
     }
 
     public void setType(int skinType) {
-        this.dataManager.set(TYPE, skinType);
+        this.getDataManager().set(TYPE, skinType);
     }
 
     @Nullable
@@ -124,18 +124,18 @@ public class EntityFairy extends EntityFlying {
     protected void updateAITasks() {
         super.updateAITasks();
         this.noClip = false;
-        if (this.getDataManager().get(spawnPosition).getY() < 0) {
-            this.getDataManager().set(spawnPosition, getPosition());
-            this.getDataManager().set(targetPosition, getPosition());
+        if (this.getDataManager().get(SPAWN_POSITION).getY() < 0) {
+            this.getDataManager().set(SPAWN_POSITION, getPosition());
+            this.getDataManager().set(TARGET_POSITION, getPosition());
         }
-        if (getDataManager().get(targetPosition).compareTo(getDataManager().get(spawnPosition)) == 0 || this.rand.nextInt(30) == 0 || getDataManager().get(targetPosition).distanceSq((int) this.posX, (int) this.posY, (int) this.posZ) < 3.0D) {
+        if (getDataManager().get(TARGET_POSITION).compareTo(getDataManager().get(SPAWN_POSITION)) == 0 || this.rand.nextInt(30) == 0 || getDataManager().get(TARGET_POSITION).distanceSq((int) this.posX, (int) this.posY, (int) this.posZ) < 3.0D) {
             BlockPos newTarget = null;
 
             for (int i = 0; i < 8; i++) {
                 BlockPos candidate = new BlockPos(
-                        getDataManager().get(spawnPosition).getX() + this.rand.nextInt(15) - this.rand.nextInt(15),
-                        getDataManager().get(spawnPosition).getY() + this.rand.nextInt(11) - 2,
-                        getDataManager().get(spawnPosition).getZ() + this.rand.nextInt(15) - this.rand.nextInt(15)
+                        getDataManager().get(SPAWN_POSITION).getX() + this.rand.nextInt(15) - this.rand.nextInt(15),
+                        getDataManager().get(SPAWN_POSITION).getY() + this.rand.nextInt(11) - 2,
+                        getDataManager().get(SPAWN_POSITION).getZ() + this.rand.nextInt(15) - this.rand.nextInt(15)
                 );
 
                 if (canFlyTo(candidate)) {
@@ -145,13 +145,13 @@ public class EntityFairy extends EntityFlying {
             }
 
             if (newTarget != null) {
-                this.getDataManager().set(targetPosition, newTarget);
+                this.getDataManager().set(TARGET_POSITION, newTarget);
             }
         }
 
-        double dX = (double) this.getDataManager().get(targetPosition).getX() + 0.5D - this.posX;
-        double dY = (double) this.getDataManager().get(targetPosition).getY() + 0.1D - this.posY;
-        double dZ = (double) this.getDataManager().get(targetPosition).getZ() + 0.5D - this.posZ;
+        double dX = (double) this.getDataManager().get(TARGET_POSITION).getX() + 0.5D - this.posX;
+        double dY = (double) this.getDataManager().get(TARGET_POSITION).getY() + 0.1D - this.posY;
+        double dZ = (double) this.getDataManager().get(TARGET_POSITION).getZ() + 0.5D - this.posZ;
         this.motionX += (Math.signum(dX) * 0.5D - this.motionX) * 0.025D;
         this.motionY += (Math.signum(dY) * 0.7D - this.motionY) * 0.025D;
         this.motionZ += (Math.signum(dZ) * 0.5D - this.motionZ) * 0.025D;
@@ -206,7 +206,7 @@ public class EntityFairy extends EntityFlying {
                     double motionY = 0.02D + this.rand.nextGaussian() * 0.035D;
                     double motionZ = this.rand.nextGaussian() * 0.045D;
                     ParticleUtil.spawnParticleGlowBurst(this.world, (float) this.posX, (float) this.posY + this.height / 2.0F, (float) this.posZ, (float) motionX, (float) motionY, (float) motionZ,
-                            color[0], color[1], color[2], 0.15F, 2.0F + 2.0F * this.rand.nextFloat(), 30, true);
+                            color[0], color[1], color[2], 0.5F, 2.0F + 2.0F * this.rand.nextFloat(), 30, true);
                 }
             }
         }

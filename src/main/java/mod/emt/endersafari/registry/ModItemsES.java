@@ -30,6 +30,7 @@ public class ModItemsES {
     public static final ESItem FAE_DUST = null;
     public static final ESItemBow GUARDIAN_BOW = null;
     public static final ItemOwlEgg OWL_EGG = null;
+    public static final ESItem SPRITE_ESSENCE = null;
     public static final ESItem WITHERING_DUST = null;
 
     @SubscribeEvent
@@ -40,6 +41,7 @@ public class ModItemsES {
                 new ESItem("withering_dust", EnumRarity.COMMON),
                 new ESItem("confusing_dust", EnumRarity.COMMON),
                 new ESItem("fae_dust", EnumRarity.COMMON),
+                new ESItem("sprite_essence", EnumRarity.UNCOMMON),
                 new ESItemFireproof("ender_fragment", EnumRarity.COMMON),
                 new ESItemFireproof("epic_ink_sac", EnumRarity.EPIC),
                 new ESItemBow("guardian_bow", 800, 1.1F, 1, 0.9F, 1.2F, Ingredient.fromStacks(new ItemStack(Items.IRON_INGOT)), EnumRarity.UNCOMMON),
@@ -57,6 +59,7 @@ public class ModItemsES {
         registerItemModel(FAE_DUST);
         registerItemModel(GUARDIAN_BOW);
         registerItemModel(OWL_EGG);
+        registerItemModel(SPRITE_ESSENCE);
         registerItemModel(WITHERING_DUST);
     }
 

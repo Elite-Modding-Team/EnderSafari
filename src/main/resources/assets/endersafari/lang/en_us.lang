@@ -6,6 +6,7 @@ tile.endersafari:confusing_charge.name=Confusing Charge
 tile.endersafari:confusing_light.name=Confusing Light
 tile.endersafari:ender_charge.name=Ender Charge
 tile.endersafari:fae_light.name=Fae Light
+tile.endersafari:sprite_light.name=Light of Sprites
 tile.endersafari:withering_light.name=Withering Light
 
 # Enchantments
@@ -45,6 +46,7 @@ entity.endersafari.primed_confusing_charge.name=Primed Confusing Charge
 entity.endersafari.primed_ender_charge.name=Primed Ender Charge
 entity.endersafari.restless_hero.name=Restless Hero
 entity.endersafari.sheeper.name=Sheeper
+entity.endersafari.spriteling.name=Spriteling
 entity.endersafari.void_cube.name=Λoᴉp Ɔnqǝ
 entity.endersafari.witch_cat.name=Witch's Cat
 entity.endersafari.wither_witch.name=Wither Witch
@@ -56,6 +58,7 @@ item.endersafari:epic_ink_sac.name=Epic Ink Sac
 item.endersafari:fae_dust.name=Fae Dust
 item.endersafari:guardian_bow.name=Guardian Bow
 item.endersafari:owl_egg.name=Owl Egg
+item.endersafari:sprite_essence.name=Sprite Essence
 item.endersafari:withering_dust.name=Withering Dust
 
 # Potions

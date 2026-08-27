@@ -165,6 +165,45 @@
       "endersafari:entity/sheeper/hurt4"
     ]
   },
+  "entity.spriteling.chime": {
+    "sounds": [
+      {
+        "name": "endersafari:entity/sprite/chime",
+        "pitch": 1.5
+      }
+    ]
+  },
+  "entity.spriteling.death": {
+    "sounds": [
+      {
+        "name": "endersafari:entity/fairy/death",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.spriteling.hurt": {
+    "sounds": [
+      {
+        "name": "endersafari:entity/sprite/hurt",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.sprite.chime": {
+    "sounds": [
+      "endersafari:entity/sprite/chime"
+    ]
+  },
+  "entity.sprite.death": {
+    "sounds": [
+      "endersafari:entity/fairy/death"
+    ]
+  },
+  "entity.sprite.hurt": {
+    "sounds": [
+      "endersafari:entity/sprite/hurt"
+    ]
+  },
   "entity.witch_cat.grow": {
     "sounds": [
       "endersafari:entity/witch_cat/grow"

@@ -32,5 +32,6 @@ public class EventParticles {
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent.Pre event) {
         event.getMap().registerSprite(new ResourceLocation(EnderSafari.MOD_ID, "particle/glow_32"));
+        event.getMap().registerSprite(new ResourceLocation(EnderSafari.MOD_ID, "particle/sparkle"));
     }
 }

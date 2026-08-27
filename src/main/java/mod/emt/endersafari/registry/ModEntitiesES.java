@@ -100,6 +100,8 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.RESTLESS_HERO.enableEntity)
             registerEntity("restless_hero", EntityRestlessHero.class, 5668981, 12698049);
         if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 837447, 12705482);
+        if (ESConfig.ENTITIES.SPRITELING.enableEntity)
+            registerEntity("spriteling", EntitySpriteling.class, 16765183, 13762477); // TODO: Egg color
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity)
             registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
@@ -148,6 +150,8 @@ public class ModEntitiesES {
             RenderingRegistry.registerEntityRenderingHandler(EntityRestlessHero.class, new RenderRestlessHero.Factory());
         if (ESConfig.ENTITIES.SHEEPER.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntitySheeper.class, new RenderSheeper.Factory());
+        if (ESConfig.ENTITIES.SPRITELING.enableEntity)
+            RenderingRegistry.registerEntityRenderingHandler(EntitySpriteling.class, new RenderSpriteling.Factory());
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity)
             RenderingRegistry.registerEntityRenderingHandler(EntityVoidCube.class, new RenderVoidCube.Factory());
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity)
@@ -241,6 +245,11 @@ public class ModEntitiesES {
         if (ESConfig.ENTITIES.SHEEPER.spawnWeight > 0 && ESConfig.ENTITIES.SHEEPER.enableEntity) {
             EntityRegistry.addSpawn(EntitySheeper.class, ESConfig.ENTITIES.SHEEPER.spawnWeight, ESConfig.ENTITIES.SHEEPER.spawnMin, ESConfig.ENTITIES.SHEEPER.spawnMax, EnumCreatureType.CREATURE, getCreatureEntityBiomes(EntitySheep.class));
             EntitySpawnPlacementRegistry.setPlacementType(EntitySheeper.class, EntityLiving.SpawnPlacementType.ON_GROUND);
+        }
+
+        if (ESConfig.ENTITIES.SPRITELING.spawnWeight > 0 && ESConfig.ENTITIES.SPRITELING.enableEntity) {
+            EntityRegistry.addSpawn(EntitySpriteling.class, ESConfig.ENTITIES.SPRITELING.spawnWeight, ESConfig.ENTITIES.SPRITELING.spawnMin, ESConfig.ENTITIES.SPRITELING.spawnMax, EnumCreatureType.MONSTER, getBiomeTypes(BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.SWAMP));
+            EntitySpawnPlacementRegistry.setPlacementType(EntitySpriteling.class, EntityLiving.SpawnPlacementType.IN_AIR);
         }
 
         if (ESConfig.ENTITIES.VOID_CUBE.spawnWeight > 0 && ESConfig.ENTITIES.VOID_CUBE.enableEntity) {

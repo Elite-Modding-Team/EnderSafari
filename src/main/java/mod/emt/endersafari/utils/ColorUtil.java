@@ -19,6 +19,14 @@ public class ColorUtil {
         };
     }
 
+    public static int[][] SPRITE = {
+            {139, 255, 82},
+            {82, 217, 255},
+            {188, 98, 233},
+            {82, 217, 255},
+            {188, 98, 233}
+    };
+
     public static int[][] WITHER = {
             {40, 40, 40},
             {60, 60, 60},

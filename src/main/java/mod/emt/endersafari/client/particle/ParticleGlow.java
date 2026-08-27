@@ -41,7 +41,7 @@ public class ParticleGlow extends Particle implements IESParticle {
         this.motionZ = vz * 2.0F;
         this.initAlpha = a;
         this.particleAngle = 2.0F * (float) Math.PI;
-        TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(texture.toString());
+        TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(getParticleTexture().toString());
         this.setParticleTexture(sprite);
         this.canCollide = true;
     }
@@ -106,5 +106,9 @@ public class ParticleGlow extends Particle implements IESParticle {
     @Override
     public boolean renderThroughBlocks() {
         return false;
+    }
+
+    protected ResourceLocation getParticleTexture() {
+        return texture;
     }
 }

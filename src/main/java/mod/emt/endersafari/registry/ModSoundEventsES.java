@@ -32,6 +32,12 @@ public enum ModSoundEventsES {
     ENTITY_RESTLESS_HERO_DEATH("entity.restless_hero.death"),
     ENTITY_RESTLESS_HERO_HURT("entity.restless_hero.hurt"),
     ENTITY_SHEEPER_HURT("entity.sheeper.hurt"),
+    ENTITY_SPRITELING_CHIME("entity.spriteling.chime"),
+    ENTITY_SPRITELING_DEATH("entity.spriteling.death"),
+    ENTITY_SPRITELING_HURT("entity.spriteling.hurt"),
+    ENTITY_SPRITE_CHIME("entity.sprite.chime"),
+    ENTITY_SPRITE_DEATH("entity.sprite.death"),
+    ENTITY_SPRITE_HURT("entity.sprite.hurt"),
     ENTITY_WITCH_CAT_GROW("entity.witch_cat.grow"),
     NULL("null");
 

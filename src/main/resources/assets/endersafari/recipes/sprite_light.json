@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "endersafari:fae_light"
+    },
+    {
+      "item": "endersafari:sprite_essence"
+    }
+  ],
+  "result": {
+    "item": "endersafari:sprite_light",
+    "count": 1
+  }
+}
