@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-public class EntityFairy extends EntityFlying {
+public class EntityFairy extends EntityFlying implements IFaeMob {
     public static final DataParameter<BlockPos> SPAWN_POSITION = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
     public static final DataParameter<BlockPos> TARGET_POSITION = EntityDataManager.createKey(EntityFairy.class, DataSerializers.BLOCK_POS);
     public static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityFairy.class, DataSerializers.VARINT);

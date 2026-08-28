@@ -6,6 +6,7 @@ import mod.emt.endersafari.compat.ThaumcraftIntegration;
 import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.event.EventOnBlockBreak;
 import mod.emt.endersafari.event.EventOnDecayHurt;
+import mod.emt.endersafari.event.EventOnLeafToolHurt;
 import mod.emt.endersafari.network.ESPacketHandler;
 import mod.emt.endersafari.registry.ModEntitiesES;
 import mod.emt.endersafari.registry.ModLootTablesES;
@@ -41,6 +42,8 @@ public class CommonProxy {
         if (CompatHelper.isThaumcraftLoaded) {
             MinecraftForge.EVENT_BUS.register(new ThaumcraftIntegration());
         }
+
+        MinecraftForge.EVENT_BUS.register(new EventOnLeafToolHurt());
     }
 
     public void postInit() {

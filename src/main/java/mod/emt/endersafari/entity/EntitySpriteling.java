@@ -25,7 +25,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class EntitySpriteling extends EntityFlying {
+public class EntitySpriteling extends EntityFlying implements IFaeMob {
     public static final DataParameter<Integer> DASH_TIMER = EntityDataManager.createKey(EntitySpriteling.class, DataSerializers.VARINT);
     public static final DataParameter<BlockPos> SPAWN_POSITION = EntityDataManager.createKey(EntitySpriteling.class, DataSerializers.BLOCK_POS);
     public static final DataParameter<Float> TARGET_DIRECTION_X = EntityDataManager.createKey(EntitySpriteling.class, DataSerializers.FLOAT);

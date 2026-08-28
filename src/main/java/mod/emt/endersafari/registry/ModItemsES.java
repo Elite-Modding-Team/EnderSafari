@@ -1,10 +1,7 @@
 package mod.emt.endersafari.registry;
 
 import mod.emt.endersafari.EnderSafari;
-import mod.emt.endersafari.item.ESItem;
-import mod.emt.endersafari.item.ESItemBow;
-import mod.emt.endersafari.item.ESItemFireproof;
-import mod.emt.endersafari.item.ItemOwlEgg;
+import mod.emt.endersafari.item.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -29,6 +26,8 @@ public class ModItemsES {
     public static final ESItemFireproof EPIC_INK_SAC = null;
     public static final ESItem FAE_DUST = null;
     public static final ESItemBow GUARDIAN_BOW = null;
+    public static final ESItemAxe LEAF_AXE = null;
+    public static final ESItemSword LEAF_SWORD = null;
     public static final ItemOwlEgg OWL_EGG = null;
     public static final ESItem SPRITE_ESSENCE = null;
     public static final ESItem WITHERING_DUST = null;
@@ -44,8 +43,10 @@ public class ModItemsES {
                 new ESItem("sprite_essence", EnumRarity.UNCOMMON),
                 new ESItemFireproof("ender_fragment", EnumRarity.COMMON),
                 new ESItemFireproof("epic_ink_sac", EnumRarity.EPIC),
+                new ItemOwlEgg("owl_egg"),
                 new ESItemBow("guardian_bow", 800, 1.1F, 1, 0.9F, 1.2F, Ingredient.fromStacks(new ItemStack(Items.IRON_INGOT)), EnumRarity.UNCOMMON),
-                new ItemOwlEgg("owl_egg")
+                new ESItemSword("leaf_sword", ModMaterialsES.TOOL_LEAF, EnumRarity.UNCOMMON, true),
+                new ESItemAxe("leaf_axe", ModMaterialsES.TOOL_LEAF, 8.0F, -3.0F, EnumRarity.UNCOMMON, true)
         );
     }
 
@@ -58,6 +59,8 @@ public class ModItemsES {
         registerItemModel(EPIC_INK_SAC);
         registerItemModel(FAE_DUST);
         registerItemModel(GUARDIAN_BOW);
+        registerItemModel(LEAF_AXE);
+        registerItemModel(LEAF_SWORD);
         registerItemModel(OWL_EGG);
         registerItemModel(SPRITE_ESSENCE);
         registerItemModel(WITHERING_DUST);
