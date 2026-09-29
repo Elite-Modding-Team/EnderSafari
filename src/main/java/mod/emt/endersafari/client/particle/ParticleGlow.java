@@ -61,7 +61,7 @@ public class ParticleGlow extends Particle implements IESParticle {
 
     @Override
     public int getBrightnessForRender(float pTicks) {
-        return 255;
+        return 0xF000F0;
     }
 
     @Override
