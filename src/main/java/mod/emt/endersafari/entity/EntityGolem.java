@@ -114,7 +114,7 @@ public class EntityGolem extends EntityMob {
     public void onUpdate() {
         super.onUpdate();
         this.rotationYaw = this.rotationYawHead;
-        if (!this.isDead && this.getHealth() > 0 && !this.isAIDisabled() && this.getAttackTarget() != null && !this.world.isRemote) {
+        if (!this.isDead && this.getHealth() > 0 && this.ticksExisted % 100 == 0 && !this.isAIDisabled() && this.getAttackTarget() != null && !this.world.isRemote) {
             if (!getEntityWorld().isRemote) {
                 playSound(ModSoundEventsES.ENTITY_FIREBALL_LAUNCH.getSoundEvent(), 1.0F, 1.0F);
                 EntityFireball proj = new EntityFireball(getEntityWorld());
