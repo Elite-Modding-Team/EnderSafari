@@ -190,6 +190,12 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
         return texturePaths;
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public @NotNull String getHorseTexture() {
+        return EnderSafari.MOD_ID + ":fallen_steed";
+    }
+
     // Despawn on Peaceful difficulty unless tamed
     @Override
     public void onUpdate() {
