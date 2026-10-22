@@ -1,4 +1,9 @@
 # Changelog
+## 1.2.0
+### Fixed
+- Fixed Fallen Steed changing its texture to a vanilla horse during certain instances.
+- Fixed Fallen Steed not being considered as undead.
+---
 ## 1.1.0
 ### Update Notes
 This update ports all the mobs from [Obly's Sheepers Creepers](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1283042-1-5-0-forge-smp-ssp-oblys-sheepers-creepers-v1-2)! Courtesy of Oblyvian for making the original mod.

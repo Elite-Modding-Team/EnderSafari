@@ -423,6 +423,11 @@ public class EntityFallenSteed extends EntityHorse implements IMob {
     }
 
     @Override
+    public @NotNull EnumCreatureAttribute getCreatureAttribute() {
+        return EnumCreatureAttribute.UNDEAD;
+    }
+
+    @Override
     protected @NotNull SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_ZOMBIE_HORSE_AMBIENT;
     }
