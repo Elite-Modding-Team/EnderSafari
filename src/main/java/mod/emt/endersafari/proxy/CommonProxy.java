@@ -1,5 +1,6 @@
 package mod.emt.endersafari.proxy;
 
+import mod.emt.endersafari.compat.EmbersIntegration;
 import mod.emt.endersafari.compat.EnderIOIntegration;
 import mod.emt.endersafari.compat.JERIntegration;
 import mod.emt.endersafari.compat.ThaumcraftIntegration;
@@ -29,6 +30,10 @@ public class CommonProxy {
 
         if (ESConfig.ENTITIES.DIRE_CUBE.hardcoreSpawning) {
             MinecraftForge.EVENT_BUS.register(new EventOnBlockBreak());
+        }
+
+        if (CompatHelper.isEmbersLoaded) {
+            MinecraftForge.EVENT_BUS.register(new EmbersIntegration());
         }
 
         if (CompatHelper.isEnderIOLoaded) {

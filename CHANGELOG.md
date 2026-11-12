@@ -12,6 +12,7 @@ This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www
 - Added Leaf-Bladed Axe and Leaf-Bladed Sword, these deal +50% damage to animals and fae creatures.
 - Added Fae Light and variants, these are placeable glowing particle emitters!
 - Added a new particle system that will be utilized throughout the mod.
+- Added Embers integration, Earthen Golems will drop items from Embers' Ancient Golems when enabled.
 ### Changed
 - Certain mobs are now considered "Fae" (Fairy, Spriteling, and Witch's Cat).
 ### Fixed

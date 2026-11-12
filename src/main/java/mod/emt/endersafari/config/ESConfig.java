@@ -187,7 +187,7 @@ public class ESConfig {
         public final FallenSteed FALLEN_STEED = new FallenSteed();
 
         @Config.LangKey("config.endersafari.entities.golem")
-        @Config.Comment("Golem settings")
+        @Config.Comment("Earthen Golem settings")
         public final Golem GOLEM = new Golem();
 
         @Config.LangKey("config.endersafari.entities.owl")
@@ -719,38 +719,38 @@ public class ESConfig {
 
         public static class Golem {
             @Config.Name("Armor")
-            @Config.Comment("The amount of armor the Golem has")
+            @Config.Comment("The amount of armor the Earthen Golem has")
             public double armor = 6.0;
 
             @Config.Name("Attack Damage")
-            @Config.Comment("The attack damage of the Golem")
+            @Config.Comment("The attack damage of the Earthen Golem")
             public double attackDamage = 10.0;
 
             @Config.Name("Enable Entity")
-            @Config.Comment("Enables the Golem")
+            @Config.Comment("Enables the Earthen Golem")
             public boolean enableEntity = true;
 
             @Config.Name("Max Health")
-            @Config.Comment("The maximum health of the Golem")
+            @Config.Comment("The maximum health of the Earthen Golem")
             public double maxHealth = 40.0;
 
             @Config.Name("Movement Speed")
-            @Config.Comment("The movement speed of the Golem")
+            @Config.Comment("The movement speed of the Earthen Golem")
             @Config.RangeDouble(min = 0.0, max = 1.0)
             public double movementSpeed = 0.5;
 
             @Config.Name("Spawn Max")
-            @Config.Comment("The maximum spawn group size of the Golem")
+            @Config.Comment("The maximum spawn group size of the Earthen Golem")
             @Config.RangeInt(min = 0)
             public int spawnMax = 12;
 
             @Config.Name("Spawn Min")
-            @Config.Comment("The minimum spawn group size of the Golem")
+            @Config.Comment("The minimum spawn group size of the Earthen Golem")
             @Config.RangeInt(min = 0)
             public int spawnMin = 8;
 
             @Config.Name("Spawn Weight")
-            @Config.Comment("The spawn weight of the Golem")
+            @Config.Comment("The spawn weight of the Earthen Golem")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 10;
         }
@@ -1046,6 +1046,11 @@ public class ESConfig {
     }
 
     public static class ModIntegration {
+        @Config.RequiresMcRestart
+        @Config.Name("Embers Integration")
+        @Config.Comment("Enables Embers integration, which adds extra drops from Embers' Ancient Golems to Ender Safari's Earthen Golems")
+        public boolean embersIntegration = true;
+
         @Config.RequiresMcRestart
         @Config.Name("Ender IO Integration")
         @Config.Comment("Enables Ender IO integration, which adds extra drops to certain mobs, and allows Ender IO potions to be brewed")
