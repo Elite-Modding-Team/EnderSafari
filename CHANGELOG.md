@@ -1,5 +1,19 @@
 # Changelog
+### Update Notes
+This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www.curseforge.com/minecraft/mc-mods/emberroot-zoo). See [here](https://github.com/Lothrazar/ERZ/blob/trunk/1.12/LICENSE.txt) for licensing.
 ## 1.2.0
+### Added
+- Added the Earthen Golem, these golems will chase you down while also performing a ranged attack at the same time. There are many different variants of stone to look out for, you might be able to obtain rare gems as drops like diamonds!
+- Added Fairies, glowing passive mobs that spawn in magical and spooky biomes.
+- Added the Restless Hero, these undead will spawn at night and fight hostiles, they are best left alone.
+- Added Spritelings, glowing neutral mobs that spawn in magical and spooky biomes, watch out for their dash attack!
+- Added Fae Dust, dropped by Fairies and currently only used to create Fae Light.
+- Added Sprite Essence, dropped by Spritelings, currently only used to create Leaf-Bladed tools and a Fae Light variant.
+- Added Leaf-Bladed Axe and Leaf-Bladed Sword, these deal +50% damage to animals and fae creatures.
+- Added Fae Light and variants, these are placeable glowing particle emitters!
+- Added a new particle system that will be utilized throughout the mod.
+### Changed
+- Certain mobs are now considered "Fae" (Fairy, Spriteling, and Witch's Cat).
 ### Fixed
 - Fixed Fallen Steed changing its texture to a vanilla horse during certain instances.
 - Fixed Fallen Steed not being considered as undead.
