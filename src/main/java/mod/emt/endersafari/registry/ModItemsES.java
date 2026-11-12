@@ -22,6 +22,7 @@ import javax.annotation.Nonnull;
 @GameRegistry.ObjectHolder(EnderSafari.MOD_ID)
 public class ModItemsES {
     public static final ESItem CONFUSING_DUST = null;
+    //public static final ESItemSword CRYSTAL_SWORD = null;
     public static final ESItemFireproof ENDER_FRAGMENT = null;
     public static final ESItemFireproof EPIC_INK_SAC = null;
     public static final ESItem FAE_DUST = null;
@@ -47,6 +48,7 @@ public class ModItemsES {
                 new ESItemBow("guardian_bow", 800, 1.1F, 1, 0.9F, 1.2F, Ingredient.fromStacks(new ItemStack(Items.IRON_INGOT)), EnumRarity.UNCOMMON),
                 new ESItemSword("leaf_sword", ModMaterialsES.TOOL_LEAF, EnumRarity.UNCOMMON, true),
                 new ESItemAxe("leaf_axe", ModMaterialsES.TOOL_LEAF, 8.0F, -3.0F, EnumRarity.UNCOMMON, true)
+                //new ESItemSword("crystal_sword", ModMaterialsES.TOOL_CRYSTAL, EnumRarity.RARE, true)
         );
     }
 
@@ -55,6 +57,7 @@ public class ModItemsES {
     public static void registerItemModels(@Nonnull final ModelRegistryEvent event) {
         // Item Models
         registerItemModel(CONFUSING_DUST);
+        //registerItemModel(CRYSTAL_SWORD);
         registerItemModel(ENDER_FRAGMENT);
         registerItemModel(EPIC_INK_SAC);
         registerItemModel(FAE_DUST);
