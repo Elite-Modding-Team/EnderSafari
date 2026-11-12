@@ -67,9 +67,22 @@ More to come!
 
 ## 🙏 Special Thanks
 - The original [Ender Zoo](https://www.curseforge.com/minecraft/mc-mods/ender-zoo) / [Ender IO Zoo](https://www.curseforge.com/minecraft/mc-mods/ender-io-zoo) mod ~ CrazyPants and others
+- Assets from Embers and Roots 2 (both licensed as MIT) ~ elucent_
 - All the mobs from [Obly's Sheepers Creepers](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1283042-1-5-0-forge-smp-ssp-oblys-sheepers-creepers-v1-2) ~ Oblyvian
 
 ---
 
 ## Licensing
-**All Rights Reserved** (see LICENSE).
+**Embers Assets:** [MIT](https://github.com/DaedalusGame/EmbersRekindled/blob/rekindled/LICENSE)
+
+**EmberRoot Zoo Assets:** [MIT](https://github.com/Lothrazar/ERZ/blob/trunk/1.12/LICENSE.txt)
+
+**Ender IO Zoo Assets:** [Public Domain](https://github.com/SleepyTrousers/EnderIO-1.5-1.12/blob/release/1.12.2/LICENSE)
+
+**Roots 2 Assets:** [MIT](https://github.com/MysticMods/Roots/blob/release/roots-2/LICENSE)
+
+Fairy Light textures are based on a texture from [this repository](https://github.com/default-dx/farland1ng-texture).
+
+All code and assets specifically made for this mod are licensed as All Rights Reserved. All other assets, including those derived from Minecraft or third-party sources, remain the property of their respective owners.
+
+You may not upload a fork or utilize the assets without permission. You are however free to include this mod in any modpacks of yours, make addons with the mod as a dependency, learn from the code, or modify it privately.
