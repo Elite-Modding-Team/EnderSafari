@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "EEE",
+    "EIE",
+    "EEE"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_sword"
+    },
+    "E": {
+      "item": "endersafari:sprite_essence"
+    }
+  },
+  "result": {
+    "item": "endersafari:leaf_sword"
+  }
+}
