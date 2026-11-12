@@ -820,7 +820,7 @@ public class ESConfig {
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Restless Hero")
             @Config.RangeDouble(min = 0.0, max = 1.0)
-            public double movementSpeed = 0.23;
+            public double movementSpeed = 0.3;
 
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Restless Hero")
