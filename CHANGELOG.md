@@ -10,7 +10,7 @@ This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www
 - Added Fae Dust, dropped by Fairies and currently only used to create Fae Light.
 - Added Sprite Essence, dropped by Spritelings, currently only used to create Leaf-Bladed tools and a Fae Light variant.
 - Added Leaf-Bladed Axe and Leaf-Bladed Sword, these deal +50% damage to animals and fae creatures.
-- Added Fae Light and variants, these are placeable glowing particle emitters!
+- Added Fae Light and variants (Confusing, Sprite, and Withering), these are placeable glowing particle emitters!
 - Added a new particle system that will be utilized throughout the mod.
 - Added Embers integration, Earthen Golems will drop items from Embers' Ancient Golems when enabled.
 ### Changed

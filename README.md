@@ -9,6 +9,7 @@
 - **Concussion Charge:** A TNT variant that does not destroy blocks and has the combined effects of the Confusing Charge and the Ender Charge.
 - **Confusing Charge:** A TNT variant that does not destroy blocks and will cause Nausea.
 - **Ender Charge:** A TNT variant that does not destroy blocks and will teleport other living entities.
+- **Fae Light:** Glows and emits particles! Comes in three other variants (Confusing, Sprite, and Withering).
 
 ## Enchantments
 - **Decay:** The affected bow's arrows will inflict **Wither** (+6 seconds per level). Incompatible with **Flame**. The max level is **I**.
@@ -90,7 +91,7 @@ More to come!
 
 **Roots 2 Assets:** [MIT](https://github.com/MysticMods/Roots/blob/release/roots-2/LICENSE)
 
-Fairy Light textures are based on a texture from [this repository](https://github.com/default-dx/farland1ng-texture).
+Fae Light textures are based on a texture from [this repository](https://github.com/default-dx/farland1ng-texture).
 
 All code and assets specifically made for this mod are licensed as All Rights Reserved. All other assets, including those derived from Minecraft or third-party sources, remain the property of their respective owners (see LICENSE).
 
