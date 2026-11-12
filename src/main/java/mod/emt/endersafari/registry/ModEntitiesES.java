@@ -101,7 +101,7 @@ public class ModEntitiesES {
             registerEntity("restless_hero", EntityRestlessHero.class, 5668981, 12698049);
         if (ESConfig.ENTITIES.SHEEPER.enableEntity) registerEntity("sheeper", EntitySheeper.class, 837447, 12705482);
         if (ESConfig.ENTITIES.SPRITELING.enableEntity)
-            registerEntity("spriteling", EntitySpriteling.class, 16765183, 13762477); // TODO: Egg color
+            registerEntity("spriteling", EntitySpriteling.class, 9174866, 11665290);
         if (ESConfig.ENTITIES.VOID_CUBE.enableEntity) registerEntity("void_cube", EntityVoidCube.class, 0, 11184810);
         if (ESConfig.ENTITIES.WITCH_CAT.enableEntity)
             registerEntity("witch_cat", EntityWitchCat.class, 3158064, 16777215);
