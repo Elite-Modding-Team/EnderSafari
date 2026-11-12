@@ -1,6 +1,6 @@
 # Changelog
 ### Update Notes
-This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www.curseforge.com/minecraft/mc-mods/emberroot-zoo). See [here](https://github.com/Lothrazar/ERZ/blob/trunk/1.12/LICENSE.txt) for licensing.
+This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www.curseforge.com/minecraft/mc-mods/emberroot-zoo), see [here](https://github.com/Lothrazar/ERZ/blob/trunk/1.12/LICENSE.txt) for licensing.
 ## 1.2.0
 ### Added
 - Added the Earthen Golem, these golems will chase you down while also performing a ranged attack at the same time. There are many different variants of stone to look out for, you might be able to obtain rare gems as drops like diamonds!
