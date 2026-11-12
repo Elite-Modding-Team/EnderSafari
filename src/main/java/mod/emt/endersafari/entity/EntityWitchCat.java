@@ -31,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-public class EntityWitchCat extends EntityMob implements IESOwnable<EntityWitchCat, EntityWitherWitch> {
+public class EntityWitchCat extends EntityMob implements IESOwnable<EntityWitchCat, EntityWitherWitch>, IFaeMob {
     private static final DataParameter<Float> SCALE = EntityDataManager.createKey(EntityWitchCat.class, DataSerializers.FLOAT);
     private static final DataParameter<Integer> GROWTH_MODE = EntityDataManager.createKey(EntityWitchCat.class, DataSerializers.VARINT);
 
