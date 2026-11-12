@@ -146,9 +146,9 @@ public class ESConfig {
         @Config.Comment("Concussion Creeper settings")
         public final ConcussionCreeper CONCUSSION_CREEPER = new ConcussionCreeper();
 
-        @Config.LangKey("config.endersafari.entities.crystal_skeleton")
+        /*@Config.LangKey("config.endersafari.entities.crystal_skeleton")
         @Config.Comment("Crystal Skeleton settings")
-        public final CrystalSkeleton CRYSTAL_SKELETON = new CrystalSkeleton();
+        public final CrystalSkeleton CRYSTAL_SKELETON = new CrystalSkeleton();*/
 
         @Config.LangKey("config.endersafari.entities.dire_cube")
         @Config.Comment("Khndrel Keght settings")
@@ -293,7 +293,7 @@ public class ESConfig {
             public int spawnWeight = 20;
         }
 
-        public static class CrystalSkeleton {
+        /*public static class CrystalSkeleton {
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Crystal Skeleton has")
             public double armor = 0;
@@ -328,7 +328,7 @@ public class ESConfig {
             @Config.Comment("The spawn weight of the Crystal Skeleton")
             @Config.RangeInt(min = 0)
             public int spawnWeight = 20;
-        }
+        }*/
 
         public static class DireCube {
             @Config.Name("Armor: Base")
@@ -629,7 +629,7 @@ public class ESConfig {
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Fairy")
             @Config.RangeInt(min = 0)
-            public int spawnWeight = 10;
+            public int spawnWeight = 20;
         }
 
         public static class FallenKnight {
@@ -907,7 +907,7 @@ public class ESConfig {
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Spriteling")
             @Config.RangeInt(min = 0)
-            public int spawnWeight = 10;
+            public int spawnWeight = 20;
         }
 
         public static class VoidCube {

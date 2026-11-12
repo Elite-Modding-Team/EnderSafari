@@ -1,11 +1,13 @@
 package mod.emt.endersafari.entity;
 
+import mod.emt.endersafari.config.ESConfig;
 import mod.emt.endersafari.registry.ModLootTablesES;
 import mod.emt.endersafari.registry.ModSoundEventsES;
 import mod.emt.endersafari.utils.ParticleUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityXPOrb;
@@ -43,6 +45,14 @@ public class EntityFairy extends EntityFlying implements IFaeMob {
     protected void initEntityAI() {
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
+    }
+
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(ESConfig.ENTITIES.FAIRY.armor);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ESConfig.ENTITIES.FAIRY.maxHealth);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(ESConfig.ENTITIES.FAIRY.movementSpeed);
     }
 
     @Override
