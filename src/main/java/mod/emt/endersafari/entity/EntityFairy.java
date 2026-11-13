@@ -224,26 +224,13 @@ public class EntityFairy extends EntityFlying implements IFaeMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
+        IBlockState state = this.world.getBlockState(new BlockPos(this).down());
         return this.isValidLightLevel() && this.getBlockPathWeight(new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ)) >= 0.0F && state.canEntitySpawn(this);
     }
 
     protected boolean isValidLightLevel() {
-        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
-        if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32)) {
-            return false;
-        } else {
-            int i = this.world.getLightFromNeighbors(blockpos);
-
-            if (this.world.isThundering()) {
-                int j = this.world.getSkylightSubtracted();
-                this.world.setSkylightSubtracted(10);
-                i = this.world.getLightFromNeighbors(blockpos);
-                this.world.setSkylightSubtracted(j);
-            }
-
-            return i <= this.rand.nextInt(8);
-        }
+        BlockPos pos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+        return this.world.canSeeSky(pos) && this.world.getLightFromNeighbors(pos) <= 11;
     }
 
     public float getBlockPathWeight(BlockPos pos) {

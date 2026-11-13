@@ -619,7 +619,7 @@ public class ESConfig {
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Fairy")
             @Config.RangeInt(min = 0)
-            public int spawnMax = 12;
+            public int spawnMax = 8;
 
             @Config.Name("Spawn Min")
             @Config.Comment("The minimum spawn group size of the Fairy")
@@ -629,7 +629,7 @@ public class ESConfig {
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Fairy")
             @Config.RangeInt(min = 0)
-            public int spawnWeight = 20;
+            public int spawnWeight = 10;
         }
 
         public static class FallenKnight {

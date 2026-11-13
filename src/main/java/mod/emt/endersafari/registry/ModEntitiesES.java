@@ -213,7 +213,7 @@ public class ModEntitiesES {
         }
 
         if (ESConfig.ENTITIES.FAIRY.spawnWeight > 0 && ESConfig.ENTITIES.FAIRY.enableEntity) {
-            EntityRegistry.addSpawn(EntityFairy.class, ESConfig.ENTITIES.FAIRY.spawnWeight, ESConfig.ENTITIES.FAIRY.spawnMin, ESConfig.ENTITIES.FAIRY.spawnMax, EnumCreatureType.MONSTER, getBiomeTypes(BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.SWAMP));
+            EntityRegistry.addSpawn(EntityFairy.class, ESConfig.ENTITIES.FAIRY.spawnWeight, ESConfig.ENTITIES.FAIRY.spawnMin, ESConfig.ENTITIES.FAIRY.spawnMax, EnumCreatureType.AMBIENT, getBiomeTypes(BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.SWAMP));
             EntitySpawnPlacementRegistry.setPlacementType(EntityFairy.class, EntityLiving.SpawnPlacementType.IN_AIR);
         }
 
