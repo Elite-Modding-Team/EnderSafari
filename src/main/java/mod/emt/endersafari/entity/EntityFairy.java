@@ -222,14 +222,14 @@ public class EntityFairy extends EntityFlying implements IFaeMob {
         }
     }
 
-    private boolean hasTooManyNearbyFairies() {
+    private boolean reachedSpawnLimit() {
         AxisAlignedBB area = this.getEntityBoundingBox().grow(64.0D);
         return this.world.getEntitiesWithinAABB(EntityFairy.class, area).size() >= ESConfig.ENTITIES.FAIRY.spawnLimit;
     }
 
     @Override
     public boolean getCanSpawnHere() {
-        if (hasTooManyNearbyFairies()) {
+        if (reachedSpawnLimit()) {
             return false;
         }
 
