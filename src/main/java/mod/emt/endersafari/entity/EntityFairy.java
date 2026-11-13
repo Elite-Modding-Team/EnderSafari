@@ -19,10 +19,10 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.NotNull;
@@ -183,8 +183,8 @@ public class EntityFairy extends EntityFlying implements IFaeMob {
             double x = this.posX + dx * progress;
             double y = this.posY + dy * progress;
             double z = this.posZ + dz * progress;
-            BlockPos pos = new BlockPos(x, y, z);
-            if (!this.world.isAirBlock(pos)) {
+            AxisAlignedBB boundingBox = this.getEntityBoundingBox().offset(x - this.posX, y - this.posY, z - this.posZ);
+            if (!this.world.getCollisionBoxes(this, boundingBox).isEmpty()) {
                 return false;
             }
         }
