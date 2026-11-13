@@ -222,8 +222,17 @@ public class EntityFairy extends EntityFlying implements IFaeMob {
         }
     }
 
+    private boolean reachedSpawnLimit() {
+        AxisAlignedBB area = this.getEntityBoundingBox().grow(64.0D);
+        return this.world.getEntitiesWithinAABB(EntityFairy.class, area).size() >= ESConfig.ENTITIES.FAIRY.spawnLimit;
+    }
+
     @Override
     public boolean getCanSpawnHere() {
+        if (reachedSpawnLimit()) {
+            return false;
+        }
+
         IBlockState state = this.world.getBlockState(new BlockPos(this).down());
         return this.isValidLightLevel() && this.getBlockPathWeight(new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ)) >= 0.0F && state.canEntitySpawn(this);
     }

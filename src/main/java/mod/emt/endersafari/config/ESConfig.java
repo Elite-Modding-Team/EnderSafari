@@ -621,6 +621,11 @@ public class ESConfig {
             @Config.RangeInt(min = 0)
             public int spawnMax = 8;
 
+            @Config.Name("Spawn Limit")
+            @Config.Comment({"Fairies will never spawn on an area when the limit has been reached", "Remember that they are considered an Ambient mob similar to the Bat"})
+            @Config.RangeInt(min = 0)
+            public int spawnLimit = 8;
+
             @Config.Name("Spawn Min")
             @Config.Comment("The minimum spawn group size of the Fairy")
             @Config.RangeInt(min = 0)
