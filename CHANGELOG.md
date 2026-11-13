@@ -6,7 +6,7 @@ This update adds new mobs that were based on mobs in [EmberRoot Zoo](https://www
 - Added the Earthen Golem, these golems will chase you down while also performing a ranged attack at the same time. There are many different variants of stone to look out for, you might be able to obtain rare gems as drops like diamonds!
 - Added Fairies, glowing flying passive mobs that spawn in magical and swamp biomes.
 - Added the Restless Hero, these undead will spawn at night and fight hostiles, they are best left alone.
-- Added Spritelings, glowing flying neutral mobs that spawn in magical and swamp biomes, watch out for their dash attack!
+- Added Spritelings, glowing flying neutral mobs that spawn in magical and swamp biomes, watch out for their dash attack and their ability to phase through walls!
 - Added Fae Dust, dropped by Fairies and currently only used to create Fae Light.
 - Added Sprite Essence, dropped by Spritelings, currently only used to create Leaf-Bladed tools and a Fae Light variant.
 - Added Leaf-Bladed Axe and Leaf-Bladed Sword, these deal +50% damage to animals and fae creatures.

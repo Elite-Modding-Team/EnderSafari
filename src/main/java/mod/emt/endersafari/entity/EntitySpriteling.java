@@ -203,6 +203,14 @@ public class EntitySpriteling extends EntityFlying implements IFaeMob {
     }
 
     @Override
+    public void setAttackTarget(@Nullable EntityLivingBase target) {
+        if (target instanceof EntityPlayer && ((EntityPlayer) target).isCreative()) {
+            target = null;
+        }
+        super.setAttackTarget(target);
+    }
+
+    @Override
     public void onUpdate() {
         super.onUpdate();
 
@@ -226,7 +234,7 @@ public class EntitySpriteling extends EntityFlying implements IFaeMob {
             return;
         }
 
-        if (this.getAttackTarget() != null && !this.getAttackTarget().isEntityAlive()) {
+        if (this.getAttackTarget() != null && (!this.getAttackTarget().isEntityAlive() || (this.getAttackTarget() instanceof EntityPlayer && ((EntityPlayer) this.getAttackTarget()).isCreative()))) {
             this.setAttackTarget(null);
         }
 

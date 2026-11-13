@@ -880,7 +880,7 @@ public class ESConfig {
         public static class Spriteling {
             @Config.Name("Armor")
             @Config.Comment("The amount of armor the Spriteling has")
-            public double armor = 0;
+            public double armor = 2;
 
             @Config.Name("Attack Damage")
             @Config.Comment("The attack damage of the Spriteling")
@@ -892,7 +892,7 @@ public class ESConfig {
 
             @Config.Name("Max Health")
             @Config.Comment("The maximum health of the Spriteling")
-            public double maxHealth = 12.0;
+            public double maxHealth = 16.0;
 
             @Config.Name("Movement Speed")
             @Config.Comment("The movement speed of the Spriteling")
@@ -902,17 +902,17 @@ public class ESConfig {
             @Config.Name("Spawn Max")
             @Config.Comment("The maximum spawn group size of the Spriteling")
             @Config.RangeInt(min = 0)
-            public int spawnMax = 12;
+            public int spawnMax = 4;
 
             @Config.Name("Spawn Min")
             @Config.Comment("The minimum spawn group size of the Spriteling")
             @Config.RangeInt(min = 0)
-            public int spawnMin = 8;
+            public int spawnMin = 4;
 
             @Config.Name("Spawn Weight")
             @Config.Comment("The spawn weight of the Spriteling")
             @Config.RangeInt(min = 0)
-            public int spawnWeight = 20;
+            public int spawnWeight = 50;
         }
 
         public static class VoidCube {
